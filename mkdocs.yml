@@ -86,6 +86,9 @@ nav:
   - Revise:
     - revise/index.md
   - Practice:
-    - PYQ solutions: pyqs/index.md
+    - PYQ solutions:
+      - pyqs/index.md
+      - T1-2026 AN — solved: pyqs/t1-2026-an.md
+      - T1-2026 FN — solved: pyqs/t1-2026-fn.md
     - Practice questions: practice/index.md
   - Mock: mock/index.md
