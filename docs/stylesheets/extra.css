@@ -7,9 +7,9 @@
   gap: 0.5rem;
   padding: 0.6rem 1.2rem;
   margin: 0 0 1.5em;
-  background: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
-  border: none;
+  background: #ede7f6;
+  color: #4527a0;
+  border: 1px solid #9575cd;
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -17,7 +17,7 @@
   text-decoration: none;
 }
 .tx-print-btn:hover {
-  opacity: 0.88;
+  background: #d1c4e9;
 }
 
 /* ---- print styles: clean PDF output ---- */
