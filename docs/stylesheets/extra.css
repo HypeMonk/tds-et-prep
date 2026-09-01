@@ -76,17 +76,52 @@ body.focus-mode .md-tabs {
 /* ---- homepage hero ---- */
 .tx-hero {
   text-align: center;
-  padding: 1.5rem 0 1rem;
+  padding: 2.2rem 0 1.4rem;
 }
 .tx-hero h1 {
-  margin-bottom: 0.4em;
+  margin-bottom: 0.5em;
+  font-size: 2.7rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  /* the gradient headline — deep purple through to amber, the palette's own arc */
+  background: linear-gradient(115deg, var(--md-primary) 5%, #d81b60 48%, #ff8f00 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .tx-hero .tx-sub {
   color: var(--md-typeset-color);
   opacity: 0.75;
   font-size: 1.05em;
+  max-width: 44ch;
+  margin: 0 auto;
+}
+/* pill badges under the headline */
+.tx-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1.1em 0 0.4em;
+}
+.tx-badges span {
+  display: inline-block;
+  padding: 0.22rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--md-typeset-color);
+  opacity: 0.85;
+}
+.tx-badges span.tx-hot {
+  border-color: #ff8f00;
+  color: #ff8f00;
+  opacity: 1;
 }
 
 /* ---- read-time chip at the top of pages ---- */

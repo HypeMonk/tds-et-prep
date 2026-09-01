@@ -2,7 +2,14 @@
 
 # TDS End-Term Prep
 
-**Student-built · Exam-pattern-first · Simple English · May 2026 (T2-2026)**
+<div class="tx-badges" markdown>
+
+<span class="tx-hot">May 2026 · T2-2026</span>
+<span>Student-built</span>
+<span>Exam-pattern-first</span>
+<span>Simple English</span>
+
+</div>
 
 The course was all practical assignments — and now the end-term is a theory exam.
 This is the answer, built from 4 real papers, 2 revision sessions, the current

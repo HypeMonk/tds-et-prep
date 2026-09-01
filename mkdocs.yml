@@ -68,6 +68,24 @@ nav:
     - exam/index.md
     - What the ET looks like: exam/exam-pattern.md
     - Answers an LLM grades well: exam/llm-grading-guide.md
-  - Plans: plan/index.md
-  - PYQs: pyqs/index.md
-  - Practice: practice/index.md
+  - Learn:
+    - learn/index.md
+    - Week notes:
+      - Bridge course: weeks/week-bridge.md
+      - Week 1 — Tools & fundamentals: weeks/week-1.md
+      - Week 2 — APIs & deployment: weeks/week-2.md
+      - Week 3 — Prompting & LLMs: weeks/week-3.md
+      - Week 4 — RAG: weeks/week-4.md
+      - Week 5 — Agents: weeks/week-5.md
+      - Week 6 — Scraping & extraction: weeks/week-6.md
+      - Week 7 — Security & automation: weeks/week-7.md
+      - Week 8 — ML platforms: weeks/week-8.md
+    - Revision sessions:
+      - ET-1: sessions/et-01.md
+      - ET-2: sessions/et-02.md
+  - Revise:
+    - revise/index.md
+  - Practice:
+    - PYQ solutions: pyqs/index.md
+    - Practice questions: practice/index.md
+  - Mock: mock/index.md
