@@ -90,5 +90,7 @@ nav:
       - pyqs/index.md
       - T1-2026 AN — solved: pyqs/t1-2026-an.md
       - T1-2026 FN — solved: pyqs/t1-2026-fn.md
+      - T3-2025 AN — solved: pyqs/t3-2025-an.md
+      - T3-2025 FN — solved: pyqs/t3-2025-fn.md
     - Practice questions: practice/index.md
   - Mock: mock/index.md
