@@ -39,23 +39,34 @@ body.focus-mode .md-tabs {
   font-size: 0.82rem;
   line-height: 1.7;
 }
+/* headings: hard-coded colours — Material paints h1 grey by default and
+   variable chains proved unreliable; hex values cannot fail */
 .md-typeset h1 {
   font-weight: 700;
   letter-spacing: -0.01em;
+  color: #1a1a2e !important;
 }
 .md-typeset h2 {
   margin-top: 3.2em;
   margin-bottom: 1em;
   font-weight: 700;
-  color: var(--md-primary-fg-color) !important;
+  color: #4527a0 !important;
   padding-bottom: 0.4em;
-  border-bottom: 2px solid var(--md-primary-fg-color);
+  border-bottom: 2px solid #673ab7;
 }
 .md-typeset h3 {
   margin-top: 2.4em;
   margin-bottom: 0.8em;
   font-weight: 600;
-  color: var(--md-default-fg-color) !important;
+  color: #1a1a2e !important;
+}
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #e0e0e0 !important;
+}
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: #b39ddb !important;
+  border-bottom-color: #9575cd;
 }
 /* breathing room between topic blocks */
 .md-typeset hr {
