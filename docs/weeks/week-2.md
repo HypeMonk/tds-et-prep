@@ -2,7 +2,7 @@
 
 <div class="tx-meta" markdown>
 
-**~25 min read** · **Examinable: 🔥🔥🔥** (the highest PYQ density of any week) · **GA2** · [ET-1 session](../sessions/et-01.md)
+~25 min read · Examinable: 🔥🔥🔥 (highest PYQ density) · GA2 · [ET-1 session](../sessions/et-01.md)
 
 </div>
 

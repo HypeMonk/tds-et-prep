@@ -47,7 +47,7 @@ body.focus-mode .md-tabs {
   margin-top: 3.2em;
   margin-bottom: 1em;
   font-weight: 700;
-  color: var(--md-default-fg-color);
+  color: var(--md-primary-fg-color) !important;
   padding-bottom: 0.4em;
   border-bottom: 2px solid var(--md-primary-fg-color);
 }
@@ -55,7 +55,7 @@ body.focus-mode .md-tabs {
   margin-top: 2.4em;
   margin-bottom: 0.8em;
   font-weight: 600;
-  color: var(--md-default-fg-color);
+  color: var(--md-default-fg-color) !important;
 }
 /* breathing room between topic blocks */
 .md-typeset hr {
@@ -145,19 +145,19 @@ body.focus-mode .md-tabs {
 .tx-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem 1rem;
+  gap: 0.25rem 0.9rem;
   align-items: center;
-  padding: 0.65rem 1rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.5rem 0.9rem;
   margin: -0.4em 0 2.2em;
-  background: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
-  border-radius: 6px;
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.045));
+  border-left: 3px solid var(--md-primary-fg-color);
+  border-radius: 0 5px 5px 0;
   font-size: 0.8rem;
-  font-weight: 500;
 }
 .tx-meta strong {
-  color: var(--md-primary-bg-color);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* ---- PYQ anchor bar — "asked in N places" ---- */
