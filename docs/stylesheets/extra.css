@@ -139,3 +139,45 @@ body.focus-mode .md-tabs {
   font-size: 0.78rem;
   opacity: 0.7;
 }
+
+/* ---- MCQ question cards ---- */
+.tx-question {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 4px solid var(--md-primary-fg-color);
+  border-radius: 6px;
+  padding: 0.9rem 1.2rem 0.7rem;
+  margin: 1em 0 0.6em;
+}
+.tx-question .tx-qmeta {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  margin: 0 0 0.5em;
+}
+.tx-question > p {
+  font-weight: 500;
+}
+/* options: lettered, no bullets, roomy */
+.tx-question ul {
+  list-style: none;
+  padding-left: 0.25rem;
+  margin: 0.7em 0 0.3em;
+}
+.tx-question ul li {
+  margin: 0.35em 0;
+  padding-left: 1.7rem;
+  text-indent: -1.7rem;
+}
+.tx-question ul li strong:first-child {
+  color: var(--md-primary-fg-color);
+}
+/* the exam's scenario passages */
+.tx-scenario {
+  border: 1px dashed var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  padding: 0.8rem 1.2rem;
+  margin: 1em 0;
+  opacity: 0.92;
+}
