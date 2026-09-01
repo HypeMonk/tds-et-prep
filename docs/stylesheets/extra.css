@@ -79,24 +79,32 @@ body.focus-mode .md-tabs {
   padding: 2.2rem 0 1.4rem;
 }
 .tx-hero h1 {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.1em;
   font-size: 2.7rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  /* the gradient headline — deep purple through to amber, the palette's own arc */
-  background: linear-gradient(115deg, var(--md-primary) 5%, #d81b60 48%, #ff8f00 95%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  /* solid color — always visible in every browser; the style lives in the accent bar */
+  color: var(--md-primary);
+}
+/* the gradient accent bar under the headline: the palette's arc, rendered as
+   decoration instead of inside the text (gradient text goes invisible when a
+   browser mishandles background-clip) */
+.tx-hero h1::after {
+  content: "";
+  display: block;
+  width: 7rem;
+  height: 6px;
+  border-radius: 3px;
+  margin: 0.4em auto 0;
+  background: linear-gradient(90deg, var(--md-primary) 0%, #d81b60 55%, #ff8f00 100%);
 }
 .tx-hero .tx-sub {
   color: var(--md-typeset-color);
   opacity: 0.75;
   font-size: 1.05em;
   max-width: 44ch;
-  margin: 0 auto;
+  margin: 0.9em auto 0;
 }
 /* pill badges under the headline */
 .tx-badges {
