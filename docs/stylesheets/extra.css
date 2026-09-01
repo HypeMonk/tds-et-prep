@@ -1,0 +1,98 @@
+/* TDS ET Prep — custom polish on top of Material */
+
+/* ---- focus mode: hide the sidebars, widen the reading column ---- */
+body.focus-mode .md-sidebar--primary,
+body.focus-mode .md-sidebar--secondary {
+  display: none;
+}
+body.focus-mode .md-grid {
+  max-width: 52rem;
+}
+body.focus-mode .md-tabs {
+  display: none;
+}
+
+#focus-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: var(--md-primary);
+  color: var(--md-primary-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  transition: opacity 150ms ease;
+}
+#focus-toggle:hover { opacity: 1; }
+
+/* ---- reading rhythm ---- */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.md-typeset h2 {
+  margin-top: 2.4em;
+  font-weight: 700;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset h3 {
+  margin-top: 1.8em;
+  font-weight: 600;
+}
+
+/* ---- the colored boxes get a touch more presence ---- */
+.md-typeset .admonition {
+  border-radius: 6px;
+  border-left-width: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  font-size: 0.86em;
+}
+.md-typeset .admonition-title {
+  font-weight: 600;
+}
+
+/* ---- tables ---- */
+.md-typeset table:not([class]) {
+  font-size: 0.84em;
+}
+.md-typeset table:not([class]) th {
+  background: var(--md-code-bg-color, rgba(0,0,0,0.04));
+}
+
+/* ---- homepage hero ---- */
+.tx-hero {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+}
+.tx-hero h1 {
+  margin-bottom: 0.4em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.tx-hero .tx-sub {
+  color: var(--md-typeset-color);
+  opacity: 0.75;
+  font-size: 1.05em;
+}
+
+/* ---- read-time chip at the top of pages ---- */
+.tx-meta {
+  display: block;
+  margin: -0.6em 0 1.4em;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}

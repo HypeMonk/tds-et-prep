@@ -1,6 +1,6 @@
 # How to write answers an LLM grades well
 
-**~6 min read · Worth more marks per minute than anything else on this site.**
+<span class="tx-meta">**~6 min read** · Worth more marks per minute than anything else on this site.</span>
 
 Short-answer questions are new (first appeared Jan 2026), they're growing, and they are graded by **an LLM, not a human**. The professor said this explicitly in the ET-2 session — and told you what the grader rewards. This page turns that into a repeatable method.
 
@@ -14,7 +14,9 @@ An LLM reads your answer against a hidden marking rubric (a checklist). It is lo
 
 It is *not* impressed by length. The professor's exact position, when a student asked if answers need to be long: **"logic over length."**
 
-> 🟢 **Must remember:** You are not writing to sound smart. You are writing so a checklist-reader can tick boxes fast. Every sentence should make one checkable point.
+!!! success "Must remember"
+    You are not writing to sound smart. You are writing so a checklist-reader can tick
+    boxes fast. Every sentence should make one checkable point.
 
 ## The five rules
 
@@ -28,12 +30,12 @@ The professor said it directly: structure your answers with bullets and clear he
 
 ### 3. Say the *why*, not just the *what*
 
-"Use POST, not GET" — half the marks.
-"Use POST because the review text is a payload sent for processing; GET is for retrieval, has URL length limits, and can be cached or logged — leaking data" — full marks.
+- "Use POST, not GET" — half the marks.
+- "Use POST because the review text is a payload sent for processing; GET is for retrieval, has URL length limits, and can be cached or logged — leaking data" — full marks.
 
 ### 4. Name the trade-off
 
-Professional answers acknowledge cost. Words like *however*, *at the cost of*, *this prevents X but requires Y* signal engineering judgment. The longest, most trade-off-aware option winning MCQs is the same instinct.
+Professional answers acknowledge cost. Words like *however*, *at the cost of*, *this prevents X but requires Y* signal engineering judgment. (The longest, most trade-off-aware option winning MCQs is the same instinct.)
 
 ### 5. Stay under the cap, spend it on points
 
@@ -43,27 +45,44 @@ Professional answers acknowledge cost. Words like *however*, *at the cost of*, *
 
 From the Jan 2026 paper (FN shift), worth 2 marks:
 
-> **Should an LLM/sentiment inference endpoint ideally operate via a GET mapped method, or a POST method? Provide a rigid technical justification analyzing payload limits and REST architectures.**
+!!! example "The actual question"
+    **Should an LLM/sentiment inference endpoint ideally operate via a GET mapped method,
+    or a POST method? Provide a rigid technical justification analyzing payload limits
+    and REST architectures.**
 
-### ❌ The answer that loses marks
+=== "❌ The answer that loses marks"
 
-> "POST is better because GET is not good for sending data and POST is more secure and everyone uses POST for APIs these days."
+    > "POST is better because GET is not good for sending data and POST is more secure
+    > and everyone uses POST for APIs these days."
 
-*Why it fails:* no reasoning, no technical vocabulary, "more secure" is vague and half-wrong (GET vs POST is not a security boundary), and it never mentions payload limits or REST semantics — the two things the question explicitly asked for.
+    **Why it fails:** no reasoning, no technical vocabulary, "more secure" is vague and
+    half-wrong (GET vs POST is not a security boundary), and it never mentions payload
+    limits or REST semantics — the two things the question explicitly asked for.
 
-### ✅ The answer that earns the marks
+=== "✅ The answer that earns the marks"
 
-> **Conclusion: POST.**
->
-> - **REST semantics:** POST sends a body for the server to *process*; GET *retrieves* a resource without side effects. Sentiment analysis submits text for processing — that is a POST by design.
-> - **Payload limits:** GET carries data in the URL, which browsers and servers cap (~2 KB in places); review text can far exceed this. POST carries it in the request body with no such limit.
-> - **Caching side effect:** GET responses may be cached by proxies/CDNs — an API-graded answer keyed only on the URL could serve one user's sentiment result to another. POST is not cached by default.
->
-> *Assumption:* the endpoint is a private API with authenticated callers; rate limiting applies at the gateway either way.
+    > **Conclusion: POST.**
+    >
+    > - **REST semantics:** POST sends a body for the server to *process*; GET *retrieves*
+    >   a resource without side effects. Sentiment analysis submits text for processing —
+    >   that is a POST by design.
+    > - **Payload limits:** GET carries data in the URL, which browsers and servers cap
+    >   (~2 KB in places); review text can far exceed this. POST carries it in the request
+    >   body with no such limit.
+    > - **Caching side effect:** GET responses may be cached by proxies/CDNs — a
+    >   URL-keyed cache could serve one user's sentiment result to another. POST is not
+    >   cached by default.
+    >
+    > *Assumption:* the endpoint is a private API with authenticated callers; rate
+    > limiting applies at the gateway either way.
 
-~140 words. Four bullets, each one checkable. The grader finds "REST semantics ✓, payload limits ✓, caching ✓, assumption stated ✓" in seconds.
+    ~140 words. Four bullets, each one checkable. The grader finds
+    "REST semantics ✓, payload limits ✓, caching ✓, assumption stated ✓" in seconds.
 
-> 🟢 **Must remember the template:** **Conclusion first → then bullets, each starting with a bold reason → end with one assumption or trade-off.** That skeleton fits every short-answer question in any paper.
+!!! success "Must remember the template"
+    **Conclusion first → then bullets, each starting with a bold reason → end with one
+    assumption or trade-off.** That skeleton fits every short-answer question in any
+    paper.
 
 ## The other real example — design-flaw questions
 
@@ -71,12 +90,19 @@ The Jan AN paper asked: *"Identify the critical sequencing error in the Dockerfi
 
 Same skeleton works:
 
-> **The error:** `COPY . .` runs *before* `RUN pip install -r requirements.txt` — the full source is copied before dependencies are installed.
->
-> - **Layer caching rule:** Docker rebuilds a layer only when its inputs change. Layers after a changed layer must also rebuild.
-> - **Consequence:** every code edit changes the `COPY . .` layer → everything after it (including pip install) reruns → dependencies re-download on *every minor code update*, though `requirements.txt` never changed.
-> - **Fix:** copy `requirements.txt` first, `RUN pip install`, then `COPY . .`. Now dependency layers stay cached across code-only changes.
-> - *Trade-off:* none meaningful — image output is identical; only build speed improves.
+!!! example "Model answer"
+
+    > **The error:** `COPY . .` runs *before* `RUN pip install -r requirements.txt` — the
+    > full source is copied before dependencies are installed.
+    >
+    > - **Layer caching rule:** Docker rebuilds a layer only when its inputs change.
+    >   Layers after a changed layer must also rebuild.
+    > - **Consequence:** every code edit changes the `COPY . .` layer → everything after
+    >   it (including pip install) reruns → dependencies re-download on *every minor code
+    >   update*, though `requirements.txt` never changed.
+    > - **Fix:** copy `requirements.txt` first, `RUN pip install`, then `COPY . .`. Now
+    >   dependency layers stay cached across code-only changes.
+    > - *Trade-off:* none meaningful — image output is identical; only build speed improves.
 
 ## Common short-answer shapes to expect
 
@@ -87,7 +113,11 @@ Same skeleton works:
 | **Improve a design** | make this endpoint reliable, secure, faster | The missing principle (validation, guardrail, cache), then how it applies |
 | **Client questions** | "what 3 follow-up questions would you ask?" | Number them 1-2-3, one sentence of *why each matters* |
 
-> 🔵 **In the exam:** The professor specifically flagged the client-scenario shape: *"What are the three most important follow-up questions you would ask based on these requirements?"* — testing whether you think about capabilities, constraints, and business context before building. Practice this shape in [Practice questions](../practice/index.md).
+!!! info "In the exam"
+    The professor specifically flagged the client-scenario shape: *"What are the three
+    most important follow-up questions you would ask based on these requirements?"* —
+    testing whether you think about capabilities, constraints, and business context
+    before building. Practice this shape in [Practice questions](../practice/index.md).
 
 ## Why we're confident about this page
 

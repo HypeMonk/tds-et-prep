@@ -1,42 +1,61 @@
 site_name: TDS ET Prep — May 2026
 site_description: Student-built end-term prep for Tools in Data Science (T2-2026). Exam-pattern-first notes, PYQ solutions with reasoning, and practice questions.
 site_url: ""
-repo_url: ""
 
-# Light + dark theme, remembered across visits, follows system preference initially.
 theme:
   name: material
+  icon:
+    logo: material/school
   features:
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
-    - navigation.path
     - navigation.indexes
+    - navigation.path
+    - navigation.prune
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
     - content.tooltips
     - toc.follow
+    - header.autohide
   palette:
     - scheme: default
+      primary: deep purple
+      accent: amber
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     - scheme: slate
+      primary: indigo
+      accent: amber
       toggle:
         icon: material/weather-night
         name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/focus.js
 
 markdown_extensions:
-  - admonition          # the colored boxes: note/tip/warning/danger
+  - admonition           # colored boxes: success / warning / danger / info / tip
   - attr_list
   - def_list
   - footnotes
   - md_in_html
   - pymdownx.details     # collapsible solutions
-  - pymdownx.superfences # nested code in admonitions
+  - pymdownx.superfences # nested code inside admonitions
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.inlinehilite
   - pymdownx.tabbed:
       alternate_style: true
   - tables
@@ -48,4 +67,7 @@ nav:
   - Exam:
     - exam/index.md
     - What the ET looks like: exam/exam-pattern.md
-    - Writing answers an LLM grades well: exam/llm-grading-guide.md
+    - Answers an LLM grades well: exam/llm-grading-guide.md
+  - Plans: plan/index.md
+  - PYQs: pyqs/index.md
+  - Practice: practice/index.md
