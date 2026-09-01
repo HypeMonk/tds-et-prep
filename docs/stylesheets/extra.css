@@ -181,3 +181,20 @@ body.focus-mode .md-tabs {
   margin: 1em 0;
   opacity: 0.92;
 }
+/* code snippets from the actual paper: render inline at text height */
+.tx-question img,
+.tx-scenario img {
+  height: 1.5em;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+/* multi-line images (Dockerfiles, code blocks) render at natural size */
+.tx-question img.tx-full,
+.tx-scenario img.tx-full {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0.6em auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+}
