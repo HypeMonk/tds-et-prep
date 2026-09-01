@@ -22,8 +22,8 @@ body.focus-mode .md-tabs {
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  background: var(--md-primary);
-  color: var(--md-primary-bg);
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   font-size: 1.2rem;
   display: flex;
@@ -85,7 +85,7 @@ body.focus-mode .md-tabs {
   letter-spacing: -0.03em;
   line-height: 1.1;
   /* solid color — always visible in every browser; the style lives in the accent bar */
-  color: var(--md-primary);
+  color: var(--md-primary-fg-color);
 }
 /* the gradient accent bar under the headline: the palette's arc, rendered as
    decoration instead of inside the text (gradient text goes invisible when a
@@ -97,7 +97,7 @@ body.focus-mode .md-tabs {
   height: 6px;
   border-radius: 3px;
   margin: 0.4em auto 0;
-  background: linear-gradient(90deg, var(--md-primary) 0%, #d81b60 55%, #ff8f00 100%);
+  background: linear-gradient(90deg, var(--md-primary-fg-color) 0%, #d81b60 55%, #ff8f00 100%);
 }
 .tx-hero .tx-sub {
   color: var(--md-typeset-color);
