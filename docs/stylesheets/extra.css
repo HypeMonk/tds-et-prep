@@ -1,6 +1,91 @@
 /* TDS ET Prep — custom polish on top of Material */
 
-/* ---- focus mode: hide the sidebars, widen the reading column ---- */
+/* ---- print/PDF button on the cheat sheet ---- */
+.tx-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0 0 1.5em;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.tx-print-btn:hover {
+  opacity: 0.88;
+}
+
+/* ---- print styles: clean PDF output ---- */
+@media print {
+  /* hide everything that isn't the content */
+  .md-sidebar, .md-tabs, .md-header, .md-footer, .md-nav,
+  #focus-toggle, .tx-print-btn, .md-top {
+    display: none !important;
+  }
+  .md-main {
+    padding: 0 !important;
+  }
+  .md-content {
+    max-width: 100% !important;
+  }
+  .md-typeset {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  /* keep the coloured boxes printing in colour */
+  .md-typeset .admonition {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #999;
+  }
+  /* tables print with borders */
+  .md-typeset table {
+    break-inside: avoid;
+    border-collapse: collapse;
+  }
+  .md-typeset table th,
+  .md-typeset table td {
+    border: 1px solid #999;
+    padding: 0.3em 0.5em;
+  }
+  /* collapsible sections expand for printing */
+  .md-typeset details {
+    display: block !important;
+  }
+  .md-typeset details > summary {
+    display: none;
+  }
+  .md-typeset details > .tabbed-content,
+  .md-typeset details > div {
+    display: block !important;
+  }
+  /* page breaks between major sections */
+  .md-typeset h2 {
+    break-before: auto;
+    break-after: avoid;
+  }
+  /* avoid orphaned headings */
+  .md-typeset h2, .md-typeset h3 {
+    break-after: avoid;
+  }
+  /* links show their target in print */
+  .md-typeset a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  /* internal links don't need the URL */
+  .md-typeset a[href^="/"]::after,
+  .md-typeset a[href^="../"]::after,
+  .md-typeset a[href^="#"]::after {
+    content: "";
+  }
+}
 body.focus-mode .md-sidebar--primary,
 body.focus-mode .md-sidebar--secondary {
   display: none;

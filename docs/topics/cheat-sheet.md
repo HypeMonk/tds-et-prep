@@ -1,5 +1,9 @@
 # Exam-day cheat sheet
 
+<a href="#" onclick="window.print(); return false;" class="tx-print-btn">
+  🖨️ Print / Save as PDF
+</a>
+
 **Print this. Read it in the hour before you walk in.**
 
 ---

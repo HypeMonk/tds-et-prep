@@ -85,13 +85,14 @@ nav:
       - ET-2: sessions/et-02.md
   - Revise:
     - revise/index.md
-    - Web & APIs: topics/web-apis.md
-    - Docker & deployment: topics/docker-deployment.md
-    - LLMs & prompting: topics/llm-prompting.md
-    - RAG & agents: topics/rag-agents.md
-    - Data & ML: topics/data-ml.md
-    - Git, security & practices: topics/git-security.md
-    - Exam-day cheat sheet: topics/cheat-sheet.md
+    - Cheat sheet: topics/cheat-sheet.md
+    - Short notes:
+      - Web & APIs: topics/web-apis.md
+      - Docker & deployment: topics/docker-deployment.md
+      - LLMs & prompting: topics/llm-prompting.md
+      - RAG & agents: topics/rag-agents.md
+      - Data & ML: topics/data-ml.md
+      - Git, security & practices: topics/git-security.md
   - Practice:
     - PYQ solutions:
       - pyqs/index.md
