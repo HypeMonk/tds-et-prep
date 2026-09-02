@@ -100,5 +100,10 @@ nav:
       - T1-2026 FN — solved: pyqs/t1-2026-fn.md
       - T3-2025 AN — solved: pyqs/t3-2025-an.md
       - T3-2025 FN — solved: pyqs/t3-2025-fn.md
-    - Practice questions: practice/index.md
+    - Practice questions:
+      - practice/index.md
+      - New topics (W4-W8): practice/new-topics.md
+      - Core patterns: practice/core-patterns.md
+      - Short answers: practice/short-answers.md
+  - Mock: mock/index.md
   - Mock: mock/index.md
