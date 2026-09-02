@@ -27,8 +27,8 @@ You open an HTML file directly from your filesystem (`file:///C:/project/index.h
 
 </div>
 
-??? success "Answer — B"
-    A `file://` page is a different origin from `http://localhost:8000` — the Same-Origin Policy blocks the read.
+??? success "Answer"
+    **B** — A `file://` page is a different origin from `http://localhost:8000` — the Same-Origin Policy blocks the read.
 
 ??? note "Why"
     Origin = scheme + host + port. `file://` has a different **scheme** from
@@ -56,8 +56,8 @@ Your API works perfectly when tested with `curl` but shows a CORS error when cal
 
 </div>
 
-??? success "Answer — B"
-    CORS is a browser-only enforcement — curl is never blocked.
+??? success "Answer"
+    **B** — CORS is a browser-only enforcement — curl is never blocked.
 
 ??? note "Why"
     The Same-Origin Policy is implemented in the **browser's JavaScript engine**.
@@ -87,8 +87,8 @@ Your Dockerfile builds successfully, the container starts, and the app logs "Ser
 
 </div>
 
-??? success "Answer — B"
-    You forgot `-p 3000:3000` on `docker run` — the port is not published to the host.
+??? success "Answer"
+    **B** — You forgot `-p 3000:3000` on `docker run` — the port is not published to the host.
 
 ??? note "Why"
     The app is running and listening **inside the container** — the log proves it.
@@ -116,8 +116,8 @@ Your CI pipeline takes 8 minutes to build a Docker image, even when you only cha
 
 </div>
 
-??? success "Answer — B"
-    `COPY . /app` is the first instruction — every code change invalidates the first layer, and every subsequent layer rebuilds.
+??? success "Answer"
+    **B** — `COPY . /app` is the first instruction — every code change invalidates the first layer, and every subsequent layer rebuilds.
 
 ??? note "Why"
     Docker layer caching: a layer rebuilds when its inputs change, and every layer
@@ -147,8 +147,8 @@ Your API returns `Cache-Control: private, max-age=0`. Your CDN bill is unexpecte
 
 </div>
 
-??? success "Answer — B"
-    `private` tells the CDN it may NOT cache, and `max-age=0` means immediately stale — every request hits the origin.
+??? success "Answer"
+    **B** — `private` tells the CDN it may NOT cache, and `max-age=0` means immediately stale — every request hits the origin.
 
 ??? note "Why"
     Two directives working together to prevent caching:
@@ -179,8 +179,8 @@ A dashboard queries a database that updates every 6 hours. 200 users view the da
 
 </div>
 
-??? success "Answer — B"
-    Cache the query results with a TTL of 5–30 minutes.
+??? success "Answer"
+    **B** — Cache the query results with a TTL of 5–30 minutes.
 
 ??? note "Why"
     The workload is asymmetric: 1 update per 6 hours vs ~200 reads per minute.
@@ -210,8 +210,8 @@ You accidentally committed your `.env` file (containing API keys) to a public Gi
 
 </div>
 
-??? success "Answer — B"
-    Rotate every key — the git history still contains the secrets.
+??? success "Answer"
+    **B** — Rotate every key — the git history still contains the secrets.
 
 ??? note "Why"
     Git stores a full history of every commit. Deleting the file in a later
@@ -241,8 +241,8 @@ You're authenticated with a valid API key, but the API returns 403 when you try 
 
 </div>
 
-??? success "Answer — B"
-    Your key is valid, but your account doesn't have permission for this endpoint.
+??? success "Answer"
+    **B** — Your key is valid, but your account doesn't have permission for this endpoint.
 
 ??? note "Why"
     **401 = who are you?** (authentication failed — the key is wrong or expired).
@@ -270,8 +270,8 @@ You use `asyncio.gather` to call 3 APIs. API A responds in 200ms, API B in 500ms
 
 </div>
 
-??? success "Answer — C"
-    2 seconds — the slowest response.
+??? success "Answer"
+    **C** — 2 seconds — the slowest response.
 
 ??? note "Why"
     Gather launches all tasks simultaneously and returns only when **every task
@@ -300,8 +300,8 @@ You have a 2GB CSV file with 50 columns. You only need to analyse 3 columns. Con
 
 </div>
 
-??? success "Answer — B"
-    Parquet is columnar — DuckDB reads only the 3 requested columns.
+??? success "Answer"
+    **B** — Parquet is columnar — DuckDB reads only the 3 requested columns.
 
 ??? note "Why"
     CSV is row-based: reading 3 of 50 columns means parsing every row to extract
@@ -329,8 +329,8 @@ You run `SELECT AVG(rating) FROM reviews` and get 3.8. Then you notice 50 rows h
 
 </div>
 
-??? success "Answer — B"
-    The average of only the non-NULL rows — NULLs are skipped.
+??? success "Answer"
+    **B** — The average of only the non-NULL rows — NULLs are skipped.
 
 ??? note "Why"
     SQL's three-valued logic: NULL means *unknown*, not zero. `AVG`, `SUM`, and
@@ -357,8 +357,8 @@ You have a DataFrame `df` with columns `department`, `salary`, and `years`. You 
 
 </div>
 
-??? success "Answer — B"
-    `df.groupby('department')['salary'].mean()`
+??? success "Answer"
+    **B** — `df.groupby('department')['salary'].mean()`
 
 ??? note "Why"
     **groupby = split–apply–combine**: split rows by department, apply `mean()` to
@@ -386,8 +386,8 @@ Your daily ETL job processes yesterday's orders. Some orders from 3 days ago wer
 
 </div>
 
-??? success "Answer — B"
-    Use a lookback window with deduplication on order ID + update timestamp.
+??? success "Answer"
+    **B** — Use a lookback window with deduplication on order ID + update timestamp.
 
 ??? note "Why"
     The professor's flagship ETL pattern: **lookback window** catches late-arriving
@@ -416,8 +416,8 @@ Two users simultaneously try to book the last available seat on a flight. The se
 
 </div>
 
-??? success "Answer — B"
-    Race condition — use a database lock or atomic decrement.
+??? success "Answer"
+    **B** — Race condition — use a database lock or atomic decrement.
 
 ??? note "Why"
     **Check-then-act race:** two processes read "available" in the same instant,
@@ -446,8 +446,8 @@ A stock price model achieves 97% test accuracy. The dataset is a time series, an
 
 </div>
 
-??? success "Answer — B"
-    Random shuffling on a time series creates temporal leakage.
+??? success "Answer"
+    **B** — Random shuffling on a time series creates temporal leakage.
 
 ??? note "Why"
     Time-series data must be split **chronologically** — train on the past, test
@@ -476,8 +476,8 @@ Your teammate's pipeline works on their machine but fails on yours with an impor
 
 </div>
 
-??? success "Answer — B"
-    Both install from a `requirements.txt` with pinned versions.
+??? success "Answer"
+    **B** — Both install from a `requirements.txt` with pinned versions.
 
 ??? note "Why"
     Pinning ensures the **same install works identically everywhere** — your
@@ -506,8 +506,8 @@ An API returns a JSON response where the `weather` field is an array of objects.
 
 </div>
 
-??? success "Answer — B"
-    `data['weather']` returns a list — you must index into it first.
+??? success "Answer"
+    **B** — `data['weather']` returns a list — you must index into it first.
 
 ??? note "Why"
     JSON structure: `"weather": [{"description": "clear sky", ...}]` — the value
@@ -536,8 +536,8 @@ Your ETL script writes directly to `output.csv`. A crash mid-write leaves a corr
 
 </div>
 
-??? success "Answer — B"
-    Written to a temporary file first, then atomically renamed.
+??? success "Answer"
+    **B** — Written to a temporary file first, then atomically renamed.
 
 ??? note "Why"
     **Idempotency** (running twice = same result as once) requires atomic writes:

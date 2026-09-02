@@ -27,8 +27,8 @@ In a RAG system, what does the vector database contain?
 
 </div>
 
-??? success "Answer — B"
-    Embeddings of document chunks, with metadata pointing back to the source.
+??? success "Answer"
+    **B** — Embeddings of document chunks, with metadata pointing back to the source.
 
 ??? note "Why"
     The vector DB stores **embeddings** (numerical vectors representing each
@@ -56,8 +56,8 @@ A user asks "What is the refund policy for opened items?" What does the RAG syst
 
 </div>
 
-??? success "Answer — B"
-    Convert the query to an embedding and search for similar document chunks.
+??? success "Answer"
+    **B** — Convert the query to an embedding and search for similar document chunks.
 
 ??? note "Why"
     R = Retrieve, and it's the first letter for a reason. The query is embedded
@@ -84,8 +84,8 @@ Your RAG chatbot retrieves a chunk that says "it costs $50" — but the user ask
 
 </div>
 
-??? success "Answer — B"
-    The chunks are too small — "it costs $50" lacks the context of which plan it refers to.
+??? success "Answer"
+    **B** — The chunks are too small — "it costs $50" lacks the context of which plan it refers to.
 
 ??? note "Why"
     This is the **too-small-chunks** failure mode: a retrieved fragment that
@@ -113,8 +113,8 @@ Your company chatbot correctly answers questions using product manual v1, but v2
 
 </div>
 
-??? success "Answer — B"
-    Old v1 chunks remain in the vector database — re-ingest atomically and expire the old version.
+??? success "Answer"
+    **B** — Old v1 chunks remain in the vector database — re-ingest atomically and expire the old version.
 
 ??? note "Why"
     RAG's Achilles heel: the vector DB is a **snapshot**. If v1's chunks weren't
@@ -141,8 +141,8 @@ Your RAG system uses pure vector (semantic) search. A user searches for "error c
 
 </div>
 
-??? success "Answer — B"
-    Pure vector search is weak at exact-term matching — rare codes and identifiers get diluted in embedding space.
+??? success "Answer"
+    **B** — Pure vector search is weak at exact-term matching — rare codes and identifiers get diluted in embedding space.
 
 ??? note "Why"
     This is the **hybrid search** motivation: dense (vector) search finds synonyms
@@ -172,8 +172,8 @@ What is the key difference between a chatbot and an AI agent?
 
 </div>
 
-??? success "Answer — B"
-    Agents can choose and use tools repeatedly to accomplish a goal; chatbots produce one response per turn.
+??? success "Answer"
+    **B** — Agents can choose and use tools repeatedly to accomplish a goal; chatbots produce one response per turn.
 
 ??? note "Why"
     The agent loop: **Decide → Act (use a tool) → Observe → (repeat) → Done**.
@@ -200,8 +200,8 @@ Your research agent has access to tools: `search_web`, `read_file`, `send_email`
 
 </div>
 
-??? success "Answer — B"
-    Destructive tools should require human approval, or not be available to the agent at all.
+??? success "Answer"
+    **B** — Destructive tools should require human approval, or not be available to the agent at all.
 
 ??? note "Why"
     This is **LLM06 — Excessive Agency** from the OWASP Top 10: the agent can
@@ -230,8 +230,8 @@ Your coding agent enters a loop: it runs tests, they fail, it tries to fix the c
 
 </div>
 
-??? success "Answer — B"
-    A maximum step/cost budget that halts the agent and alerts a human.
+??? success "Answer"
+    **B** — A maximum step/cost budget that halts the agent and alerts a human.
 
 ??? note "Why"
     This is the **rules** part of the agent architecture: limits on steps, time,
@@ -259,8 +259,8 @@ Why do agent systems run their code execution in sandboxes (containers, VMs, iso
 
 </div>
 
-??? success "Answer — B"
-    If the agent is compromised, the worst it can do is contained within the sandbox.
+??? success "Answer"
+    **B** — If the agent is compromised, the worst it can do is contained within the sandbox.
 
 ??? note "Why"
     **Assume the model will be compromised** — that's the defensive mindset from
@@ -290,8 +290,8 @@ Your RAG chatbot retrieves content from user-uploaded PDFs and renders the LLM's
 
 </div>
 
-??? success "Answer — A"
-    LLM01 (Prompt Injection) and LLM05 (Improper Output Handling).
+??? success "Answer"
+    **A** — LLM01 (Prompt Injection) and LLM05 (Improper Output Handling).
 
 ??? note "Why"
     Two attack surfaces in this scenario:
@@ -325,8 +325,8 @@ Your support chatbot's system prompt contains: "You are HelpBot. The admin passw
 
 </div>
 
-??? success "Answer — B"
-    A system prompt is data that can be extracted — a secret in the prompt is a published secret.
+??? success "Answer"
+    **B** — A system prompt is data that can be extracted — a secret in the prompt is a published secret.
 
 ??? note "Why"
     This is **LLM07 — System Prompt Leakage**: the system prompt reaches the
@@ -355,8 +355,8 @@ Which list correctly orders LLM defense layers from most to least effective?
 
 </div>
 
-??? success "Answer — B"
-    Tool allow-listing + human approval → role separation → output validation → input filtering.
+??? success "Answer"
+    **B** — Tool allow-listing + human approval → role separation → output validation → input filtering.
 
 ??? note "Why"
     The defensive mindset: **assume the model will be compromised**. In order of
@@ -394,8 +394,8 @@ Your company wants the chatbot to always use your internal product terminology (
 
 </div>
 
-??? success "Answer — B"
-    No — start with prompting; escalate only if prompting can't achieve the stable behaviour.
+??? success "Answer"
+    **B** — No — start with prompting; escalate only if prompting can't achieve the stable behaviour.
 
 ??? note "Why"
     The **escalation ladder**: prompting → RAG → tools → fine-tuning, cheapest
@@ -425,8 +425,8 @@ What does MLflow's experiment tracking record for each training run?
 
 </div>
 
-??? success "Answer — B"
-    Parameters, metrics, and artifacts — the full experiment record.
+??? success "Answer"
+    **B** — Parameters, metrics, and artifacts — the full experiment record.
 
 ??? note "Why"
     MLflow answers: "best compared with which run, trained on which data, with
@@ -455,8 +455,8 @@ You need to deploy a language model on a device with 4GB RAM. The FP16 model is 
 
 </div>
 
-??? success "Answer — B"
-    Quantize to INT4 — it fits, with some quality loss.
+??? success "Answer"
+    **B** — Quantize to INT4 — it fits, with some quality loss.
 
 ??? note "Why"
     Quantization reduces weight precision (16-bit → 4-bit integers), shrinking
@@ -484,8 +484,8 @@ Your BigQuery ML model achieves 98% test accuracy. Upon inspection, you discover
 
 </div>
 
-??? success "Answer — B"
-    Re-split the data ensuring no overlap, retrain, and evaluate on the clean test set.
+??? success "Answer"
+    **B** — Re-split the data ensuring no overlap, retrain, and evaluate on the clean test set.
 
 ??? note "Why"
     Shared rows between train and test = **data leakage**. The 98% is inflated —
@@ -513,8 +513,8 @@ What is the purpose of a model card?
 
 </div>
 
-??? success "Answer — B"
-    It documents intended use, limitations, training data, evaluation results, and ethical considerations.
+??? success "Answer"
+    **B** — It documents intended use, limitations, training data, evaluation results, and ethical considerations.
 
 ??? note "Why"
     A model card is the nutrition label for an ML model: what it was trained on,
@@ -542,8 +542,8 @@ Your data is in BigQuery (500M rows). You need a baseline classification model. 
 
 </div>
 
-??? success "Answer — B"
-    The data stays in BigQuery — no export, no movement, SQL is sufficient.
+??? success "Answer"
+    **B** — The data stays in BigQuery — no export, no movement, SQL is sufficient.
 
 ??? note "Why"
     The course's framing: "copying data into a notebook just to train a baseline
