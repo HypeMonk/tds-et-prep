@@ -21,41 +21,39 @@ syllabus, and all 9 graded assignments.
 
 <div class="grid cards" markdown>
 
-- ⏱️ **[Full plan](plan/index.md)**
+- ⏱️ **[Full plan — 7+ days](plan/index.md#full-plan-7-days)**
 
-    --- all days available, complete coverage
+    Complete coverage: every week note, every paper, practice, and a mock.
 
-- 🗓️ **[5 days](plan/index.md)**
+- 🗓️ **[5 days](plan/index.md#5-day-plan)**
 
-    --- balanced, everything 🔥 plus practice
+    Everything 🔥🔥 + all PYQs + one mock.
 
-- 📅 **[4 days](plan/index.md)**
+- 📅 **[4 days](plan/index.md#4-day-plan)**
 
-    --- 🔥 topics + PYQ solutions + one mock
+    🔥🔥 topics + PYQ solutions + short notes + one mock.
 
-- 📆 **[3 days](plan/index.md)**
+- 📆 **[3 days](plan/index.md#3-day-plan)**
 
-    --- 🔥 topics + PYQs, skim the rest
+    🔥 topics + PYQs + short notes. Skim the rest.
 
-- 📋 **[2 days](plan/index.md)**
+- 📋 **[2 days](plan/index.md#2-day-plan)**
 
-    --- 🔥 topics + the two guides + traps
+    The guides + short notes + the two hottest papers.
 
-- ⏰ **[1 day](plan/index.md)**
+- ⏰ **[1 day](plan/index.md#1-day-plan)**
 
-    --- the guides, short notes, GA0 questions
+    The guides + short notes + traps. No full papers.
 
-- 🚨 **[Last minute](plan/index.md)**
+- 🚨 **[Last minute](plan/index.md#last-minute-the-final-hour)**
 
-    --- colored boxes + cheat sheet only
+    The cheat sheet + coloured boxes only.
 
-- ❓ **[Not sure?](plan/index.md)**
+- ❓ **[Not sure?](exam/exam-pattern.md)**
 
-    --- start with the exam pattern, then decide
+    Start with the exam pattern (6 min), then decide.
 
 </div>
-
-*(Plans are being built — the countdown chooser lands with the full launch.)*
 
 ## ▶ Start here — 10 minutes, the highest value on this site
 
@@ -73,33 +71,54 @@ syllabus, and all 9 graded assignments.
 
 </div>
 
-## The rest of the site
+## Learn
 
 <div class="grid cards" markdown>
 
-- 📚 **Week notes**
+- 📚 **[Week notes](learn/index.md)**
 
-    The current syllabus, week by week — with the theory layer the course never gave you.
+    The current syllabus, week by week — with the theory layer the course never
+    gave you. Every section linked to its PYQ.
 
-- 📄 **PYQ solutions**
+- 🎓 **[Revision sessions](learn/index.md#revision-sessions)**
 
-    Every question from 4 real papers, original text, with reasoning — not just answers.
+    The professor's own paper walkthroughs (ET-1 + ET-2), kept as primary source.
 
-- ⚡ **Short notes**
+</div>
 
-    One concept per page: 60-second revision sheets.
+## Revise
 
-- 🏋️ **Practice**
+<div class="grid cards" markdown>
 
-    New questions in the exact shapes the exam uses, filterable by difficulty.
+- ⚡ **[Short notes](revise/index.md)**
 
-- 🧪 **Mock ET**
+    33 concepts in 60-second sheets, across 6 categories. ~40 minutes total.
 
-    A full 40-mark paper in the real structure.
+- 📋 **[Exam-day cheat sheet](topics/cheat-sheet.md)**
 
-- 🎓 **Revision sessions**
+    Every must-remember, trap, and wrong belief on one printable page. Print it
+    and read it in the final hour.
 
-    The professor's own walkthroughs, notes kept as primary source.
+</div>
+
+## Practice
+
+<div class="grid cards" markdown>
+
+- 📄 **[PYQ solutions](pyqs/index.md)**
+
+    Every question from 4 real papers — original text, the paper's own images,
+    and full reasoning behind every answer.
+
+- 🏋️ **[Practice questions](practice/index.md)**
+
+    44 new questions: new topics (no PYQ exists), core patterns (fresh scenarios),
+    and short-answer practice.
+
+- 🧪 **[Mock ET](mock/index.md)**
+
+    A full 40-mark paper in the real structure — marks ramp, scenario blocks,
+    short answers, and an answer key with review links.
 
 </div>
 

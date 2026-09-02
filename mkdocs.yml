@@ -64,6 +64,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Plans: plan/index.md
   - Exam:
     - exam/index.md
     - What the ET looks like: exam/exam-pattern.md
