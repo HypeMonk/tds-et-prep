@@ -120,6 +120,11 @@ syllabus, and all 9 graded assignments.
     A full 40-mark paper in the real structure — marks ramp, scenario blocks,
     short answers, and an answer key with review links.
 
+- 🧮 **[Grade calculators](calculator/index.md)**
+
+    Before the ET: how many marks you need to pass — and to reach every grade.
+    After the ET: your final score and grade, with the full breakdown.
+
 </div>
 
 !!! tip "Honest scope"

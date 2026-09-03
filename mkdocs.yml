@@ -42,6 +42,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/focus.js
+  - javascripts/grade-calc.js
 
 markdown_extensions:
   - admonition           # colored boxes: success / warning / danger / info / tip
@@ -107,3 +108,7 @@ nav:
       - Core patterns: practice/core-patterns.md
       - Short answers: practice/short-answers.md
   - Mock: mock/index.md
+  - Calculator:
+    - calculator/index.md
+    - Grade estimator (before ET marks): calculator/estimator.md
+    - Grade calculator (after ET marks): calculator/calculator.md

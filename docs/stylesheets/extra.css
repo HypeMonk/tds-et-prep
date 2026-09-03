@@ -329,3 +329,268 @@ body.focus-mode .md-tabs {
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 4px;
 }
+
+/* ---- grade estimator / calculator ---- */
+.tx-calc {
+  margin: 1.2em 0;
+}
+/* fixed 3-column grid: 5-6 fields fall into tidy rows */
+.tx-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem 1rem;
+  margin: 1em 0;
+}
+@media (max-width: 600px) {
+  .tx-calc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.tx-calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+/* labels echo the table headers: small caps with a touch of the primary */
+.tx-calc-field span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--md-primary-fg-color);
+}
+.tx-calc-field small {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 0.65;
+}
+.tx-calc-field input {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--md-typeset-color);
+  background: var(--md-default-bg-color);
+  border: 1.5px solid var(--md-default-fg-color--lighter);
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+/* cleaner boxes without the browser's number spinners */
+.tx-calc-field input::-webkit-outer-spin-button,
+.tx-calc-field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.tx-calc-field input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.tx-calc-field input::placeholder {
+  font-weight: 400;
+  opacity: 0.45;
+}
+.tx-calc-field input:focus {
+  outline: none;
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 3px rgba(103, 58, 183, 0.18);
+}
+.tx-calc-field input.tx-bad {
+  border-color: #c62828;
+  background: rgba(198, 40, 40, 0.08);
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+}
+.tx-calc-note {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+.tx-calc-warn {
+  color: #c62828;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.6em 0;
+}
+[data-md-color-scheme="slate"] .tx-calc-warn {
+  color: #e57373;
+}
+.tx-calc-out {
+  margin-top: 1.2em;
+}
+.tx-calc-summary {
+  padding: 0.8rem 1.1rem;
+  border-left: 4px solid var(--md-primary-fg-color);
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.045));
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 1em 0;
+}
+[data-md-color-scheme="slate"] .tx-calc-summary {
+  background: rgba(255, 255, 255, 0.055);
+}
+/* the big grade verdict */
+.tx-grade-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.1rem 1.4rem;
+  margin: 1em 0;
+  border-radius: 8px;
+  background: #ede7f6;
+  border: 1px solid #9575cd;
+  line-height: 1.5;
+}
+.tx-grade-banner .tx-grade-letter {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #4527a0;
+  line-height: 1;
+}
+.tx-grade-banner.tx-fail {
+  background: #ffebee;
+  border-color: #ef9a9a;
+}
+.tx-grade-banner.tx-fail .tx-grade-letter {
+  color: #c62828;
+}
+[data-md-color-scheme="slate"] .tx-grade-banner {
+  background: rgba(149, 117, 205, 0.12);
+}
+[data-md-color-scheme="slate"] .tx-grade-banner .tx-grade-letter {
+  color: #b39ddb;
+}
+[data-md-color-scheme="slate"] .tx-grade-banner.tx-fail {
+  background: rgba(239, 154, 154, 0.1);
+}
+[data-md-color-scheme="slate"] .tx-grade-banner.tx-fail .tx-grade-letter {
+  color: #ef9a9a;
+}
+/* verdict chips in the estimator table */
+.tx-chip {
+  display: inline-block;
+  padding: 0.14rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.tx-chip-ok {
+  background: rgba(46, 125, 50, 0.12);
+  color: #2e7d32;
+}
+.tx-chip-mid {
+  background: rgba(230, 81, 0, 0.12);
+  color: #ef6c00;
+}
+.tx-chip-no {
+  background: rgba(198, 40, 40, 0.12);
+  color: #c62828;
+}
+[data-md-color-scheme="slate"] .tx-chip-ok {
+  color: #81c784;
+}
+[data-md-color-scheme="slate"] .tx-chip-mid {
+  color: #ffb74d;
+}
+[data-md-color-scheme="slate"] .tx-chip-no {
+  color: #e57373;
+}
+/* the submit button */
+.tx-calc-go {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  margin: 0.4em 0 0.8em;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border: none;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+.tx-calc-go:hover {
+  opacity: 0.92;
+}
+.tx-calc-go:active {
+  transform: translateY(1px);
+}
+/* "inputs changed" hint after an edit */
+.tx-calc-stale {
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.7;
+  margin: 0.4em 0;
+}
+/* result tables: full-width, aligned numbers, real borders */
+.tx-calc table {
+  width: 100%;
+  font-size: 0.88em;
+  border-collapse: collapse;
+}
+.tx-calc table th {
+  text-align: left;
+  padding: 0.45rem 0.7rem;
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.045));
+  border-bottom: 2px solid var(--md-default-fg-color--lighter);
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+[data-md-color-scheme="slate"] .tx-calc table th {
+  background: rgba(255, 255, 255, 0.07);
+}
+.tx-calc table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.tx-calc td.tx-num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+/* verdict-tinted rows: green secured / amber achievable / red out of reach —
+   tint + a solid left edge so the verdict reads even on dim screens */
+.tx-calc tr.tx-row-ok td {
+  background: rgba(46, 125, 50, 0.16);
+}
+.tx-calc tr.tx-row-ok td:first-child {
+  border-left: 4px solid #2e7d32;
+}
+.tx-calc tr.tx-row-mid td {
+  background: rgba(230, 81, 0, 0.15);
+}
+.tx-calc tr.tx-row-mid td:first-child {
+  border-left: 4px solid #ef6c00;
+}
+.tx-calc tr.tx-row-no td {
+  background: rgba(198, 40, 40, 0.13);
+}
+.tx-calc tr.tx-row-no td:first-child {
+  border-left: 4px solid #c62828;
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-ok td {
+  background: rgba(46, 125, 50, 0.28);
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-mid td {
+  background: rgba(230, 81, 0, 0.25);
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-no td {
+  background: rgba(198, 40, 40, 0.22);
+}
+/* the total row in the grader breakdown */
+.tx-calc tr.tx-row-total td {
+  background: rgba(103, 58, 183, 0.16);
+  border-top: 2px solid #673ab7;
+  border-bottom: none;
+}
+.tx-calc tr.tx-row-total td:first-child {
+  border-left: 4px solid #673ab7;
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-total td {
+  background: rgba(149, 117, 205, 0.28);
+}
