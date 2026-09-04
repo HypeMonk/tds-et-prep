@@ -44,7 +44,13 @@ Every component is scored out of 100 first, then weighted:
 | **ET** | End-term exam | 20% |
 | **Bonus** | Flat bonus, up to **5 marks**, added *after* the weights | +0–5 |
 
-So T can reach **105** (100 from the five components + 5 bonus) — that's expected.
+!!! info "Bonus this term: 99% not happening"
+    In the final revision session (ET-3), the course team said they found no
+    major unresolvable issues in the assessments, so bonus marks are *"99%"*
+    off the table this term. The field stays because it's part of the formula
+    — but enter `0` unless something changes.
+
+So T can reach **105** (100 from the five components + 5 bonus) — that's expected, though with no bonus this term the realistic cap is 100.
 
 ## The grade scale
 

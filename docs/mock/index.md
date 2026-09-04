@@ -12,6 +12,11 @@
     before scrolling to the answer key. The marks ramp is real: don't get stuck
     on a 1-marker.
 
+!!! tip "This mock trains the objective half"
+    This term's paper is ~half subjective. For the written half — with model
+    answers and self-scoring checklists — take [Mock-2 (subjective half)](subjective.md)
+    too: 7 questions, 20 marks, 40 minutes.
+
 ---
 
 ## Part 1 · One-mark questions (9 questions, 9 marks)
@@ -28,8 +33,8 @@ Which data serialization format preserves column types and enables reading only 
 
 - **A.** CSV
 - **B.** JSON
-- **C.** Parquet
-- **D.** XML
+- **C.** XML
+- **D.** Parquet
 
 </div>
 
@@ -41,8 +46,8 @@ Which data serialization format preserves column types and enables reading only 
 
 Which command shows all files in a directory, including hidden ones?
 
-- **A.** `ls -h`
-- **B.** `ls -a`
+- **A.** `ls -a`
+- **B.** `ls -h`
 - **C.** `ls -r`
 - **D.** `ls -l`
 
@@ -101,8 +106,8 @@ Which files should be added to `.gitignore` before the first commit? *(four file
 
 You run `docker run -p 8080:80 myapp`. The Dockerfile contains `EXPOSE 80`. What does the `-p` flag do that `EXPOSE` doesn't?
 
-- **A.** Installs the application's dependencies
-- **B.** Actually publishes the port to the host machine
+- **A.** Actually publishes the port to the host machine
+- **B.** Installs the application's dependencies
 - **C.** Documents which port the app listens on
 - **D.** Configures the container's network interface
 
@@ -132,9 +137,9 @@ You run three API calls with `asyncio.gather`. They take 1s, 2s, and 5s respecti
 What does the "Structured Outputs" feature guarantee?
 
 - **A.** 100% factually accurate responses
-- **B.** The output is valid against your JSON schema
+- **B.** Faster response times
 - **C.** The model will not hallucinate
-- **D.** Faster response times
+- **D.** The output is valid against your JSON schema
 
 </div>
 
@@ -167,8 +172,8 @@ In a RAG system, what happens first when a user asks a question?
 
 Your frontend on `https://app.example.com` fetches from `https://api.example.net`. The browser blocks the request. Who must fix this and how?
 
-- **A.** The frontend — add CORS headers to the fetch call
-- **B.** The backend — add `Access-Control-Allow-Origin: https://app.example.com` to the response headers
+- **A.** The backend — add `Access-Control-Allow-Origin: https://app.example.com` to the response headers
+- **B.** The frontend — add CORS headers to the fetch call
 - **C.** The DNS provider — configure a CNAME record
 - **D.** The browser — disable the Same-Origin Policy
 
@@ -198,9 +203,9 @@ A Python app container starts and immediately crashes with `ModuleNotFoundError:
 Your API adds `Cache-Control: public, max-age=1800`. What is the main effect?
 
 - **A.** The server pauses 1800ms before responding
-- **B.** Browsers, proxies, and CDNs may serve cached copies for 30 minutes — identical requests stop reaching the origin
+- **B.** The client is limited to one request per 30 minutes
 - **C.** The response body is encrypted for 1800 seconds
-- **D.** The client is limited to one request per 30 minutes
+- **D.** Browsers, proxies, and CDNs may serve cached copies for 30 minutes — identical requests stop reaching the origin
 
 </div>
 
@@ -212,8 +217,8 @@ Your API adds `Cache-Control: public, max-age=1800`. What is the main effect?
 
 Your server expects an integer for `quantity`. An API sends the string `"5"`. Using Pydantic with `quantity: int`, what happens?
 
-- **A.** The server crashes — string types are incompatible
-- **B.** Pydantic automatically converts `"5"` to the integer `5`
+- **A.** Pydantic automatically converts `"5"` to the integer `5`
+- **B.** The server crashes — string types are incompatible
 - **C.** The request is rejected with a 500 error
 - **D.** The variable is deleted due to wrong format
 
@@ -249,9 +254,9 @@ A model achieves 96% test accuracy. After removing 100 test samples that acciden
 A fraud detection model achieves 99% test accuracy but 54% in production. The dataset is chronological, the split used `shuffle=True`, and rolling statistics were computed before splitting. What caused the collapse?
 
 - **A.** Model overfitting — common above 95% accuracy
-- **B.** Shuffling created temporal leakage; rolling stats before the split caused feature leakage
+- **B.** Fraud patterns evolve; historical models always fail
 - **C.** The production data has a different distribution
-- **D.** Fraud patterns evolve; historical models always fail
+- **D.** Shuffling created temporal leakage; rolling stats before the split caused feature leakage
 
 </div>
 
@@ -298,8 +303,8 @@ However, last month the gateway crashed during a traffic spike, taking down the 
 
 What is the primary benefit of the API gateway's centralized routing?
 
-- **A.** It makes the backend services run faster
-- **B.** The client knows one URL; the gateway routes to the correct service
+- **A.** The client knows one URL; the gateway routes to the correct service
+- **B.** It makes the backend services run faster
 - **C.** It eliminates the need for backend services
 - **D.** It caches all API responses automatically
 
@@ -314,8 +319,8 @@ What is the primary benefit of the API gateway's centralized routing?
 Why did running multiple gateway instances behind a load balancer fix the outage problem?
 
 - **A.** It made each instance run faster
-- **B.** If one instance fails during a traffic spike, others continue serving
-- **C.** It reduced the total number of requests
+- **B.** It reduced the total number of requests
+- **C.** If one instance fails during a traffic spike, others continue serving
 - **D.** It eliminated the need for authentication
 
 </div>
@@ -344,9 +349,9 @@ A request through the gateway returns a 500 error. Which layers should you inves
 Why did the team implement OAuth authentication at the gateway instead of in each of the 65 services?
 
 - **A.** OAuth is faster at the gateway
-- **B.** Users authenticate once instead of 65 times; the auth code lives in one place instead of 65 inconsistent implementations
+- **B.** OAuth doesn't work in individual microservices
 - **C.** The gateway has more storage for tokens
-- **D.** OAuth doesn't work in individual microservices
+- **D.** Users authenticate once instead of 65 times; the auth code lives in one place instead of 65 inconsistent implementations
 
 </div>
 
@@ -358,8 +363,8 @@ Why did the team implement OAuth authentication at the gateway instead of in eac
 
 What is the role of the circuit breaker the team added?
 
-- **A.** It prevents electricity overloads in the data center
-- **B.** When a backend service fails repeatedly, the circuit breaker stops sending requests to it — preventing cascading failures and giving it time to recover
+- **A.** When a backend service fails repeatedly, the circuit breaker stops sending requests to it — preventing cascading failures and giving it time to recover
+- **B.** It prevents electricity overloads in the data center
 - **C.** It encrypts traffic between the gateway and backends
 - **D.** It limits each user to a fixed number of requests per minute
 
@@ -404,8 +409,8 @@ A company's RAG chatbot answers questions from product manuals. When a manual is
 An edge function processes video thumbnails and needs 45 seconds, but the platform enforces a 10-second timeout. What type of solution is needed?
 
 - **A.** A faster model
-- **B.** A container, queue, or worker — not a serverless function
-- **C.** More memory
+- **B.** More memory
+- **C.** A container, queue, or worker — not a serverless function
 - **D.** A CDN
 
 </div>
@@ -419,9 +424,9 @@ An edge function processes video thumbnails and needs 45 seconds, but the platfo
 Your daily order-processing pipeline only looks at yesterday's data. Orders from 3 days ago that were updated yesterday are missed. What pattern fixes this?
 
 - **A.** Reprocess all historical data
-- **B.** Lookback window with deduplication on order ID and timestamp
+- **B.** Process only today's data going forward
 - **C.** Run the job every hour instead of daily
-- **D.** Process only today's data going forward
+- **D.** Lookback window with deduplication on order ID and timestamp
 
 </div>
 
@@ -444,31 +449,31 @@ Your daily order-processing pipeline only looks at yesterday's data. Orders from
 
 | Q | Answer | Topic | Where to review |
 |---|---|---|---|
-| M1 | **C** — Parquet (columnar, typed) | Data formats | [Parquet](../topics/data-ml.md#parquet-vs-text-formats) |
-| M2 | **B** — `ls -a` (all files) | Bash | [Bash](../pyqs/t3-2025-an.md#q3-listing-hidden-files) |
+| M1 | **D** — Parquet (columnar, typed) | Data formats | [Parquet](../topics/data-ml.md#parquet-vs-text-formats) |
+| M2 | **A** — `ls -a` (all files) | Bash | [Bash](../pyqs/t3-2025-an.md#q3-listing-hidden-files) |
 | M3 | **B** — Rate limit exceeded | HTTP | [Status codes](../topics/web-apis.md#http-status-codes-the-family) |
 | M4 | **C** — `git diff` | Git | [Git](../topics/git-security.md#git-the-daily-loop) |
 | M5 | **A + C** — `.env` and `credentials.json` | Secrets | [Secrets](../topics/git-security.md#secrets-the-env-workflow) |
-| M6 | **B** — Actually publishes the port | Docker | [EXPOSE vs -p](../topics/docker-deployment.md#docker-expose-vs--p) |
+| M6 | **A** — Actually publishes the port | Docker | [EXPOSE vs -p](../topics/docker-deployment.md#docker-expose-vs--p) |
 | M7 | **C** — 5 seconds (the max) | Asyncio | [asyncio](../topics/rag-agents.md#asynciogather-the-timing-arithmetic) |
-| M8 | **B** — Valid against your schema | LLM APIs | [Structured Outputs](../topics/llm-prompting.md#structured-outputs) |
+| M8 | **D** — Valid against your schema | LLM APIs | [Structured Outputs](../topics/llm-prompting.md#structured-outputs) |
 | M9 | **B** — Query embedded, chunks retrieved | RAG | [RAG pipeline](../topics/rag-agents.md#the-rag-pipeline) |
-| M10 | **B** — Backend adds the CORS header | CORS | [CORS](../topics/web-apis.md#cors-same-origin-policy) |
+| M10 | **A** — Backend adds the CORS header | CORS | [CORS](../topics/web-apis.md#cors-same-origin-policy) |
 | M11 | **C** — `RUN pip install` missing | Docker | [Missing install](../topics/docker-deployment.md#docker-the-missing-install) |
-| M12 | **B** — 30 min cached copies | Caching | [Caching](../topics/web-apis.md#caching-ttl-cache-control-cache-buster) |
-| M13 | **B** — Converts "5" to 5 | Validation | [Pydantic](../pyqs/t1-2026-fn.md#q14-pydantic-type-coercion) |
+| M12 | **D** — 30 min cached copies | Caching | [Caching](../topics/web-apis.md#caching-ttl-cache-control-cache-buster) |
+| M13 | **A** — Converts "5" to 5 | Validation | [Pydantic](../pyqs/t1-2026-fn.md#q14-pydantic-type-coercion) |
 | M14 | **B** — Inflated by leakage | ML eval | [Leakage](../topics/data-ml.md#ml-data-leakage-the-signature) |
-| M15 | **B** — Temporal + feature leakage | ML eval | [Leakage](../pyqs/t1-2026-an.md#q16-the-fraud-model-collapse) |
+| M15 | **D** — Temporal + feature leakage | ML eval | [Leakage](../pyqs/t1-2026-an.md#q16-the-fraud-model-collapse) |
 | M16 | **B + C** — Human approval + allow-list | Agents | [Agent guardrails](../practice/new-topics.md#p7-the-tool-guardrail) |
-| M17 | **B** — One URL, gateway routes | API arch | [Gateway](../topics/web-apis.md#api-gateway-the-single-entry-point) |
-| M18 | **B** — Others continue serving | API arch | [Gateway](../pyqs/t1-2026-fn.md#q27-surviving-the-crash) |
+| M17 | **A** — One URL, gateway routes | API arch | [Gateway](../topics/web-apis.md#api-gateway-the-single-entry-point) |
+| M18 | **C** — Others continue serving | API arch | [Gateway](../pyqs/t1-2026-fn.md#q27-surviving-the-crash) |
 | M19 | **B** — Every layer crossed | HTTP | [500 debugging](../pyqs/t1-2026-fn.md#q28-debugging-the-500) |
-| M20 | **B** — Auth once, one implementation | API arch | [Gateway](../sessions/et-01.md#api-gateway--redundancy-the-80-microservice-story) |
-| M21 | **B** — Stops requests to failing service | Architecture | [Circuit breaker](../weeks/week-2.md#api-gateway--redundancy) |
+| M20 | **D** — Auth once, one implementation | API arch | [Gateway](../sessions/et-01.md#api-gateway--redundancy-the-80-microservice-story) |
+| M21 | **A** — Stops requests to failing service | Architecture | [Circuit breaker](../weeks/week-2.md#api-gateway--redundancy) |
 | M22 | *See model answer below* | Docker | [Layer caching](../practice/short-answers.md#sa-2-the-docker-build-optimisation) |
 | M23 | *See model answer below* | RAG | [Stale docs](../practice/short-answers.md#sa-5-the-rag-design-question) |
-| M24 | **B** — Container/queue/worker | Serverless | [Serverless limits](../topics/docker-deployment.md#serverless-limits-ram--time-as-a-pair) |
-| M25 | **B** — Lookback + dedup | ETL | [ETL](../topics/data-ml.md#etl-the-lookback--dedup-pattern) |
+| M24 | **C** — Container/queue/worker | Serverless | [Serverless limits](../topics/docker-deployment.md#serverless-limits-ram--time-as-a-pair) |
+| M25 | **D** — Lookback + dedup | ETL | [ETL](../topics/data-ml.md#etl-the-lookback--dedup-pattern) |
 
 ### M22 model answer
 

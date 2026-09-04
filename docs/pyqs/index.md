@@ -4,6 +4,14 @@
 
 The papers colour-code correct answers (green) — so every answer here is the official one, not our guess. The reasoning is ours. Code snippets that appear as images in the PDFs are reconstructed and marked *(reconstructed)*.
 
+!!! info "How to read PYQs this term"
+    The professor's ET-3 advice: use past papers to predict **the core concepts,
+    not the exact questions** — this term's paper changes the question shapes,
+    and about **half of it is subjective**. So treat these papers as a map of
+    *what gets asked about*, and learn the concepts behind each question. The
+    patterns below transfer; the exact questions may not. (His other rule: the
+    **most recent three papers** are enough — these four cover that era.)
+
 ## How to use these pages
 
 1. **Cover the answer** and attempt each question yourself — they're collapsible precisely so the page works as practice, not as reading.

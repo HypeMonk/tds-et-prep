@@ -30,5 +30,6 @@ The professor's own paper walkthroughs, kept as primary source:
 
 - **[ET-1](../sessions/et-01.md)** — solved the T1-2026 AN paper live (27 Aug 2026)
 - **[ET-2](../sessions/et-02.md)** — solved the T3-2025 FN paper live (28 Aug 2026) · **the LLM-grading reveal**
+- **[ET-3](../sessions/et-03.md)** — no paper: the exam format itself (3 Sept 2026) · **the 50% subjective split**
 
 More sessions will be appended as they happen.

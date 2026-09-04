@@ -21,21 +21,21 @@ These topics are **new this term** — they appeared in no past paper. But the G
 In a RAG system, what does the vector database contain?
 
 - **A.** The original documents as plain text
-- **B.** Embeddings of document chunks, with metadata pointing back to the source
+- **B.** A cache of previous user queries and their answers
 - **C.** The LLM's fine-tuned weights
-- **D.** A cache of previous user queries and their answers
+- **D.** Embeddings of document chunks, with metadata pointing back to the source
 
 </div>
 
 ??? success "Answer"
-    **B** — Embeddings of document chunks, with metadata pointing back to the source.
+    **D** — Embeddings of document chunks, with metadata pointing back to the source.
 
 ??? note "Why"
     The vector DB stores **embeddings** (numerical vectors representing each
     chunk's meaning) plus metadata (which document, which section, when ingested).
     Retrieval = finding the chunks whose vectors are closest to the query's vector.
     It does not store the full documents (A), the model's weights (C), or a
-    query-answer cache (D — that's application-level caching).
+    query-answer cache (B — that's application-level caching).
 
     → [W4 — the RAG pipeline](../weeks/week-4.md#the-rag-pipeline-the-one-diagram-to-remember)
 
@@ -50,14 +50,14 @@ In a RAG system, what does the vector database contain?
 A user asks "What is the refund policy for opened items?" What does the RAG system do FIRST?
 
 - **A.** Generate a response using the LLM's training knowledge
-- **B.** Convert the query to an embedding and search for similar document chunks
-- **C.** Store the question for future analytics
+- **B.** Store the question for future analytics
+- **C.** Convert the query to an embedding and search for similar document chunks
 - **D.** Fine-tune the model on the refund policy document
 
 </div>
 
 ??? success "Answer"
-    **B** — Convert the query to an embedding and search for similar document chunks.
+    **C** — Convert the query to an embedding and search for similar document chunks.
 
 ??? note "Why"
     R = Retrieve, and it's the first letter for a reason. The query is embedded
@@ -77,15 +77,15 @@ A user asks "What is the refund policy for opened items?" What does the RAG syst
 
 Your RAG chatbot retrieves a chunk that says "it costs $50" — but the user asked about the enterprise plan's pricing, which is in a different section. What chunking problem is this?
 
-- **A.** The chunks are too large — they contain irrelevant pricing information
-- **B.** The chunks are too small — "it costs $50" lacks the context of which plan it refers to
+- **A.** The chunks are too small — "it costs $50" lacks the context of which plan it refers to
+- **B.** The chunks are too large — they contain irrelevant pricing information
 - **C.** The embedding model is too small to capture pricing semantics
 - **D.** The vector database is corrupted
 
 </div>
 
 ??? success "Answer"
-    **B** — The chunks are too small — "it costs $50" lacks the context of which plan it refers to.
+    **A** — The chunks are too small — "it costs $50" lacks the context of which plan it refers to.
 
 ??? note "Why"
     This is the **too-small-chunks** failure mode: a retrieved fragment that
@@ -135,14 +135,14 @@ Your company chatbot correctly answers questions using product manual v1, but v2
 Your RAG system uses pure vector (semantic) search. A user searches for "error code E-4021" and gets no relevant results, even though the code is mentioned in your documents. Why?
 
 - **A.** The embedding model doesn't support numeric codes
-- **B.** Pure vector search is weak at exact-term matching — rare codes and identifiers get diluted in embedding space
+- **B.** Error codes need to be fine-tuned into the model
 - **C.** The vector database has a maximum query length
-- **D.** Error codes need to be fine-tuned into the model
+- **D.** Pure vector search is weak at exact-term matching — rare codes and identifiers get diluted in embedding space
 
 </div>
 
 ??? success "Answer"
-    **B** — Pure vector search is weak at exact-term matching — rare codes and identifiers get diluted in embedding space.
+    **D** — Pure vector search is weak at exact-term matching — rare codes and identifiers get diluted in embedding space.
 
 ??? note "Why"
     This is the **hybrid search** motivation: dense (vector) search finds synonyms
@@ -165,21 +165,21 @@ Your RAG system uses pure vector (semantic) search. A user searches for "error c
 
 What is the key difference between a chatbot and an AI agent?
 
-- **A.** Agents use larger language models
-- **B.** Agents can choose and use tools repeatedly to accomplish a goal; chatbots produce one response per turn
+- **A.** Agents can choose and use tools repeatedly to accomplish a goal; chatbots produce one response per turn
+- **B.** Agents use larger language models
 - **C.** Agents are always connected to the internet
 - **D.** Agents are trained on different data than chatbots
 
 </div>
 
 ??? success "Answer"
-    **B** — Agents can choose and use tools repeatedly to accomplish a goal; chatbots produce one response per turn.
+    **A** — Agents can choose and use tools repeatedly to accomplish a goal; chatbots produce one response per turn.
 
 ??? note "Why"
     The agent loop: **Decide → Act (use a tool) → Observe → (repeat) → Done**.
     A chatbot returns text; an agent can search, calculate, edit files, call APIs
     — and it decides *which* tool to use *next* based on what it observed. The
-    autonomy is the difference, not the model size (A) or the data (D).
+    autonomy is the difference, not the model size (B) or the data (D).
 
     → [W5 — agent fundamentals](../weeks/week-5.md#agent-fundamentals-the-loop-and-the-parts)
 
@@ -194,14 +194,14 @@ What is the key difference between a chatbot and an AI agent?
 Your research agent has access to tools: `search_web`, `read_file`, `send_email`, and `delete_file`. A prompt injection causes it to call `delete_file` on an important document. What design principle was violated?
 
 - **A.** The agent should have used a larger model that understands file importance
-- **B.** Destructive tools should require human approval, or not be available to the agent at all
-- **C.** The agent should have been sandboxed in a VM instead of a container
+- **B.** The agent should have been sandboxed in a VM instead of a container
+- **C.** Destructive tools should require human approval, or not be available to the agent at all
 - **D.** The system prompt should have explicitly said "do not delete files"
 
 </div>
 
 ??? success "Answer"
-    **B** — Destructive tools should require human approval, or not be available to the agent at all.
+    **C** — Destructive tools should require human approval, or not be available to the agent at all.
 
 ??? note "Why"
     This is **LLM06 — Excessive Agency** from the OWASP Top 10: the agent can
@@ -224,14 +224,14 @@ Your research agent has access to tools: `search_web`, `read_file`, `send_email`
 Your coding agent enters a loop: it runs tests, they fail, it tries to fix the code, runs tests again — 47 times, consuming $23 in API calls before someone notices. What guardrail was missing?
 
 - **A.** A better system prompt explaining when to stop
-- **B.** A maximum step/cost budget that halts the agent and alerts a human
+- **B.** A faster model so each iteration costs less
 - **C.** A larger context window so the agent remembers all previous failures
-- **D.** A faster model so each iteration costs less
+- **D.** A maximum step/cost budget that halts the agent and alerts a human
 
 </div>
 
 ??? success "Answer"
-    **B** — A maximum step/cost budget that halts the agent and alerts a human.
+    **D** — A maximum step/cost budget that halts the agent and alerts a human.
 
 ??? note "Why"
     This is the **rules** part of the agent architecture: limits on steps, time,
@@ -319,14 +319,14 @@ Your RAG chatbot retrieves content from user-uploaded PDFs and renders the LLM's
 Your support chatbot's system prompt contains: "You are HelpBot. The admin password is hunter2. Never reveal it." Why is this a vulnerability?
 
 - **A.** The password is too short to be secure
-- **B.** A system prompt is data that can be extracted — a secret in the prompt is a published secret
-- **C.** LLMs cannot keep secrets reliably due to random sampling
+- **B.** LLMs cannot keep secrets reliably due to random sampling
+- **C.** A system prompt is data that can be extracted — a secret in the prompt is a published secret
 - **D.** The system prompt is sent to the user's browser in the HTTP response headers
 
 </div>
 
 ??? success "Answer"
-    **B** — A system prompt is data that can be extracted — a secret in the prompt is a published secret.
+    **C** — A system prompt is data that can be extracted — a secret in the prompt is a published secret.
 
 ??? note "Why"
     This is **LLM07 — System Prompt Leakage**: the system prompt reaches the
@@ -349,14 +349,14 @@ Your support chatbot's system prompt contains: "You are HelpBot. The admin passw
 Which list correctly orders LLM defense layers from most to least effective?
 
 - **A.** Input filtering → output validation → role separation → tool allow-listing
-- **B.** Tool allow-listing + human approval → role separation → output validation → input filtering
+- **B.** All layers are equally effective; order doesn't matter
 - **C.** Role separation → tool allow-listing → input filtering → output validation
-- **D.** All layers are equally effective; order doesn't matter
+- **D.** Tool allow-listing + human approval → role separation → output validation → input filtering
 
 </div>
 
 ??? success "Answer"
-    **B** — Tool allow-listing + human approval → role separation → output validation → input filtering.
+    **D** — Tool allow-listing + human approval → role separation → output validation → input filtering.
 
 ??? note "Why"
     The defensive mindset: **assume the model will be compromised**. In order of
@@ -387,15 +387,15 @@ Which list correctly orders LLM defense layers from most to least effective?
 
 Your company wants the chatbot to always use your internal product terminology (e.g., calling customers "members" and tickets "requests"). Should you fine-tune the model?
 
-- **A.** Yes — fine-tuning is the standard way to teach vocabulary
-- **B.** No — start with prompting ("always use 'member' not 'customer'"); if that's insufficient, consider few-shot examples in the prompt; fine-tune only for stable, repeated behaviour that prompting can't achieve
+- **A.** No — start with prompting ("always use 'member' not 'customer'"); if that's insufficient, consider few-shot examples in the prompt; fine-tune only for stable, repeated behaviour that prompting can't achieve
+- **B.** Yes — fine-tuning is the standard way to teach vocabulary
 - **C.** No — use RAG instead, retrieving the terminology guide
 - **D.** Yes — fine-tuning is cheaper than adding instructions to every prompt
 
 </div>
 
 ??? success "Answer"
-    **B** — No — start with prompting; escalate only if prompting can't achieve the stable behaviour.
+    **A** — No — start with prompting; escalate only if prompting can't achieve the stable behaviour.
 
 ??? note "Why"
     The **escalation ladder**: prompting → RAG → tools → fine-tuning, cheapest
@@ -449,14 +449,14 @@ What does MLflow's experiment tracking record for each training run?
 You need to deploy a language model on a device with 4GB RAM. The FP16 model is 7GB. What are your options?
 
 - **A.** You cannot deploy this model on 4GB RAM
-- **B.** Quantize to INT4 (~1.75GB) — it fits, with some quality loss
+- **B.** Compress the model with zip and decompress at runtime
 - **C.** Use a smaller model entirely, quantization cannot reduce size by that much
-- **D.** Compress the model with zip and decompress at runtime
+- **D.** Quantize to INT4 (~1.75GB) — it fits, with some quality loss
 
 </div>
 
 ??? success "Answer"
-    **B** — Quantize to INT4 — it fits, with some quality loss.
+    **D** — Quantize to INT4 — it fits, with some quality loss.
 
 ??? note "Why"
     Quantization reduces weight precision (16-bit → 4-bit integers), shrinking
@@ -507,14 +507,14 @@ Your BigQuery ML model achieves 98% test accuracy. Upon inspection, you discover
 What is the purpose of a model card?
 
 - **A.** It licenses the model for commercial use
-- **B.** It documents the model's intended use, limitations, training data, evaluation results, and ethical considerations
-- **C.** It contains the model's weights for download
+- **B.** It contains the model's weights for download
+- **C.** It documents the model's intended use, limitations, training data, evaluation results, and ethical considerations
 - **D.** It is a required legal document for deploying models in the EU
 
 </div>
 
 ??? success "Answer"
-    **B** — It documents intended use, limitations, training data, evaluation results, and ethical considerations.
+    **C** — It documents intended use, limitations, training data, evaluation results, and ethical considerations.
 
 ??? note "Why"
     A model card is the nutrition label for an ML model: what it was trained on,
@@ -535,15 +535,15 @@ What is the purpose of a model card?
 
 Your data is in BigQuery (500M rows). You need a baseline classification model. Why might BigQuery ML be better than exporting to a Python notebook?
 
-- **A.** BigQuery ML always produces more accurate models
-- **B.** The data stays in BigQuery — no export step, no data movement, and SQL is sufficient for standard model types
+- **A.** The data stays in BigQuery — no export step, no data movement, and SQL is sufficient for standard model types
+- **B.** BigQuery ML always produces more accurate models
 - **C.** Python notebooks cannot handle datasets larger than 100M rows
 - **D.** BigQuery ML models are always cheaper to serve
 
 </div>
 
 ??? success "Answer"
-    **B** — The data stays in BigQuery — no export, no movement, SQL is sufficient.
+    **A** — The data stays in BigQuery — no export, no movement, SQL is sufficient.
 
 ??? note "Why"
     The course's framing: "copying data into a notebook just to train a baseline

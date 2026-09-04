@@ -21,14 +21,14 @@ These are the topics the exam asks about in every paper — CORS, Docker, cachin
 You open an HTML file directly from your filesystem (`file:///C:/project/index.html`) and it tries to fetch from `http://localhost:8000/api`. The browser blocks it. Why?
 
 - **A.** The API server is not running
-- **B.** A `file://` page is a different origin from `http://localhost:8000` — the Same-Origin Policy blocks the read
+- **B.** The HTML file needs to be served from a web server first
 - **C.** Browsers don't allow JavaScript in local files
-- **D.** The HTML file needs to be served from a web server first
+- **D.** A `file://` page is a different origin from `http://localhost:8000` — the Same-Origin Policy blocks the read
 
 </div>
 
 ??? success "Answer"
-    **B** — A `file://` page is a different origin from `http://localhost:8000` — the Same-Origin Policy blocks the read.
+    **D** — A `file://` page is a different origin from `http://localhost:8000` — the Same-Origin Policy blocks the read.
 
 ??? note "Why"
     Origin = scheme + host + port. `file://` has a different **scheme** from
@@ -50,14 +50,14 @@ You open an HTML file directly from your filesystem (`file:///C:/project/index.h
 Your API works perfectly when tested with `curl` but shows a CORS error when called from a React app. What does this tell you?
 
 - **A.** The API has a bug that only manifests in browser contexts
-- **B.** CORS is a browser-only enforcement — curl, Postman, and Python scripts are never blocked; only browser JavaScript is
-- **C.** The React app is sending the request with wrong headers
+- **B.** The React app is sending the request with wrong headers
+- **C.** CORS is a browser-only enforcement — curl, Postman, and Python scripts are never blocked; only browser JavaScript is
 - **D.** The API needs to return different data format for browsers
 
 </div>
 
 ??? success "Answer"
-    **B** — CORS is a browser-only enforcement — curl is never blocked.
+    **C** — CORS is a browser-only enforcement — curl is never blocked.
 
 ??? note "Why"
     The Same-Origin Policy is implemented in the **browser's JavaScript engine**.
@@ -80,15 +80,15 @@ Your API works perfectly when tested with `curl` but shows a CORS error when cal
 
 Your Dockerfile builds successfully, the container starts, and the app logs "Server running on port 3000" — but `curl http://localhost:3000` from your host machine gets "connection refused." What's wrong?
 
-- **A.** The app is listening on the wrong interface inside the container
-- **B.** You forgot `-p 3000:3000` on `docker run` — the port is not published to the host
+- **A.** You forgot `-p 3000:3000` on `docker run` — the port is not published to the host
+- **B.** The app is listening on the wrong interface inside the container
 - **C.** The container doesn't have network access
 - **D.** Port 3000 is already in use on the host
 
 </div>
 
 ??? success "Answer"
-    **B** — You forgot `-p 3000:3000` on `docker run` — the port is not published to the host.
+    **A** — You forgot `-p 3000:3000` on `docker run` — the port is not published to the host.
 
 ??? note "Why"
     The app is running and listening **inside the container** — the log proves it.
@@ -141,14 +141,14 @@ Your CI pipeline takes 8 minutes to build a Docker image, even when you only cha
 Your API returns `Cache-Control: private, max-age=0`. Your CDN bill is unexpectedly high. Why?
 
 - **A.** The CDN is misconfigured and caching anyway
-- **B.** `private` tells the CDN it may NOT cache, and `max-age=0` tells the browser the response is immediately stale — every request goes to the origin
+- **B.** `max-age=0` means the CDN caches for 0 seconds but still counts the request
 - **C.** The CDN charges per header, and you're sending too many
-- **D.** `max-age=0` means the CDN caches for 0 seconds but still counts the request
+- **D.** `private` tells the CDN it may NOT cache, and `max-age=0` tells the browser the response is immediately stale — every request goes to the origin
 
 </div>
 
 ??? success "Answer"
-    **B** — `private` tells the CDN it may NOT cache, and `max-age=0` means immediately stale — every request hits the origin.
+    **D** — `private` tells the CDN it may NOT cache, and `max-age=0` means immediately stale — every request hits the origin.
 
 ??? note "Why"
     Two directives working together to prevent caching:
@@ -172,15 +172,15 @@ Your API returns `Cache-Control: private, max-age=0`. Your CDN bill is unexpecte
 
 A dashboard queries a database that updates every 6 hours. 200 users view the dashboard every minute. The database is struggling. What's the fix?
 
-- **A.** Upgrade the database to a larger instance
-- **B.** Cache the query results with a TTL of 5–30 minutes — the database goes from 12,000 queries/hour to 2–12 queries/hour
+- **A.** Cache the query results with a TTL of 5–30 minutes — the database goes from 12,000 queries/hour to 2–12 queries/hour
+- **B.** Upgrade the database to a larger instance
 - **C.** Move the dashboard to a CDN
 - **D.** Reduce the number of users who can access the dashboard
 
 </div>
 
 ??? success "Answer"
-    **B** — Cache the query results with a TTL of 5–30 minutes.
+    **A** — Cache the query results with a TTL of 5–30 minutes.
 
 ??? note "Why"
     The workload is asymmetric: 1 update per 6 hours vs ~200 reads per minute.
@@ -204,14 +204,14 @@ A dashboard queries a database that updates every 6 hours. 200 users view the da
 You accidentally committed your `.env` file (containing API keys) to a public GitHub repo 3 days ago. You deleted it in the next commit. What must you do now?
 
 - **A.** Nothing — deleting the file removed the secrets
-- **B.** Rotate every key that was in the file — the git history still contains the .env, and anyone who cloned the repo has the secrets
-- **C.** Delete the GitHub repository and create a new one
+- **B.** Delete the GitHub repository and create a new one
+- **C.** Rotate every key that was in the file — the git history still contains the .env, and anyone who cloned the repo has the secrets
 - **D.** Ask GitHub to purge the commit from their servers
 
 </div>
 
 ??? success "Answer"
-    **B** — Rotate every key — the git history still contains the secrets.
+    **C** — Rotate every key — the git history still contains the secrets.
 
 ??? note "Why"
     Git stores a full history of every commit. Deleting the file in a later
@@ -235,14 +235,14 @@ You accidentally committed your `.env` file (containing API keys) to a public Gi
 You're authenticated with a valid API key, but the API returns 403 when you try to access an admin endpoint. What does this mean?
 
 - **A.** Your API key is invalid or expired — get a new one
-- **B.** Your key is valid, but your account doesn't have permission for this endpoint
-- **C.** The endpoint doesn't exist
+- **B.** The endpoint doesn't exist
+- **C.** Your key is valid, but your account doesn't have permission for this endpoint
 - **D.** You're making too many requests
 
 </div>
 
 ??? success "Answer"
-    **B** — Your key is valid, but your account doesn't have permission for this endpoint.
+    **C** — Your key is valid, but your account doesn't have permission for this endpoint.
 
 ??? note "Why"
     **401 = who are you?** (authentication failed — the key is wrong or expired).
@@ -264,19 +264,19 @@ You're authenticated with a valid API key, but the API returns 403 when you try 
 You use `asyncio.gather` to call 3 APIs. API A responds in 200ms, API B in 500ms, API C in 2 seconds. What's the total time?
 
 - **A.** 200ms — the fastest response
-- **B.** ~900ms — the average
-- **C.** 2 seconds — the slowest response
+- **B.** 2 seconds — the slowest response
+- **C.** ~900ms — the average
 - **D.** 2.7 seconds — the sequential sum
 
 </div>
 
 ??? success "Answer"
-    **C** — 2 seconds — the slowest response.
+    **B** — 2 seconds — the slowest response.
 
 ??? note "Why"
     Gather launches all tasks simultaneously and returns only when **every task
     completes**. The total is the **max**, not the sum (D — that would be
-    sequential) or the average (B). Concurrency removes the sum, not the max —
+    sequential) or the average (C). Concurrency removes the sum, not the max —
     one slow API is still the bottleneck.
 
     → [W5 — asyncio](../topics/rag-agents.md#asynciogather-the-timing-arithmetic)
@@ -294,14 +294,14 @@ You use `asyncio.gather` to call 3 APIs. API A responds in 200ms, API B in 500ms
 You have a 2GB CSV file with 50 columns. You only need to analyse 3 columns. Converting to Parquet and querying with DuckDB is much faster. Why?
 
 - **A.** Parquet files are compressed with gzip by default
-- **B.** Parquet is columnar — DuckDB reads only the 3 requested columns, touching a fraction of the 2GB
+- **B.** Parquet stores data in memory while CSV reads from disk
 - **C.** DuckDB has a query cache that CSV readers don't
-- **D.** Parquet stores data in memory while CSV reads from disk
+- **D.** Parquet is columnar — DuckDB reads only the 3 requested columns, touching a fraction of the 2GB
 
 </div>
 
 ??? success "Answer"
-    **B** — Parquet is columnar — DuckDB reads only the 3 requested columns.
+    **D** — Parquet is columnar — DuckDB reads only the 3 requested columns.
 
 ??? note "Why"
     CSV is row-based: reading 3 of 50 columns means parsing every row to extract
@@ -322,15 +322,15 @@ You have a 2GB CSV file with 50 columns. You only need to analyse 3 columns. Con
 
 You run `SELECT AVG(rating) FROM reviews` and get 3.8. Then you notice 50 rows have NULL ratings. What was actually calculated?
 
-- **A.** The average treating NULLs as 0
-- **B.** The average of only the non-NULL rows — NULLs are skipped by aggregate functions
+- **A.** The average of only the non-NULL rows — NULLs are skipped by aggregate functions
+- **B.** The average treating NULLs as 0
 - **C.** An error should have been raised
 - **D.** The result is NULL because NULLs are present
 
 </div>
 
 ??? success "Answer"
-    **B** — The average of only the non-NULL rows — NULLs are skipped.
+    **A** — The average of only the non-NULL rows — NULLs are skipped.
 
 ??? note "Why"
     SQL's three-valued logic: NULL means *unknown*, not zero. `AVG`, `SUM`, and
@@ -351,19 +351,19 @@ You run `SELECT AVG(rating) FROM reviews` and get 3.8. Then you notice 50 rows h
 You have a DataFrame `df` with columns `department`, `salary`, and `years`. You want the average salary per department. Which is correct?
 
 - **A.** `df.sort_values('department')['salary'].mean()`
-- **B.** `df.groupby('department')['salary'].mean()`
-- **C.** `df.filter('department')['salary'].mean()`
+- **B.** `df.filter('department')['salary'].mean()`
+- **C.** `df.groupby('department')['salary'].mean()`
 - **D.** `df['salary'].mean()` grouped by `df['department']`
 
 </div>
 
 ??? success "Answer"
-    **B** — `df.groupby('department')['salary'].mean()`
+    **C** — `df.groupby('department')['salary'].mean()`
 
 ??? note "Why"
     **groupby = split–apply–combine**: split rows by department, apply `mean()` to
     each group's salary column, combine into one table. Sort (A) arranges but
-    doesn't aggregate; filter (C) selects rows by condition (and takes callables,
+    doesn't aggregate; filter (B) selects rows by condition (and takes callables,
     not column names); D is not valid pandas syntax. The professor taught this
     exact pattern in ET-2.
 
@@ -410,14 +410,14 @@ Your daily ETL job processes yesterday's orders. Some orders from 3 days ago wer
 Two users simultaneously try to book the last available seat on a flight. The server checks "is a seat available?", gets "yes" for both, and books both — overselling the flight. What is this called and what's the fix?
 
 - **A.** Deadlock — restart the server
-- **B.** Race condition — use a database lock or atomic decrement so only one booking succeeds
+- **B.** Load balancer failure — add a second server instance
 - **C.** Cache invalidation — clear the cache between requests
-- **D.** Load balancer failure — add a second server instance
+- **D.** Race condition — use a database lock or atomic decrement so only one booking succeeds
 
 </div>
 
 ??? success "Answer"
-    **B** — Race condition — use a database lock or atomic decrement.
+    **D** — Race condition — use a database lock or atomic decrement.
 
 ??? note "Why"
     **Check-then-act race:** two processes read "available" in the same instant,
@@ -439,15 +439,15 @@ Two users simultaneously try to book the last available seat on a flight. The se
 
 A stock price model achieves 97% test accuracy. The dataset is a time series, and the train/test split was done randomly (shuffled). In production, accuracy drops to 61%. What went wrong?
 
-- **A.** The model overfitted to the training data
-- **B.** Random shuffling on a time series creates temporal leakage — future data appeared in the training set, so the model "predicted" patterns it had already seen
+- **A.** Random shuffling on a time series creates temporal leakage — future data appeared in the training set, so the model "predicted" patterns it had already seen
+- **B.** The model overfitted to the training data
 - **C.** The production data has a different distribution
 - **D.** The model needs more training epochs
 
 </div>
 
 ??? success "Answer"
-    **B** — Random shuffling on a time series creates temporal leakage.
+    **A** — Random shuffling on a time series creates temporal leakage.
 
 ??? note "Why"
     Time-series data must be split **chronologically** — train on the past, test
@@ -500,14 +500,14 @@ Your teammate's pipeline works on their machine but fails on yours with an impor
 An API returns a JSON response where the `weather` field is an array of objects. You try `data['weather']['description']` and get a TypeError. Why?
 
 - **A.** The JSON is malformed
-- **B.** `data['weather']` returns a **list**, not a dict — you must index into it first: `data['weather'][0]['description']`
-- **C.** The API requires authentication for this field
+- **B.** The API requires authentication for this field
+- **C.** `data['weather']` returns a **list**, not a dict — you must index into it first: `data['weather'][0]['description']`
 - **D.** You need to use `json.loads` before accessing fields
 
 </div>
 
 ??? success "Answer"
-    **B** — `data['weather']` returns a list — you must index into it first.
+    **C** — `data['weather']` returns a list — you must index into it first.
 
 ??? note "Why"
     JSON structure: `"weather": [{"description": "clear sky", ...}]` — the value
@@ -530,14 +530,14 @@ An API returns a JSON response where the `weather` field is an array of objects.
 Your ETL script writes directly to `output.csv`. A crash mid-write leaves a corrupted file. The next scheduled run reads the corrupted file and produces garbage. What should you have done?
 
 - **A.** Added error handling to catch the crash
-- **B.** Written to a temporary file first, then atomically renamed to `output.csv` — a reader never sees a half-written file
+- **B.** Used a database instead of a CSV file
 - **C.** Run the script more frequently so crashes are caught sooner
-- **D.** Used a database instead of a CSV file
+- **D.** Written to a temporary file first, then atomically renamed to `output.csv` — a reader never sees a half-written file
 
 </div>
 
 ??? success "Answer"
-    **B** — Written to a temporary file first, then atomically renamed.
+    **D** — Written to a temporary file first, then atomically renamed.
 
 ??? note "Why"
     **Idempotency** (running twice = same result as once) requires atomic writes:

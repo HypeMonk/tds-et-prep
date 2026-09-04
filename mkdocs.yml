@@ -85,6 +85,7 @@ nav:
     - Revision sessions:
       - ET-1: sessions/et-01.md
       - ET-2: sessions/et-02.md
+      - ET-3: sessions/et-03.md
   - Revise:
     - revise/index.md
     - Cheat sheet: topics/cheat-sheet.md
@@ -107,7 +108,9 @@ nav:
       - New topics (W4-W8): practice/new-topics.md
       - Core patterns: practice/core-patterns.md
       - Short answers: practice/short-answers.md
-  - Mock: mock/index.md
+  - Mock:
+    - mock/index.md
+    - Mock-2 (subjective half): mock/subjective.md
   - Calculator:
     - calculator/index.md
     - Grade estimator (before ET marks): calculator/estimator.md

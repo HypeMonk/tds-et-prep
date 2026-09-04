@@ -49,6 +49,8 @@ Enter your marks, press the button. GAA is your **best-7-of-9 average** (GA0 cou
 
 </div>
 
+<p class="tx-calc-note">GAA is the average of your <strong>best 7 GAs out of 9</strong> (GA0 counts), out of 100. A box left empty counts as 0, so fill in everything you know. <em>ET-3 update: bonus is 99% not happening this term — leave this at 0 unless that changes.</em></p>
+
 <button class="tx-calc-go" id="tx-est-go" type="button">How much do I need?</button>
 
 <div class="tx-calc-warn" id="tx-est-warn" hidden></div>

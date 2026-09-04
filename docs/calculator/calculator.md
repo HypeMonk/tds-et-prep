@@ -56,6 +56,8 @@ Enter all five marks plus your bonus, press the button. GAA is your **best-7-of-
 
 </div>
 
+<p class="tx-calc-note">GAA is the average of your <strong>best 7 GAs out of 9</strong> (GA0 counts), out of 100. Every score can be a decimal. A box left empty counts as 0. <em>ET-3 update: bonus is 99% not happening this term — leave it at 0 unless that changes.</em></p>
+
 <button class="tx-calc-go" id="tx-grad-go" type="button">Calculate my grade</button>
 
 <div class="tx-calc-warn" id="tx-grad-warn" hidden></div>

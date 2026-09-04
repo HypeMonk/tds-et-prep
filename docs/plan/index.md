@@ -11,6 +11,13 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
     a 7-day plan you abandon on day 4. Each plan assumes ~3–4 hours of focused
     study per day.
 
+!!! info "This term's paper is ~half subjective"
+    Every plan below now includes **writing practice** — short answers and a
+    Mock-2 (the subjective half) — because about half the marks come from written
+    answers (announced in the [final revision session](../sessions/et-03.md)).
+    Don't skip those steps: the writing method is the fastest half of your
+    marks to secure, and it only becomes yours by doing it.
+
 ---
 
 ## Full plan · 7+ days
@@ -18,8 +25,8 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 *Complete coverage. Everything on the site, in priority order.*
 
 ### Day 1 — Know the game + the hottest week
-- [What the ET actually looks like](../exam/exam-pattern.md) — 6 min
-- [How to write answers an LLM grades well](../exam/llm-grading-guide.md) — 6 min
+- [What the ET actually looks like](../exam/exam-pattern.md) — 6 min (includes the new 50/50 split)
+- [How to write answers an LLM grades well](../exam/llm-grading-guide.md) — 9 min (half the paper — read fully)
 - [Week 2 — APIs, deployment](../weeks/week-2.md) — 25 min (the highest PYQ density)
 - [T1-2026 AN solutions](../pyqs/t1-2026-an.md) — attempt + review all 28 questions
 
@@ -28,32 +35,35 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 - [T1-2026 FN solutions](../pyqs/t1-2026-fn.md) — attempt + review
 - [T3-2025 FN solutions](../pyqs/t3-2025-fn.md) — attempt + review (the professor's ET-2 walkthrough)
 
-### Day 3 — LLMs + the older paper
+### Day 3 — LLMs + the older paper + writing start
 - [Week 3 — Prompting & LLMs](../weeks/week-3.md) — 20 min
 - [T3-2025 AN solutions](../pyqs/t3-2025-an.md) — attempt + review (contains the RAG block)
 - [ET-1 session](../sessions/et-01.md) — 15 min (the professor's own walkthrough)
+- [Practice: short answers](../practice/short-answers.md) — write the 🟢 easy set (SA-9–16), compare structure
 
 ### Day 4 — New content: RAG + agents
 - [Week 4 — RAG](../weeks/week-4.md) — 18 min
 - [Week 5 — Agents](../weeks/week-5.md) — 18 min
 - [Practice: new topics](../practice/new-topics.md) — attempt all 18 questions
 
-### Day 5 — New content: security + ML
+### Day 5 — New content: security + ML + more writing
 - [Week 7 — Security & automation](../weeks/week-7.md) — 20 min
 - [Week 8 — ML platforms](../weeks/week-8.md) — 15 min
 - [Practice: core patterns](../practice/core-patterns.md) — attempt all 18 questions
+- [Practice: short answers](../practice/short-answers.md) — write SA-17–24 (the reasoning + agent-prompt set)
 
-### Day 6 — Remaining weeks + short answers
+### Day 6 — Remaining weeks + both mocks
 - [Week 6 — Scraping & extraction](../weeks/week-6.md) — 18 min
 - [Week 5 — asyncio section](../weeks/week-5.md#asyncio-the-exams-concurrency-questions) — re-read
-- [Practice: short answers](../practice/short-answers.md) — write all 8, compare structure
+- [Mock ET — subjective half](../mock/subjective.md) — full 40-minute writing simulation + self-score
 - [Bridge course](../weeks/week-bridge.md) — skim if shaky on basics
 
 ### Day 7 — Compress + simulate
 - [All short notes](../revise/index.md) — ~40 min (tick shaky concepts)
 - [Cheat sheet](../topics/cheat-sheet.md) — print it
-- [Mock ET](../mock/index.md) — full 60-minute simulation
+- [Mock ET — objective](../mock/index.md) — full 60-minute simulation
 - Review every mock answer you got wrong → re-read that concept's short note
+- Re-read the [grading guide's common-mistakes section](../exam/llm-grading-guide.md#common-mistakes-that-cost-marks) one last time
 
 ---
 
@@ -81,8 +91,9 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 
 ### Day 5 — Compress + simulate
 - [Short notes (all 6)](../revise/index.md) — 40 min
-- [Practice: short answers](../practice/short-answers.md) — 8 questions
-- [Mock ET](../mock/index.md) — full simulation
+- [Practice: short answers](../practice/short-answers.md) — 12 questions (easy + reasoning sets)
+- [Mock ET — subjective half](../mock/subjective.md) — 40 min, self-score honestly
+- [Mock ET — objective](../mock/index.md) — full simulation
 - Review wrong answers
 
 ---
@@ -109,8 +120,9 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 
 ### Day 4 — Compress + simulate
 - [Short notes (all 6)](../revise/index.md) — 40 min
-- [Practice: short answers](../practice/short-answers.md) — write 4–6
-- [Mock ET](../mock/index.md) — full simulation
+- [Practice: short answers](../practice/short-answers.md) — write 6–8 (include the 🟢 easy set)
+- [Mock ET — subjective half](../mock/subjective.md) — 40 min + self-scoring
+- [Mock ET — objective](../mock/index.md) — full simulation
 - [Cheat sheet](../topics/cheat-sheet.md) — print for tomorrow
 
 ---
@@ -134,8 +146,9 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 ### Day 3 — Compress + simulate
 - [Short notes (all 6)](../revise/index.md) — 40 min
 - [T3-2025 AN](../pyqs/t3-2025-an.md) — the RAG block + any missed sections
-- [Practice: short answers](../practice/short-answers.md) — write 3–4
-- [Mock ET](../mock/index.md) — full simulation
+- [Practice: short answers](../practice/short-answers.md) — write 5–6 (start easy, one agent-prompt question)
+- [Mock ET — subjective half](../mock/subjective.md) — 40 min + self-scoring
+- [Mock ET — objective](../mock/index.md) — full simulation
 
 ---
 
@@ -149,11 +162,12 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 - [T1-2026 AN](../pyqs/t1-2026-an.md) — attempt + review, focus on 🔥⭐ questions
 - [Week 2](../weeks/week-2.md) — skim the coloured boxes + self-check
 
-### Day 2 — More papers + practice + mock
+### Day 2 — More papers + practice + writing
 - [T1-2026 FN](../pyqs/t1-2026-fn.md) — attempt + review
 - [T3-2025 FN](../pyqs/t3-2025-fn.md) — attempt + review
 - [Practice: new topics](../practice/new-topics.md) — RAG + agent questions
-- [Practice: short answers](../practice/short-answers.md) — write 2–3
+- [Practice: short answers](../practice/short-answers.md) — write 4–5, including one agent-prompt question
+- [Mock ET — subjective half](../mock/subjective.md) — if time allows: the 40-min simulation
 - [Cheat sheet](../topics/cheat-sheet.md) — print for tomorrow
 
 ---
@@ -176,7 +190,8 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 - [T1-2026 AN](../pyqs/t1-2026-an.md) — read the answers + reasoning for 🔥⭐ questions (don't attempt, just absorb)
 
 ### Evening (1 hour)
-- [Practice: short answers](../practice/short-answers.md) — read the model answers, memorise the structure
+- [Practice: short answers](../practice/short-answers.md) — read the model answers, memorise the structure (easy set first)
+- [Mock ET — subjective half](../mock/subjective.md) — attempt at least the three 🟢 questions, timed
 - [Cheat sheet](../topics/cheat-sheet.md) — read it twice, print it
 
 ---
@@ -188,5 +203,6 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 - [Cheat sheet](../topics/cheat-sheet.md) — every green box, every trap, every wrong belief
 - The **marks ramp** — remember: no negative marking, answer everything
 - The **short-answer template** — conclusion → bullets → trade-off
+- The **agent-prompt template** — role → context → task → constraints
 - The **task → tool decision table** — 10 rows
 - **Skip** if you see: OpenRefine (excluded), geospatial (dropped), Seaborn (dropped)

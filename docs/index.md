@@ -61,13 +61,14 @@ syllabus, and all 9 graded assignments.
 
 - 🏁 **[What the ET actually looks like](exam/exam-pattern.md)**
 
-    40 marks, no negative marking, the marks ramp, scenario blocks, and what's
-    **excluded** this term. Read this before studying anything.
+    40 marks, no negative marking, ~**half subjective this term** (announced in
+    the final revision session), and the marks ramp. Read this before studying
+    anything.
 
 - 🤖 **[Writing answers an LLM grades well](exam/llm-grading-guide.md)**
 
-    Short-answer questions are new, growing, and graded by an LLM. There is a method,
-    and the professor told you what it rewards.
+    Half the paper is written answers graded by an LLM — the fastest marks to
+    gain. There is a method, and the professor told you what it rewards.
 
 </div>
 
@@ -108,7 +109,8 @@ syllabus, and all 9 graded assignments.
 - 📄 **[PYQ solutions](pyqs/index.md)**
 
     Every question from 4 real papers — original text, the paper's own images,
-    and full reasoning behind every answer.
+    and full reasoning behind every answer. Use them for the **concepts**, not
+    the exact questions — this term's shapes are new.
 
 - 🏋️ **[Practice questions](practice/index.md)**
 

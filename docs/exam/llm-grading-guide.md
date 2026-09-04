@@ -1,8 +1,12 @@
 # How to write answers an LLM grades well
 
-<span class="tx-meta">**~6 min read** · Worth more marks per minute than anything else on this site.</span>
+<span class="tx-meta">**~9 min read** · **Half the paper this term** · The fastest marks to gain on the exam.</span>
 
-Short-answer questions are new (first appeared Jan 2026), they're growing, and they are graded by **an LLM, not a human**. The professor said this explicitly in the ET-2 session — and told you what the grader rewards. This page turns that into a repeatable method.
+About half of this term's end-term is subjective — written answers, graded by **an LLM, not a human**, with no live feedback (submissions are collected, then evaluated afterward, like an ROE). The professor said this explicitly in the ET-2 and ET-3 sessions — and told you what the grader rewards. This page turns that into a repeatable method.
+
+!!! success "Why this page first"
+    Learning this method takes under an hour. Half your exam marks flow through
+    it. No topic you could study in the same hour pays more.
 
 ## What's grading you
 
@@ -112,6 +116,7 @@ Same skeleton works:
 | **Diagnose a failure** | why did it crash / get slow / return wrong data | The root cause in one sentence, then mechanism, then fix |
 | **Improve a design** | make this endpoint reliable, secure, faster | The missing principle (validation, guardrail, cache), then how it applies |
 | **Client questions** | "what 3 follow-up questions would you ask?" | Number them 1-2-3, one sentence of *why each matters* |
+| **Write an agent prompt** | "write the prompt a coding agent needs to solve this" | See the section below — it has its own rules |
 
 !!! info "In the exam"
     The professor specifically flagged the client-scenario shape: *"What are the three
@@ -119,10 +124,126 @@ Same skeleton works:
     testing whether you think about capabilities, constraints, and business context
     before building. Practice this shape in [Practice questions](../practice/index.md).
 
+## The confirmed new format: writing prompts for a coding agent
+
+From ET-3 — this is a **confirmed question type**, not a guess: you'll be given
+a software problem (for example, a buggy script) and asked to **write the
+prompt you'd give a coding agent like Codex to solve it effectively.** The
+prompt itself is your answer.
+
+**What's being tested:** can you translate a problem into clear, complete,
+unambiguous instructions — the same skill as writing for the LLM grader, aimed
+at an LLM *worker* instead.
+
+The professor named the trap himself: a prompt like *"Write this in Python"*
+is too vague. A strong agent prompt carries four blocks:
+
+```text
+1. ROLE      — who the agent is: "You are a Senior Python Developer..."
+2. CONTEXT   — the situation and what's wrong: "This bash script processes
+               log files but has no error handling for missing files."
+3. TASK      — the concrete outcome: "Refactor it into Python."
+4. CONSTRAINTS — the rules the solution must obey: "Use the os module,
+               handle missing input files gracefully, add type hints,
+               keep the output format identical to the original."
+```
+
+!!! example "Worked example — the ET-3 scenario"
+
+    **Given:** a bash script that processes log files. **Write the prompt for a
+    coding agent to refactor it into Python.**
+
+    > You are a Senior Python Developer. I have a bash script that reads every
+    > file in `./logs/`, extracts lines containing "ERROR", and writes them to
+    > `errors.txt`. It has no error handling — a missing input file crashes it,
+    > and a missing `./logs/` directory silently produces an empty output.
+    >
+    > Refactor this into Python with these constraints:
+    >
+    > - Use the `os` and `pathlib` modules for file traversal — no subprocess
+    >   calls to bash
+    > - Handle both failure cases explicitly: log a clear message and exit
+    >   with a non-zero status if `./logs/` is missing; skip and warn on any
+    >   unreadable individual file
+    > - Add type hints on all functions
+    > - Keep the output format identical: same lines, same order, same file name
+    > - Include a `if __name__ == "__main__":` entry point
+
+    **Why this earns the marks:** role ✓, context ✓ (including the *specific*
+    failure modes — that's the reasoning), task ✓, and five *checkable*
+    constraints ✓. The grader's rubric for this question is literally looking
+    for constraints — the professor said so: *"A successful answer must provide
+    constraints."*
+
+### Constraints are where the marks live
+
+The difference between a 2/4 and a 4/4 on these questions is almost always
+**specificity of constraints**. Compare:
+
+| Weak prompt | Strong prompt |
+|---|---|
+| "Use the os module" | "Use `os.scandir()` for traversal — no `subprocess` calls to bash" |
+| "add error handling" | "raise a clear error and exit non-zero if the directory is missing; skip and warn on unreadable files" |
+| "make it testable" | "pure functions for parsing, I/O only in `main()`, so parsing can be unit-tested" |
+
+Each strong version states **what to do, how, and what happens in the failure
+case** — three things a grader can tick.
+
+## The template, condensed
+
+```text
+[CONCLUSION or ROOT CAUSE — one bold line]
+
+- **Reason 1:** <mechanism, not just claim>
+- **Reason 2:** <the thing the question explicitly asked about>
+- **Reason 3:** <the trade-off or edge case>
+
+*Assumption:* <what you're taking as given>
+
+--- for agent prompts, replace the reasons with: ---
+
+[ROLE + CONTEXT — 2-3 lines]
+
+[TASK — one concrete sentence]
+
+Constraints:
+- <specific, checkable rules — 3 to 5 of them>
+- <include failure-case behaviour>
+```
+
+## Common mistakes that cost marks
+
+- 🔴 **The wall of text.** 200 words in one paragraph. Your points exist, but
+  the grader can't find them. Bullets. Always bullets.
+- 🔴 **Answering a different question.** The prompt asked for *payload limits
+  and REST architecture* — if your answer never says "payload" or "URL length,"
+  you're losing marks regardless of quality. Re-read the question for its
+  **nouns** and make sure each one appears in your answer.
+- 🔴 **Vague adjectives instead of mechanisms.** "More secure," "faster,"
+  "better design" — each one is a missed bullet. *Why* is it more secure?
+  Name the mechanism: input exposure in logs, URL length caps, cache leakage.
+- 🔴 **No failure-case thinking.** The professor's recurring theme: what
+  happens when input is empty, the file is missing, the API times out? An
+  answer that covers the happy path only reads as junior.
+- 🔴 **Spending words on restating the question.** "This is a very interesting
+  question about REST APIs..." — the grader is ticking boxes, not being
+  entertained. Open with your conclusion.
+- 🔴 **"Write this in Python" prompts.** For agent-prompt questions, the
+  vagueness is the failure. Constraints, constraints, constraints.
+
+## Practice this, don't just read it
+
+Reading the method is not owning it. Write answers under a timer:
+
+- [Mock-2 (subjective half)](../mock/subjective.md) — 7 questions, 20 marks, 40
+  minutes, self-scoring checklist for each
+- [Short-answer practice](../practice/short-answers.md) — 24 questions with
+  model answers and keyword checklists
+
 ## Why we're confident about this page
 
-Three independent sources agree: the professor's ET-2 session (structure, bullets, keywords), the TA's statement about P2 grading ("we give your answer and the rubric to an LLM"), and the marks pattern inside the Jan papers themselves. The method above is not invented — it's what the graders said they reward.
+Four independent sources agree: the professor's ET-2 session (structure, bullets, keywords), the ET-3 session (the 50% split, the agent-prompt format, "constraints" as the rubric target), the TA's statement about P2 grading ("we give your answer and the rubric to an LLM"), and the marks pattern inside the Jan papers themselves. The method above is not invented — it's what the graders said they reward.
 
 ---
 
-**Next:** [Pick your study plan →](../plan/index.md)
+**Next:** [Practice it on Mock-2 (subjective half) →](../mock/subjective.md)
