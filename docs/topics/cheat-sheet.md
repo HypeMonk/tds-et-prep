@@ -10,7 +10,7 @@
 
 ## The paper
 
-- 40 marks · ~20 questions · **no negative marking — answer everything**
+- **80 marks · 90 minutes** · 30 MCQ/MSQ + 9 written · **no negative marking — answer everything**
 - MCQ + MSQ + numerical + **short answers (LLM-graded)**
 - Marks ramp: 1-mark warm-ups → 2-mark reasoning → 3-mark diagnosis → scenario blocks → SA
 - The big marks are at the END — move briskly through Part 1

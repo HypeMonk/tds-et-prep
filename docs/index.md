@@ -61,14 +61,15 @@ syllabus, and all 9 graded assignments.
 
 - 🏁 **[What the ET actually looks like](exam/exam-pattern.md)**
 
-    40 marks, no negative marking, ~**half subjective this term** (announced in
-    the final revision session), and the marks ramp. Read this before studying
-    anything.
+    **80 marks, 90 minutes** — 30 MCQ/MSQ (39 marks) + 9 written Applied AI
+    Judgment questions (41 marks), no negative marking. Read this before
+    studying anything.
 
 - 🤖 **[Writing answers an LLM grades well](exam/llm-grading-guide.md)**
 
-    Half the paper is written answers graded by an LLM — the fastest marks to
-    gain. There is a method, and the professor told you what it rewards.
+    Section 2 — 41 of 80 marks — is written answers graded offline by an LLM:
+    the fastest marks to gain. There is a method, and the professor told you
+    what it rewards.
 
 </div>
 
@@ -117,10 +118,11 @@ syllabus, and all 9 graded assignments.
     44 new questions: new topics (no PYQ exists), core patterns (fresh scenarios),
     and short-answer practice.
 
-- 🧪 **[Mock ET](mock/index.md)**
+- 🧪 **[Mock-1](mock/mock-1.md) & [Mock-2](mock/mock-2.md)**
 
-    A full 40-mark paper in the real structure — marks ramp, scenario blocks,
-    short answers, and an answer key with review links.
+    Two full papers in the official structure — 80 marks, 90 minutes each:
+    30 MCQ/MSQ + 9 written Applied AI Judgment questions, with answer keys
+    and self-scoring model answers.
 
 - 🧮 **[Grade calculators](calculator/index.md)**
 

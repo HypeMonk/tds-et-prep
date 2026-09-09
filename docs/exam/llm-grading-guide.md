@@ -1,11 +1,11 @@
 # How to write answers an LLM grades well
 
-<span class="tx-meta">**~9 min read** · **Half the paper this term** · The fastest marks to gain on the exam.</span>
+<span class="tx-meta">**~9 min read** · **Section 2: 41 of 80 marks** · The fastest marks to gain on the exam.</span>
 
-About half of this term's end-term is subjective — written answers, graded by **an LLM, not a human**, with no live feedback (submissions are collected, then evaluated afterward, like an ROE). The professor said this explicitly in the ET-2 and ET-3 sessions — and told you what the grader rewards. This page turns that into a repeatable method.
+Section 2 of the end-term — **"Applied AI Judgment"**, 9 questions worth 41 marks — is graded offline by **an LLM, not a human**. The professor said this explicitly in the ET-2 and ET-3 sessions, and the official pattern confirms it. This page turns that into a repeatable method.
 
 !!! success "Why this page first"
-    Learning this method takes under an hour. Half your exam marks flow through
+    Learning this method takes under an hour. 41 of 80 exam marks flow through
     it. No topic you could study in the same hour pays more.
 
 ## What's grading you
@@ -41,9 +41,9 @@ The professor said it directly: structure your answers with bullets and clear he
 
 Professional answers acknowledge cost. Words like *however*, *at the cost of*, *this prevents X but requires Y* signal engineering judgment. (The longest, most trade-off-aware option winning MCQs is the same instinct.)
 
-### 5. Stay under the cap, spend it on points
+### 5. Spend the budget on points
 
-200-word cap, live counter on screen. Aim for 120-170 words of dense, bulleted substance. Padding wastes your exam time and earns nothing.
+~200-word cap per answer, live counter on screen. The official Section 2 questions carry **4–5 marks each** — that's not a 2-mark answer stretched thin, it's **5–7 checkable points**. Aim for 150-200 words of dense, bulleted substance: one bold reason per bullet, each earning its line. Padding wastes your 5-minute-per-question budget and earns nothing.
 
 ## A worked example — a real question
 
@@ -235,8 +235,9 @@ Constraints:
 
 Reading the method is not owning it. Write answers under a timer:
 
-- [Mock-2 (subjective half)](../mock/subjective.md) — 7 questions, 20 marks, 40
-  minutes, self-scoring checklist for each
+- [Mock-1](../mock/mock-1.md) and [Mock-2](../mock/mock-2.md) — full papers:
+  Section 2 in each is 9 questions, 41 marks, ~5 minutes per answer, with
+  self-scoring checklists
 - [Short-answer practice](../practice/short-answers.md) — 24 questions with
   model answers and keyword checklists
 
@@ -246,4 +247,4 @@ Four independent sources agree: the professor's ET-2 session (structure, bullets
 
 ---
 
-**Next:** [Practice it on Mock-2 (subjective half) →](../mock/subjective.md)
+**Next:** [Practice it on Mock-1's Section 2 →](../mock/mock-1.md)

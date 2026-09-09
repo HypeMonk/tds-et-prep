@@ -11,11 +11,11 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
     a 7-day plan you abandon on day 4. Each plan assumes ~3–4 hours of focused
     study per day.
 
-!!! info "This term's paper is ~half subjective"
+!!! info "This term's paper: 41 of 80 marks are written"
     Every plan below now includes **writing practice** — short answers and a
-    Mock-2 (the subjective half) — because about half the marks come from written
-    answers (announced in the [final revision session](../sessions/et-03.md)).
-    Don't skip those steps: the writing method is the fastest half of your
+    timed full mock — because Section 2 (Applied AI Judgment) carries 41 of
+    80 marks ([official structure](../exam/exam-pattern.md)).
+    Don't skip those steps: the writing method is the fastest block of
     marks to secure, and it only becomes yours by doing it.
 
 ---
@@ -25,8 +25,8 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 *Complete coverage. Everything on the site, in priority order.*
 
 ### Day 1 — Know the game + the hottest week
-- [What the ET actually looks like](../exam/exam-pattern.md) — 6 min (includes the new 50/50 split)
-- [How to write answers an LLM grades well](../exam/llm-grading-guide.md) — 9 min (half the paper — read fully)
+- [What the ET actually looks like](../exam/exam-pattern.md) — 6 min (official 80-mark structure)
+- [How to write answers an LLM grades well](../exam/llm-grading-guide.md) — 9 min (41 of 80 marks — read fully)
 - [Week 2 — APIs, deployment](../weeks/week-2.md) — 25 min (the highest PYQ density)
 - [T1-2026 AN solutions](../pyqs/t1-2026-an.md) — attempt + review all 28 questions
 
@@ -55,13 +55,13 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 ### Day 6 — Remaining weeks + both mocks
 - [Week 6 — Scraping & extraction](../weeks/week-6.md) — 18 min
 - [Week 5 — asyncio section](../weeks/week-5.md#asyncio-the-exams-concurrency-questions) — re-read
-- [Mock ET — subjective half](../mock/subjective.md) — full 40-minute writing simulation + self-score
+- [Mock-1](../mock/mock-1.md) — full 80-mark simulation (90 min), self-score both sections
 - [Bridge course](../weeks/week-bridge.md) — skim if shaky on basics
 
 ### Day 7 — Compress + simulate
 - [All short notes](../revise/index.md) — ~40 min (tick shaky concepts)
 - [Cheat sheet](../topics/cheat-sheet.md) — print it
-- [Mock ET — objective](../mock/index.md) — full 60-minute simulation
+- [Mock-2](../mock/mock-2.md) — full 80-mark simulation (90 min)
 - Review every mock answer you got wrong → re-read that concept's short note
 - Re-read the [grading guide's common-mistakes section](../exam/llm-grading-guide.md#common-mistakes-that-cost-marks) one last time
 
@@ -92,8 +92,7 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 ### Day 5 — Compress + simulate
 - [Short notes (all 6)](../revise/index.md) — 40 min
 - [Practice: short answers](../practice/short-answers.md) — 12 questions (easy + reasoning sets)
-- [Mock ET — subjective half](../mock/subjective.md) — 40 min, self-score honestly
-- [Mock ET — objective](../mock/index.md) — full simulation
+- [Mock-1](../mock/mock-1.md) — full 80-mark, 90-minute simulation
 - Review wrong answers
 
 ---
@@ -121,8 +120,7 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 ### Day 4 — Compress + simulate
 - [Short notes (all 6)](../revise/index.md) — 40 min
 - [Practice: short answers](../practice/short-answers.md) — write 6–8 (include the 🟢 easy set)
-- [Mock ET — subjective half](../mock/subjective.md) — 40 min + self-scoring
-- [Mock ET — objective](../mock/index.md) — full simulation
+- [Mock-1](../mock/mock-1.md) — full 80-mark, 90-minute simulation
 - [Cheat sheet](../topics/cheat-sheet.md) — print for tomorrow
 
 ---
@@ -147,8 +145,7 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 - [Short notes (all 6)](../revise/index.md) — 40 min
 - [T3-2025 AN](../pyqs/t3-2025-an.md) — the RAG block + any missed sections
 - [Practice: short answers](../practice/short-answers.md) — write 5–6 (start easy, one agent-prompt question)
-- [Mock ET — subjective half](../mock/subjective.md) — 40 min + self-scoring
-- [Mock ET — objective](../mock/index.md) — full simulation
+- [Mock-1](../mock/mock-1.md) — full 80-mark, 90-minute simulation
 
 ---
 
@@ -167,7 +164,7 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 - [T3-2025 FN](../pyqs/t3-2025-fn.md) — attempt + review
 - [Practice: new topics](../practice/new-topics.md) — RAG + agent questions
 - [Practice: short answers](../practice/short-answers.md) — write 4–5, including one agent-prompt question
-- [Mock ET — subjective half](../mock/subjective.md) — if time allows: the 40-min simulation
+- [Mock-1](../mock/mock-1.md) — if time allows: the 90-minute simulation
 - [Cheat sheet](../topics/cheat-sheet.md) — print for tomorrow
 
 ---
@@ -191,7 +188,7 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 
 ### Evening (1 hour)
 - [Practice: short answers](../practice/short-answers.md) — read the model answers, memorise the structure (easy set first)
-- [Mock ET — subjective half](../mock/subjective.md) — attempt at least the three 🟢 questions, timed
+- [Mock-1](../mock/mock-1.md) — attempt at least Section 2's three 🟢 questions, timed
 - [Cheat sheet](../topics/cheat-sheet.md) — read it twice, print it
 
 ---

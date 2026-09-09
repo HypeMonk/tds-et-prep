@@ -109,8 +109,8 @@ nav:
       - Core patterns: practice/core-patterns.md
       - Short answers: practice/short-answers.md
   - Mock:
-    - mock/index.md
-    - Mock-2 (subjective half): mock/subjective.md
+    - Mock-1 (full paper): mock/mock-1.md
+    - Mock-2 (full paper): mock/mock-2.md
   - Calculator:
     - calculator/index.md
     - Grade estimator (before ET marks): calculator/estimator.md

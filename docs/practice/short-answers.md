@@ -10,6 +10,8 @@ These are **not** real exam questions — they're our practice prompts in the ex
 
 **The template:** Conclusion first → bold-reason bullets → one assumption/trade-off last.
 
+**Depth note:** in the real paper, Section 2 questions carry **4–5 marks each** — heavier than these practice prompts. Build every answer to **5–7 checkable points**, not the minimum, and give yourself ~5 minutes per question. The model answers here show the right density; your job is to reach it consistently.
+
 **The mix:** questions are grouped from comfortable (🟢 one-concept recall with structure) through reasoning (🟡) to hard design work (🔴). If you're new to this, start with the 🟢 set — every question uses the same writing skeleton, so easy questions are still method practice.
 
 ---
@@ -919,6 +921,6 @@ and writes dates in whatever format each source used.
 
 ---
 
-**More practice:** [Mock-2 (subjective half)](../mock/subjective.md) runs the full
-20-mark paper under a 40-minute timer · [core-patterns practice](core-patterns.md)
+**More practice:** [Mock-1](../mock/mock-1.md) and [Mock-2](../mock/mock-2.md) run
+full 80-mark papers under a 90-minute timer · [core-patterns practice](core-patterns.md)
 for the objective shapes · method refresher: [the grading guide](../exam/llm-grading-guide.md).
