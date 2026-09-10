@@ -1,0 +1,2007 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Student-built end-term prep for Tools in Data Science (T2-2026). Exam-pattern-first notes, PYQ solutions with reasoning, and practice questions.">
+      
+      
+      
+      
+        <link rel="prev" href="../week-4/">
+      
+      
+        <link rel="next" href="../week-6/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Week 5 — Agents - TDS ET Prep — May 2026</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-5-agents-async-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-header__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TDS ET Prep — May 2026
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 5 — Agents
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plans
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exam/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../learn/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Learn
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../revise/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Revise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pyqs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Practice
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mock/mock-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mock
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../calculator/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Calculator
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-nav__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    TDS ET Prep — May 2026
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../exam/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../learn/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learn
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learn
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Week notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge course
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 — Tools & fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 — APIs & deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 — Prompting & LLMs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 — RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 — Agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 — Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#asyncio-the-exams-concurrency-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        asyncio — the exam's concurrency questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="asyncio — the exam&#39;s concurrency questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The key terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-gather-arithmetic-know-it-cold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The gather arithmetic — know it cold
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-fundamentals-the-loop-and-the-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent fundamentals — the loop and the parts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent fundamentals — the loop and the parts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parts-that-matter-for-the-exam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The parts that matter for the exam
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-calling-how-agents-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool calling — how agents act
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sandboxing-containing-what-agents-can-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandboxing — containing what agents can break
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-model-context-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP — Model Context Protocol
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-memory-state-across-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent memory — state across steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-agent-systems-when-one-isnt-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-agent systems — when one isn't enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-check-can-you-answer-these-without-looking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-check — can you answer these without looking?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 — Scraping & extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 — Security & automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 — ML platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sessions/et-01/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revision sessions
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../revise/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revise
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../pyqs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../mock/mock-1/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mock
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../calculator/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#asyncio-the-exams-concurrency-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        asyncio — the exam's concurrency questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="asyncio — the exam&#39;s concurrency questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The key terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-gather-arithmetic-know-it-cold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The gather arithmetic — know it cold
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-fundamentals-the-loop-and-the-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent fundamentals — the loop and the parts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent fundamentals — the loop and the parts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parts-that-matter-for-the-exam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The parts that matter for the exam
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-calling-how-agents-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool calling — how agents act
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sandboxing-containing-what-agents-can-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandboxing — containing what agents can break
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-model-context-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP — Model Context Protocol
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-memory-state-across-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent memory — state across steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-agent-systems-when-one-isnt-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-agent systems — when one isn't enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-check-can-you-answer-these-without-looking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-check — can you answer these without looking?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../learn/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Learn
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../week-bridge/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Week notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-5-agents-async-systems">Week 5 — Agents &amp; async systems<a class="headerlink" href="#week-5-agents-async-systems" title="Permanent link">&para;</a></h1>
+<div class="tx-meta">
+<p>~18 min read · Examinable: 🔥 (asyncio is directly asked; agents are new-but-GA-tested) · GA5 · <a href="../../sessions/et-01/">ET-1 session</a></p>
+</div>
+<p>The agent week — the newest frontier with no PYQ history but heavy GA testing. asyncio.gather from here is one of the most reliably repeated exam questions. The agent concepts (tools, guardrails, sandboxes, MCP) are the new content the exam will likely lean on.</p>
+<p>Course files: agent fundamentals · agent evaluation · agent memory · async/parallelism · loop engineering · MCP · multi-agent systems · sandboxing · specialized agents · tool calling.</p>
+<hr />
+<h2 id="asyncio-the-exams-concurrency-questions">asyncio — the exam's concurrency questions<a class="headerlink" href="#asyncio-the-exams-concurrency-questions" title="Permanent link">&para;</a></h2>
+<h3 id="the-key-terms">The key terms<a class="headerlink" href="#the-key-terms" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Simple meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Synchronous</strong></td>
+<td>Finish one task before starting the next</td>
+</tr>
+<tr>
+<td><strong>Asynchronous</strong></td>
+<td>Work on another task while waiting</td>
+</tr>
+<tr>
+<td><strong>Concurrency</strong></td>
+<td>Several tasks make progress during the same period</td>
+</tr>
+<tr>
+<td><strong>Parallelism</strong></td>
+<td>Several tasks run at the exact same time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-gather-arithmetic-know-it-cold">The gather arithmetic — know it cold<a class="headerlink" href="#the-gather-arithmetic-know-it-cold" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">call_api</span><span class="p">(</span><span class="s2">"A"</span><span class="p">),</span> <span class="n">call_api</span><span class="p">(</span><span class="s2">"B"</span><span class="p">),</span> <span class="n">call_api</span><span class="p">(</span><span class="s2">"C"</span><span class="p">))</span>
+</code></pre></div>
+<p><code>asyncio.gather</code> launches all tasks <strong>simultaneously</strong> and returns only when <strong>every task completes</strong>.</p>
+<div class="admonition success">
+<p class="admonition-title">Must remember — the professor's arithmetic</p>
+<p>5 requests: 4 finish in 1 second, 1 takes 10 seconds.
+<strong>Total: 10 seconds</strong> — not 5 (the average), not 1 (the fastest), not 14
+(the sequential sum). Gather is gated by the <strong>slowest</strong> task.</p>
+<p>Concurrency removes the <em>sum</em>, not the <em>max</em>. One slow dependency holds
+everything hostage — which is why production code wraps each call in
+<code>asyncio.wait_for(..., timeout=...)</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trap — the hanging server</p>
+<p>In the scenario version (<a href="../../pyqs/t1-2026-an/#q21-asynciogather-with-a-hanger">T1-AN Q21</a>),
+one downstream node hangs for 60 seconds and the <strong>entire server process
+halts</strong> — gather can't return until every task finishes. The fix is per-call
+timeouts, not "more parallelism."</p>
+</div>
+<div class="tx-anchor">
+<p><strong>Asked in:</strong> <a href="../../pyqs/t1-2026-an/#q21-asynciogather-with-a-hanger">T1-AN Q21 — the hanging server</a> · <a href="../../pyqs/t1-2026-fn/#q7-asynciogather-timing">T1-FN Q7 — the timing question</a> · <a href="../../sessions/et-01/#asynciogather-the-bottleneck-arithmetic">ET-1 session</a></p>
+</div>
+<hr />
+<h2 id="agent-fundamentals-the-loop-and-the-parts">Agent fundamentals — the loop and the parts<a class="headerlink" href="#agent-fundamentals-the-loop-and-the-parts" title="Permanent link">&para;</a></h2>
+<p><strong>What an agent is:</strong> a model that can <strong>choose and use tools repeatedly</strong> to finish a goal. The difference from a chatbot:</p>
+<table>
+<thead>
+<tr>
+<th>Chatbot</th>
+<th>Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One response per turn</td>
+<td>Multiple steps toward a goal</td>
+</tr>
+<tr>
+<td>Returns text</td>
+<td>Can search, calculate, edit, call APIs</td>
+</tr>
+<tr>
+<td>User guides each turn</td>
+<td>Agent chooses the next step</td>
+</tr>
+<tr>
+<td>Low autonomy</td>
+<td>Controlled autonomy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-agent-loop">The agent loop<a class="headerlink" href="#the-agent-loop" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Goal → Decide next step → Use a tool → Observe result → (repeat until done) → Final answer
+</code></pre></div>
+<h3 id="the-parts-that-matter-for-the-exam">The parts that matter for the exam<a class="headerlink" href="#the-parts-that-matter-for-the-exam" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Purpose</th>
+<th>The exam question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Goal</strong></td>
+<td>Defines what "done" means</td>
+<td>"What stops the agent from running forever?"</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Let the agent interact with systems</td>
+<td>"What can the agent actually do?" — LLM06</td>
+</tr>
+<tr>
+<td><strong>Rules</strong></td>
+<td>Limit permissions, steps, time, cost</td>
+<td>"What's the budget/loop guardrail?" — GA5</td>
+</tr>
+<tr>
+<td><strong>Verifier</strong></td>
+<td>Checks whether the result is correct</td>
+<td>"How do you know it worked?"</td>
+</tr>
+</tbody>
+</table>
+<p>→ GA5: <code>agent-tool-guardrail-server</code>, <code>agent-budget-loop-guardrail-server</code></p>
+<hr />
+<h2 id="tool-calling-how-agents-act">Tool calling — how agents act<a class="headerlink" href="#tool-calling-how-agents-act" title="Permanent link">&para;</a></h2>
+<p><strong>What it is:</strong> the model outputs a structured request to use a tool ("search for X", "run this SQL"), your code executes it, and the result goes back to the model.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"search"</span><span class="p">,</span> <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Search the knowledge base"</span><span class="p">,</span> <span class="s2">"parameters"</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}},</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"calculator"</span><span class="p">,</span> <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Evaluate a math expression"</span><span class="p">,</span> <span class="s2">"parameters"</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}},</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">]</span>
+</code></pre></div>
+<p><strong>The security principle from W7 applies here:</strong> tools should be <strong>allow-listed</strong> (deny by default) and destructive actions should require human approval. An agent that can <code>send_email</code> unsupervised is LLM06 — Excessive Agency.</p>
+<p>→ GA5: <code>agent-tool-guardrail-server</code></p>
+<hr />
+<h2 id="sandboxing-containing-what-agents-can-break">Sandboxing — containing what agents can break<a class="headerlink" href="#sandboxing-containing-what-agents-can-break" title="Permanent link">&para;</a></h2>
+<p><strong>The problem:</strong> an agent that executes code or browses the web can damage your system, exfiltrate data, or get exploited.</p>
+<p><strong>The solution:</strong> run the agent's actions in a <strong>sandbox</strong> — an isolated environment where the worst it can do is contained:</p>
+<table>
+<thead>
+<tr>
+<th>Sandbox type</th>
+<th>What it isolates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Container</strong> (Docker)</td>
+<td>Filesystem, processes, network</td>
+</tr>
+<tr>
+<td><strong>VM</strong></td>
+<td>The entire OS</td>
+</tr>
+<tr>
+<td><strong>LXC</strong></td>
+<td>Lightweight container isolation</td>
+</tr>
+<tr>
+<td><strong>Cloud sandbox</strong></td>
+<td>Ephemeral, auto-destroyed</td>
+</tr>
+</tbody>
+</table>
+<p>→ GA5: <code>lxd-sandbox-live-server</code></p>
+<hr />
+<h2 id="mcp-model-context-protocol">MCP — Model Context Protocol<a class="headerlink" href="#mcp-model-context-protocol" title="Permanent link">&para;</a></h2>
+<p><strong>What it is:</strong> a standard protocol for connecting LLMs to external tools and data sources. Instead of writing custom integrations for every tool, MCP provides a common interface.</p>
+<p><strong>The exam angle:</strong> MCP appears in GA5's <code>mcp-server-live-server</code> — know that it's the <strong>standardized way agents connect to tools</strong>, the "USB-C of AI integrations."</p>
+<hr />
+<h2 id="agent-memory-state-across-steps">Agent memory — state across steps<a class="headerlink" href="#agent-memory-state-across-steps" title="Permanent link">&para;</a></h2>
+<p>Agents need to remember what they've done:</p>
+<table>
+<thead>
+<tr>
+<th>Memory type</th>
+<th>What it holds</th>
+<th>Lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Working memory</strong></td>
+<td>Current task, recent results</td>
+<td>One session</td>
+</tr>
+<tr>
+<td><strong>Episodic memory</strong></td>
+<td>Past interactions, what worked</td>
+<td>Across sessions</td>
+</tr>
+<tr>
+<td><strong>Semantic memory</strong></td>
+<td>Knowledge, facts, learned patterns</td>
+<td>Persistent</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The exam connection:</strong> memory is what makes an agent <em>not</em> repeat the same failed approach — it observes, remembers, and tries differently.</p>
+<hr />
+<h2 id="multi-agent-systems-when-one-isnt-enough">Multi-agent systems — when one isn't enough<a class="headerlink" href="#multi-agent-systems-when-one-isnt-enough" title="Permanent link">&para;</a></h2>
+<p><strong>The pattern:</strong> split a complex goal across multiple agents, each with a specialised role:</p>
+<ul>
+<li><strong>Router</strong> — sends each request to the right specialist</li>
+<li><strong>Workers</strong> — each handles one type of task</li>
+<li><strong>Coordinator</strong> — combines results into a final answer</li>
+</ul>
+<p><strong>The exam angle:</strong> this connects to the API gateway pattern (<a href="../../pyqs/t1-2026-fn/#q26-who-routes-the-request">T1-FN Q26–28</a>) — centralized routing, specialized backends, one entry point. Same architecture, different layer.</p>
+<hr />
+<h2 id="self-check-can-you-answer-these-without-looking">Self-check — can you answer these without looking?<a class="headerlink" href="#self-check-can-you-answer-these-without-looking" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. asyncio.gather runs 5 tasks: 4 take 1s, 1 takes 10s. Total time?</summary>
+<p><strong>10 seconds.</strong> Gather waits for the slowest — concurrency replaces the sum
+with the max, but the max is still the ceiling.</p>
+</details>
+<details class="question">
+<summary>2. What's the difference between a chatbot and an agent?</summary>
+<p>A chatbot produces one response per turn. An agent <strong>chooses and uses tools
+repeatedly</strong> to finish a goal — decide, act, observe, repeat.</p>
+</details>
+<details class="question">
+<summary>3. Why do agents need guardrails on their tool access?</summary>
+<p>Without limits, an agent can take destructive actions unsupervised (LLM06 —
+Excessive Agency). Allow-list tools by default; require human approval for
+destructive ones.</p>
+</details>
+<details class="question">
+<summary>4. What is sandboxing and why does it matter for agents?</summary>
+<p>Running agent actions in an <strong>isolated environment</strong> (container, VM) so the
+worst a compromised agent can do is contained — it can't damage your host
+system or exfiltrate data.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.path", "navigation.prune", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tooltips", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/focus.js"></script>
+      
+        <script src="../../javascripts/grade-calc.js"></script>
+      
+    
+  </body>
+</html>

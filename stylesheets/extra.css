@@ -1,0 +1,596 @@
+/* TDS ET Prep — custom polish on top of Material */
+
+/* ---- print/PDF button on the cheat sheet ---- */
+.tx-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0 0 1.5em;
+  background: #ede7f6;
+  color: #4527a0;
+  border: 1px solid #9575cd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.tx-print-btn:hover {
+  background: #d1c4e9;
+}
+
+/* ---- print styles: clean PDF output ---- */
+@media print {
+  /* hide everything that isn't the content */
+  .md-sidebar, .md-tabs, .md-header, .md-footer, .md-nav,
+  #focus-toggle, .tx-print-btn, .md-top {
+    display: none !important;
+  }
+  .md-main {
+    padding: 0 !important;
+  }
+  .md-content {
+    max-width: 100% !important;
+  }
+  .md-typeset {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  /* keep the coloured boxes printing in colour */
+  .md-typeset .admonition {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #999;
+  }
+  /* tables print with borders */
+  .md-typeset table {
+    break-inside: avoid;
+    border-collapse: collapse;
+  }
+  .md-typeset table th,
+  .md-typeset table td {
+    border: 1px solid #999;
+    padding: 0.3em 0.5em;
+  }
+  /* collapsible sections expand for printing */
+  .md-typeset details {
+    display: block !important;
+  }
+  .md-typeset details > summary {
+    display: none;
+  }
+  .md-typeset details > .tabbed-content,
+  .md-typeset details > div {
+    display: block !important;
+  }
+  /* page breaks between major sections */
+  .md-typeset h2 {
+    break-before: auto;
+    break-after: avoid;
+  }
+  /* avoid orphaned headings */
+  .md-typeset h2, .md-typeset h3 {
+    break-after: avoid;
+  }
+  /* links show their target in print */
+  .md-typeset a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  /* internal links don't need the URL */
+  .md-typeset a[href^="/"]::after,
+  .md-typeset a[href^="../"]::after,
+  .md-typeset a[href^="#"]::after {
+    content: "";
+  }
+}
+body.focus-mode .md-sidebar--primary,
+body.focus-mode .md-sidebar--secondary {
+  display: none;
+}
+body.focus-mode .md-grid {
+  max-width: 52rem;
+}
+body.focus-mode .md-tabs {
+  display: none;
+}
+
+#focus-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  transition: opacity 150ms ease;
+}
+#focus-toggle:hover { opacity: 1; }
+
+/* ---- reading rhythm ---- */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+/* headings: hard-coded colours — Material paints h1 grey by default and
+   variable chains proved unreliable; hex values cannot fail */
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1a1a2e !important;
+}
+.md-typeset h2 {
+  margin-top: 3.2em;
+  margin-bottom: 1em;
+  font-weight: 700;
+  color: #4527a0 !important;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid #673ab7;
+}
+.md-typeset h3 {
+  margin-top: 2.4em;
+  margin-bottom: 0.8em;
+  font-weight: 600;
+  color: #1a1a2e !important;
+}
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #e0e0e0 !important;
+}
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: #b39ddb !important;
+  border-bottom-color: #9575cd;
+}
+/* breathing room between topic blocks */
+.md-typeset hr {
+  margin: 2.8em 0;
+  border-top: 1px dashed var(--md-default-fg-color--lighter);
+}
+
+/* ---- the colored boxes get a touch more presence ---- */
+.md-typeset .admonition {
+  border-radius: 6px;
+  border-left-width: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  font-size: 0.86em;
+}
+.md-typeset .admonition-title {
+  font-weight: 600;
+}
+
+/* ---- tables ---- */
+.md-typeset table:not([class]) {
+  font-size: 0.84em;
+}
+.md-typeset table:not([class]) th {
+  background: var(--md-code-bg-color, rgba(0,0,0,0.04));
+}
+
+/* ---- homepage hero ---- */
+.tx-hero {
+  text-align: center;
+  padding: 2.2rem 0 1.4rem;
+}
+.tx-hero h1 {
+  margin-bottom: 0.1em;
+  font-size: 2.7rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  /* solid color — always visible in every browser; the style lives in the accent bar */
+  color: var(--md-primary-fg-color);
+}
+/* the gradient accent bar under the headline: the palette's arc, rendered as
+   decoration instead of inside the text (gradient text goes invisible when a
+   browser mishandles background-clip) */
+.tx-hero h1::after {
+  content: "";
+  display: block;
+  width: 7rem;
+  height: 6px;
+  border-radius: 3px;
+  margin: 0.4em auto 0;
+  background: linear-gradient(90deg, var(--md-primary-fg-color) 0%, #d81b60 55%, #ff8f00 100%);
+}
+.tx-hero .tx-sub {
+  color: var(--md-typeset-color);
+  opacity: 0.75;
+  font-size: 1.05em;
+  max-width: 44ch;
+  margin: 0.9em auto 0;
+}
+/* pill badges under the headline */
+.tx-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1.1em 0 0.4em;
+}
+.tx-badges span {
+  display: inline-block;
+  padding: 0.22rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--md-typeset-color);
+  opacity: 0.85;
+}
+.tx-badges span.tx-hot {
+  border-color: #ff8f00;
+  color: #ff8f00;
+  opacity: 1;
+}
+
+/* ---- read-time meta bar at the top of pages ---- */
+.tx-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.5rem 0.9rem;
+  margin: -0.4em 0 2.2em;
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.045));
+  border-left: 3px solid var(--md-primary-fg-color);
+  border-radius: 0 5px 5px 0;
+  font-size: 0.8rem;
+}
+.tx-meta strong {
+  font-weight: 600;
+}
+
+/* ---- PYQ anchor bar — "asked in N places" ---- */
+.tx-anchor {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  margin: 1em 0 1.6em;
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.045));
+  border-radius: 0 5px 5px 0;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
+[data-md-color-scheme="slate"] .tx-anchor {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+/* ---- MCQ question cards ---- */
+.tx-question {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 4px solid var(--md-primary-fg-color);
+  border-radius: 6px;
+  padding: 0.9rem 1.2rem 0.7rem;
+  margin: 1em 0 0.6em;
+}
+.tx-question .tx-qmeta {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  margin: 0 0 0.5em;
+}
+.tx-question > p {
+  font-weight: 500;
+}
+/* options: lettered, no bullets, roomy */
+.tx-question ul {
+  list-style: none;
+  padding-left: 0.25rem;
+  margin: 0.7em 0 0.3em;
+}
+.tx-question ul li {
+  margin: 0.35em 0;
+  padding-left: 1.7rem;
+  text-indent: -1.7rem;
+}
+.tx-question ul li strong:first-child {
+  color: var(--md-primary-fg-color);
+}
+/* the exam's scenario passages */
+.tx-scenario {
+  border: 1px dashed var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  padding: 0.8rem 1.2rem;
+  margin: 1em 0;
+  opacity: 0.92;
+}
+/* code snippets from the actual paper: render inline at text height */
+.tx-question img,
+.tx-scenario img {
+  height: 1.5em;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+/* multi-line images (Dockerfiles, code blocks) render at natural size */
+.tx-question img.tx-full,
+.tx-scenario img.tx-full {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0.6em auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+}
+
+/* ---- grade estimator / calculator ---- */
+.tx-calc {
+  margin: 1.2em 0;
+}
+/* fixed 3-column grid: 5-6 fields fall into tidy rows */
+.tx-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem 1rem;
+  margin: 1em 0;
+}
+@media (max-width: 600px) {
+  .tx-calc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.tx-calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+/* labels echo the table headers: small caps with a touch of the primary */
+.tx-calc-field span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--md-primary-fg-color);
+}
+.tx-calc-field small {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 0.65;
+}
+.tx-calc-field input {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--md-typeset-color);
+  background: var(--md-default-bg-color);
+  border: 1.5px solid var(--md-default-fg-color--lighter);
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+/* cleaner boxes without the browser's number spinners */
+.tx-calc-field input::-webkit-outer-spin-button,
+.tx-calc-field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.tx-calc-field input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.tx-calc-field input::placeholder {
+  font-weight: 400;
+  opacity: 0.45;
+}
+.tx-calc-field input:focus {
+  outline: none;
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 3px rgba(103, 58, 183, 0.18);
+}
+.tx-calc-field input.tx-bad {
+  border-color: #c62828;
+  background: rgba(198, 40, 40, 0.08);
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+}
+.tx-calc-note {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+.tx-calc-warn {
+  color: #c62828;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.6em 0;
+}
+[data-md-color-scheme="slate"] .tx-calc-warn {
+  color: #e57373;
+}
+.tx-calc-out {
+  margin-top: 1.2em;
+}
+.tx-calc-summary {
+  padding: 0.8rem 1.1rem;
+  border-left: 4px solid var(--md-primary-fg-color);
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.045));
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 1em 0;
+}
+[data-md-color-scheme="slate"] .tx-calc-summary {
+  background: rgba(255, 255, 255, 0.055);
+}
+/* the big grade verdict */
+.tx-grade-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.1rem 1.4rem;
+  margin: 1em 0;
+  border-radius: 8px;
+  background: #ede7f6;
+  border: 1px solid #9575cd;
+  line-height: 1.5;
+}
+.tx-grade-banner .tx-grade-letter {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #4527a0;
+  line-height: 1;
+}
+.tx-grade-banner.tx-fail {
+  background: #ffebee;
+  border-color: #ef9a9a;
+}
+.tx-grade-banner.tx-fail .tx-grade-letter {
+  color: #c62828;
+}
+[data-md-color-scheme="slate"] .tx-grade-banner {
+  background: rgba(149, 117, 205, 0.12);
+}
+[data-md-color-scheme="slate"] .tx-grade-banner .tx-grade-letter {
+  color: #b39ddb;
+}
+[data-md-color-scheme="slate"] .tx-grade-banner.tx-fail {
+  background: rgba(239, 154, 154, 0.1);
+}
+[data-md-color-scheme="slate"] .tx-grade-banner.tx-fail .tx-grade-letter {
+  color: #ef9a9a;
+}
+/* verdict chips in the estimator table */
+.tx-chip {
+  display: inline-block;
+  padding: 0.14rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.tx-chip-ok {
+  background: rgba(46, 125, 50, 0.12);
+  color: #2e7d32;
+}
+.tx-chip-mid {
+  background: rgba(230, 81, 0, 0.12);
+  color: #ef6c00;
+}
+.tx-chip-no {
+  background: rgba(198, 40, 40, 0.12);
+  color: #c62828;
+}
+[data-md-color-scheme="slate"] .tx-chip-ok {
+  color: #81c784;
+}
+[data-md-color-scheme="slate"] .tx-chip-mid {
+  color: #ffb74d;
+}
+[data-md-color-scheme="slate"] .tx-chip-no {
+  color: #e57373;
+}
+/* the submit button */
+.tx-calc-go {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  margin: 0.4em 0 0.8em;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border: none;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+.tx-calc-go:hover {
+  opacity: 0.92;
+}
+.tx-calc-go:active {
+  transform: translateY(1px);
+}
+/* "inputs changed" hint after an edit */
+.tx-calc-stale {
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.7;
+  margin: 0.4em 0;
+}
+/* result tables: full-width, aligned numbers, real borders */
+.tx-calc table {
+  width: 100%;
+  font-size: 0.88em;
+  border-collapse: collapse;
+}
+.tx-calc table th {
+  text-align: left;
+  padding: 0.45rem 0.7rem;
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.045));
+  border-bottom: 2px solid var(--md-default-fg-color--lighter);
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+[data-md-color-scheme="slate"] .tx-calc table th {
+  background: rgba(255, 255, 255, 0.07);
+}
+.tx-calc table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.tx-calc td.tx-num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+/* verdict-tinted rows: green secured / amber achievable / red out of reach —
+   tint + a solid left edge so the verdict reads even on dim screens */
+.tx-calc tr.tx-row-ok td {
+  background: rgba(46, 125, 50, 0.16);
+}
+.tx-calc tr.tx-row-ok td:first-child {
+  border-left: 4px solid #2e7d32;
+}
+.tx-calc tr.tx-row-mid td {
+  background: rgba(230, 81, 0, 0.15);
+}
+.tx-calc tr.tx-row-mid td:first-child {
+  border-left: 4px solid #ef6c00;
+}
+.tx-calc tr.tx-row-no td {
+  background: rgba(198, 40, 40, 0.13);
+}
+.tx-calc tr.tx-row-no td:first-child {
+  border-left: 4px solid #c62828;
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-ok td {
+  background: rgba(46, 125, 50, 0.28);
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-mid td {
+  background: rgba(230, 81, 0, 0.25);
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-no td {
+  background: rgba(198, 40, 40, 0.22);
+}
+/* the total row in the grader breakdown */
+.tx-calc tr.tx-row-total td {
+  background: rgba(103, 58, 183, 0.16);
+  border-top: 2px solid #673ab7;
+  border-bottom: none;
+}
+.tx-calc tr.tx-row-total td:first-child {
+  border-left: 4px solid #673ab7;
+}
+[data-md-color-scheme="slate"] .tx-calc tr.tx-row-total td {
+  background: rgba(149, 117, 205, 0.28);
+}

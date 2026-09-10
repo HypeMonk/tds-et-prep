@@ -1,0 +1,2142 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Student-built end-term prep for Tools in Data Science (T2-2026). Exam-pattern-first notes, PYQ solutions with reasoning, and practice questions.">
+      
+      
+      
+      
+        <link rel="prev" href="../week-2/">
+      
+      
+        <link rel="next" href="../week-4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Week 3 — Prompting & LLMs - TDS ET Prep — May 2026</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-3-prompt-engineering-llm-fundamentals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-header__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TDS ET Prep — May 2026
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 3 — Prompting & LLMs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plans
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exam/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../learn/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Learn
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../revise/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Revise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pyqs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Practice
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mock/mock-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mock
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../calculator/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Calculator
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-nav__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    TDS ET Prep — May 2026
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../exam/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../learn/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learn
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learn
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Week notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge course
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 — Tools & fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 — APIs & deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 — Prompting & LLMs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 — Prompting & LLMs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-anatomy-the-structure-the-exam-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt anatomy — the structure the exam tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-vs-user-prompts-the-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System vs user prompts — the hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structured-outputs-guaranteed-json-from-an-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured Outputs — guaranteed JSON from an LLM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structured Outputs — guaranteed JSON from an LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-outputs-vs-python-validation-the-exams-sharpest-distinction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured Outputs vs Python validation — the exam's sharpest distinction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-enforcement-chain-worth-memorizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The enforcement chain (worth memorizing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-api-calls-the-production-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM API calls — the production questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLM API calls — the production questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-http-verb-post-not-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The HTTP verb: POST, not GET
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-and-scale-awareness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost and scale awareness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-division-of-labour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The division of labour
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-discipline-for-llm-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability discipline for LLM systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-embeddings-the-foundation-for-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector embeddings — the foundation for RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-search-finding-the-nearest-neighbours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Similarity search — finding the nearest neighbours
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-engineering-managing-the-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context engineering — managing the window
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching-saving-money-on-repeated-prefixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt caching — saving money on repeated prefixes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-check-can-you-answer-these-without-looking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-check — can you answer these without looking?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 — RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 — Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 — Scraping & extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 — Security & automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 — ML platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sessions/et-01/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revision sessions
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../revise/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revise
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../pyqs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../mock/mock-1/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mock
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../calculator/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-anatomy-the-structure-the-exam-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt anatomy — the structure the exam tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-vs-user-prompts-the-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System vs user prompts — the hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structured-outputs-guaranteed-json-from-an-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured Outputs — guaranteed JSON from an LLM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structured Outputs — guaranteed JSON from an LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-outputs-vs-python-validation-the-exams-sharpest-distinction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured Outputs vs Python validation — the exam's sharpest distinction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-enforcement-chain-worth-memorizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The enforcement chain (worth memorizing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-api-calls-the-production-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM API calls — the production questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLM API calls — the production questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-http-verb-post-not-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The HTTP verb: POST, not GET
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-and-scale-awareness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost and scale awareness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-division-of-labour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The division of labour
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-discipline-for-llm-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability discipline for LLM systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-embeddings-the-foundation-for-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector embeddings — the foundation for RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-search-finding-the-nearest-neighbours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Similarity search — finding the nearest neighbours
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-engineering-managing-the-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context engineering — managing the window
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching-saving-money-on-repeated-prefixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt caching — saving money on repeated prefixes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-check-can-you-answer-these-without-looking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-check — can you answer these without looking?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../learn/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Learn
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../week-bridge/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Week notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-3-prompt-engineering-llm-fundamentals">Week 3 — Prompt engineering &amp; LLM fundamentals<a class="headerlink" href="#week-3-prompt-engineering-llm-fundamentals" title="Permanent link">&para;</a></h1>
+<div class="tx-meta">
+<p>~20 min read · Examinable: 🔥🔥 (structured outputs, system prompts — asked + growing) · GA3 · <a href="../../sessions/et-01/">ET-1 session</a></p>
+</div>
+<p>The week on making LLMs do what you want reliably. The exam cares about three things from here: <strong>prompt anatomy, system vs user prompts, and structured outputs</strong>. Everything else (embeddings, similarity search, prompt caching) feeds Week 4's RAG.</p>
+<p>Course files: prompt engineering (3 parts) · AI coding assistants · context engineering · LangSmith/LiteLLM · LLM architecture survey · LLM CLI tools · multimodal inputs · prompt caching · similarity search · structured output · vector embeddings.</p>
+<hr />
+<h2 id="prompt-anatomy-the-structure-the-exam-tests">Prompt anatomy — the structure the exam tests<a class="headerlink" href="#prompt-anatomy-the-structure-the-exam-tests" title="Permanent link">&para;</a></h2>
+<p>A good prompt answers the model's hidden questions before it asks them:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Bad prompt  = vague wish
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Good prompt = task + context + constraints + output format + examples when needed
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>The model's hidden question</th>
+<th>What you provide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What is the task?</td>
+<td>Explain, summarize, classify, extract, rewrite</td>
+</tr>
+<tr>
+<td>Who is the audience?</td>
+<td>Beginner, developer, manager, examiner</td>
+</tr>
+<tr>
+<td>What context matters?</td>
+<td>Source text, data, scenario, goal</td>
+</tr>
+<tr>
+<td>What should output look like?</td>
+<td>Markdown, table, JSON, bullets, code</td>
+</tr>
+<tr>
+<td>What should be avoided?</td>
+<td>Hallucination, extra prose, unsupported claims</td>
+</tr>
+<tr>
+<td>How will quality be judged?</td>
+<td>Rubric, examples, acceptance criteria</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">The exam connection</p>
+<p><a href="../../pyqs/t3-2025-an/#q29-designing-the-prompt">T3-AN Q29</a> asks exactly this:
+which prompt structure is most effective for sentiment classification?
+The answer is the one with <strong>clear instructions + specified output format +
+separated input data</strong> — the anatomy above.</p>
+</div>
+<hr />
+<h2 id="system-vs-user-prompts-the-hierarchy">System vs user prompts — the hierarchy<a class="headerlink" href="#system-vs-user-prompts-the-hierarchy" title="Permanent link">&para;</a></h2>
+<p>LLMs take input in <strong>two roles</strong>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>System prompt (developer)</th>
+<th>User prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carries</td>
+<td>Core operational rules, safety constraints, identity</td>
+<td>The transient question or task</td>
+</tr>
+<tr>
+<td>Set by</td>
+<td>The developer</td>
+<td>The end user</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td><strong>Higher</strong> — the model obeys it more diligently</td>
+<td>Lower — subordinate to system rules</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Must remember — why the hierarchy exists</p>
+<p>LLMs are mathematically tuned to assign <strong>significantly higher attention
+weights to system prompts</strong>. This ensures the model adheres to its core
+operational rules <strong>even if a user tries to override them</strong> — which is the
+structural defense against prompt injection.</p>
+<p>A user typing "ignore previous instructions" in the user prompt cannot easily
+override rules set in the system prompt — the model weighs the system prompt
+more heavily by design.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trap — what role separation does NOT do</p>
+<p>It doesn't <em>block</em> users from typing forbidden words (that's input filtering),
+and it doesn't make the model incapable of error. It makes the model <strong>more
+resistant</strong> to override attempts — a defense layer, not a wall.</p>
+</div>
+<div class="tx-anchor">
+<p><strong>Asked in:</strong> <a href="../../pyqs/t1-2026-an/#q23-defending-the-llm-from-the-input-field">T1-AN Q23 — defending the LLM from injection</a> · <a href="../../pyqs/t1-2026-fn/#q15-system-vs-user-prompts">T1-FN Q15 — why the separation works</a> · <a href="../../sessions/et-01/">ET-1 session</a></p>
+</div>
+<hr />
+<h2 id="structured-outputs-guaranteed-json-from-an-llm">Structured Outputs — guaranteed JSON from an LLM<a class="headerlink" href="#structured-outputs-guaranteed-json-from-an-llm" title="Permanent link">&para;</a></h2>
+<p><strong>The problem:</strong> LLMs return free-form text. Your application needs typed, validated data — a JSON object with specific fields, or your parser crashes.</p>
+<p><strong>The wrong fix:</strong> regex parsing, string splitting, "hoping the model formats it correctly." Brittle — breaks on every model update.</p>
+<p><strong>The right fix:</strong> Structured Outputs (via Instructor + Pydantic, or the API's native constraint parameter). You define a schema; the LLM fills it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Movie</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">year</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">rating</span><span class="p">:</span> <span class="nb">float</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># The LLM returns a typed Movie object — not a string to parse</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">movie</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="o">...</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">response_model</span><span class="o">=</span><span class="n">Movie</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">movie</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>  <span class="c1"># 2014 (int, not string!)</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">What Structured Outputs guarantees — and what it doesn't</p>
+<p><strong>Guaranteed:</strong> the output is valid against your schema. The model's token
+generation is <em>constrained</em> at the sampling level — it cannot produce JSON
+that violates the schema.</p>
+<p><strong>NOT guaranteed:</strong> factual accuracy. The model can still be wrong about the
+content — it's just grammatically correct. A hallucinated movie title in
+valid JSON is still a hallucination.</p>
+<p>→ <a href="../../pyqs/t1-2026-an/#q20-what-structured-outputs-guarantees">T1-AN Q20</a></p>
+</div>
+<h3 id="structured-outputs-vs-python-validation-the-exams-sharpest-distinction">Structured Outputs vs Python validation — the exam's sharpest distinction<a class="headerlink" href="#structured-outputs-vs-python-validation-the-exams-sharpest-distinction" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title">The one-sentence difference</p>
+<p><strong>Structured Outputs constrains token generation</strong> (invalid JSON cannot be
+produced). <strong>Python validation detects errors after generation</strong> (the model
+produced bad JSON, your code catches it). Prevention vs detection — different
+layers, both belong in a real system.</p>
+<p>→ <a href="../../pyqs/t1-2026-fn/#q22-structured-outputs-vs-python-validation">T1-FN Q22</a></p>
+</div>
+<h3 id="the-enforcement-chain-worth-memorizing">The enforcement chain (worth memorizing)<a class="headerlink" href="#the-enforcement-chain-worth-memorizing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1. Pin the format in the prompt     → "Respond with exactly one word: positive, negative, or neutral"
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2. Validate the response             → try: parse JSON, check fields
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>3. Escalate to Structured Outputs    → when it must never break
+</code></pre></div>
+<p><a href="../../pyqs/t3-2025-an/#q31-inconsistent-output-formats">T3-AN Q31</a> tests step 1; <a href="../../pyqs/t1-2026-an/#q20-what-structured-outputs-guarantees">T1-AN Q20</a> tests step 3.</p>
+<div class="tx-anchor">
+<p><strong>Asked in 4 places:</strong> <a href="../../pyqs/t1-2026-an/#q20-what-structured-outputs-guarantees">T1-AN Q20 — what it guarantees</a> · <a href="../../pyqs/t1-2026-fn/#q22-structured-outputs-vs-python-validation">T1-FN Q22 — vs Python validation</a> · <a href="../../pyqs/t1-2026-fn/#q20-the-malformed-json-crash">T1-FN Q20 — the malformed JSON crash</a> · <a href="../../pyqs/t3-2025-an/#q31-inconsistent-output-formats">T3-AN Q31 — enforcing format in prompts</a> · GA3</p>
+</div>
+<hr />
+<h2 id="llm-api-calls-the-production-questions">LLM API calls — the production questions<a class="headerlink" href="#llm-api-calls-the-production-questions" title="Permanent link">&para;</a></h2>
+<h3 id="the-http-verb-post-not-get">The HTTP verb: POST, not GET<a class="headerlink" href="#the-http-verb-post-not-get" title="Permanent link">&para;</a></h3>
+<p>LLM inference <em>processes</em> submitted data — that's POST by REST semantics. The payload (review text, question, document) goes in the <strong>request body</strong>, not the URL. GET is for retrieval without side effects.</p>
+<p>→ <a href="../../pyqs/t3-2025-an/#q28-the-http-verb-for-the-llm-call">T3-AN Q28</a> — asked as a one-mark MCQ here, and as a 2-mark short answer in <a href="../../pyqs/t1-2026-fn/#q25-get-or-post">T1-FN Q25</a></p>
+<h3 id="cost-and-scale-awareness">Cost and scale awareness<a class="headerlink" href="#cost-and-scale-awareness" title="Permanent link">&para;</a></h3>
+<p>500 reviews at $0.002 each = $1.00 and ~17 minutes sequential. The professional approach:</p>
+<ul>
+<li><strong>Batch</strong> — respect rate limits, group efficiently</li>
+<li><strong>Track costs</strong> — it's real money; monitor spend per run</li>
+<li><strong>Handle errors</strong> — retries with backoff, fallbacks</li>
+<li><strong>Cache results</strong> — identical input → stored output, never pay twice</li>
+</ul>
+<p>→ <a href="../../pyqs/t3-2025-an/#q30-cost-and-scale-awareness">T3-AN Q30</a></p>
+<h3 id="the-division-of-labour">The division of labour<a class="headerlink" href="#the-division-of-labour" title="Permanent link">&para;</a></h3>
+<p>The LLM judges each item; <strong>your code does the math.</strong> Asking the LLM to count or calculate re-introduces hallucination into a step that should be exact. The model returns verdicts; pandas sums them.</p>
+<p>→ <a href="../../pyqs/t3-2025-an/#q32-computing-the-percentage">T3-AN Q32</a></p>
+<div class="tx-anchor">
+<p><strong>Asked in:</strong> <a href="../../pyqs/t3-2025-an/#q28-the-http-verb-for-the-llm-call">T3-AN Q28 — the HTTP verb</a> · <a href="../../pyqs/t3-2025-an/#q30-cost-and-scale-awareness">T3-AN Q30 — cost and scale</a> · <a href="../../pyqs/t3-2025-an/#q32-computing-the-percentage">T3-AN Q32 — the percentage</a> · <a href="../../pyqs/t1-2026-fn/#q25-get-or-post">T1-FN Q25 — GET vs POST SA</a> · GA3</p>
+</div>
+<hr />
+<h2 id="reliability-discipline-for-llm-systems">Reliability discipline for LLM systems<a class="headerlink" href="#reliability-discipline-for-llm-systems" title="Permanent link">&para;</a></h2>
+<p><em>On the official topic list: Reliable AI/LLM Systems.</em></p>
+<p>The official topic names four disciplines. The first two have their full treatment here; the last two link out.</p>
+<p><strong>1. Verifying AI-generated output before trusting it.</strong> LLM output is <em>evidence</em>, not truth — it needs the same skepticism as a stranger's claim. The verification ladder, cheapest first:</p>
+<ul>
+<li><strong>Schema validation</strong> — the output parses and has the required fields (structured outputs guarantee this by construction)</li>
+<li><strong>Constraint checks in code</strong> — values in range, dates in order, IDs that exist in your data. <em>Your code checks; the LLM never self-certifies</em></li>
+<li><strong>Grounding check</strong> — every factual claim traceable to a retrieved source (the <a href="../../topics/rag-agents/">RAG discipline</a>)</li>
+<li><strong>Second-pass review</strong> — a separate model call (or a human) checks the output against the task before it acts or ships</li>
+</ul>
+<p><strong>The design principle:</strong> verification runs <em>before the output is used</em>, not after problems appear. An LLM that drafts an email → schema check → policy check → human approve → send. Skip a gate and the failure surfaces on the customer.</p>
+<p><strong>2. Authorization in code, not in prompts.</strong> "Never reveal internal documents" written in a system prompt is a <em>request</em>; enforced document permissions in your retrieval code is a <em>control</em>. The distinction:</p>
+<table>
+<thead>
+<tr>
+<th>Defense</th>
+<th>What it is</th>
+<th>Can it fail?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prompt instruction ("don't show salary bands")</td>
+<td>asking the model nicely</td>
+<td>yes — paraphrased injection slips past</td>
+</tr>
+<tr>
+<td><strong>Retrieval scoping (docs not in the corpus)</strong></td>
+<td>the model <em>cannot</em> access them</td>
+<td>no — nothing to leak</td>
+</tr>
+<tr>
+<td><strong>Permission checks in code</strong></td>
+<td>user → allowed documents, enforced before generation</td>
+<td>no — code is deterministic</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The rule the exam tests: sensitive-data boundaries live in architecture (what can be retrieved, what the code checks), never in the prompt (what the model is asked not to do).</strong> A prompt is not a security boundary — it's the same reasoning as <a href="../week-7/">prompt injection</a> turned inside out.</p>
+<p><strong>3. Enforcing structured output</strong> — full treatment: <a href="#structured-outputs-guaranteed-json-from-an-llm">Structured Outputs</a> above. The exam phrase to remember: <em>valid by construction, not by asking.</em></p>
+<p><strong>4. Grounding answers in current sources</strong> — full treatment: <a href="../week-4/">RAG staleness and versioning</a> (expire old chunks; effective-date filtering; no document, no answer).</p>
+<p>→ Short-note version: <a href="../../topics/llm-prompting/">LLMs &amp; prompting — reliability discipline</a></p>
+<hr />
+<h2 id="vector-embeddings-the-foundation-for-rag">Vector embeddings — the foundation for RAG<a class="headerlink" href="#vector-embeddings-the-foundation-for-rag" title="Permanent link">&para;</a></h2>
+<p><strong>What an embedding is:</strong> a fixed-length list of numbers (a vector) that represents the <em>meaning</em> of a text. Texts with similar meanings have vectors that are close together in high-dimensional space.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>"King" − "Man" + "Woman" ≈ "Queen"
+</code></pre></div>
+<p>This isn't magic — the embedding model places semantically related concepts in similar geometric regions.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">embeddings</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"text-embedding-3-small"</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="nb">input</span><span class="o">=</span><span class="s2">"The cat sat on the mat."</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">embedding</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">embedding</span>  <span class="c1"># 1536 dimensions</span>
+</code></pre></div>
+<p><strong>Why it matters:</strong> embeddings power semantic search, RAG (Week 4), and recommendation systems. When the exam asks about "converting a query to an embedding and searching for similar chunks" — that's this.</p>
+<p>→ The RAG questions in <a href="../../pyqs/t3-2025-an/#q33-why-chunk-documents">T3-AN Q33–37</a> all build on this concept.</p>
+<hr />
+<h2 id="similarity-search-finding-the-nearest-neighbours">Similarity search — finding the nearest neighbours<a class="headerlink" href="#similarity-search-finding-the-nearest-neighbours" title="Permanent link">&para;</a></h2>
+<p>Once texts are embeddings, "find similar" becomes a geometry problem: which vectors are closest? Common distance measures:</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cosine similarity</strong></td>
+<td>Text semantics — measures angle, not magnitude</td>
+</tr>
+<tr>
+<td><strong>Euclidean distance</strong></td>
+<td>Straight-line distance in vector space</td>
+</tr>
+<tr>
+<td><strong>Dot product</strong></td>
+<td>Fast, used when vectors are normalized</td>
+</tr>
+</tbody>
+</table>
+<p>The exam's cosine-similarity question (GA3: <code>cosine-similarity-server</code>) tests whether you know that semantic similarity = geometric proximity.</p>
+<hr />
+<h2 id="context-engineering-managing-the-window">Context engineering — managing the window<a class="headerlink" href="#context-engineering-managing-the-window" title="Permanent link">&para;</a></h2>
+<p>LLMs have a <strong>context window</strong> — a maximum number of tokens they can process at once. Context engineering is the discipline of fitting the most useful information into that window:</p>
+<ul>
+<li><strong>What to include:</strong> the task, the critical context, recent conversation</li>
+<li><strong>What to leave out:</strong> irrelevant history, redundant examples, padding</li>
+<li><strong>The "lost in the middle" problem:</strong> models attend most to the beginning and end of the context — information buried in the middle gets less attention</li>
+</ul>
+<p>This connects directly to RAG (Week 4): chunking strategies exist partly to manage context windows, and the <a href="../week-4/">context-assembly question in GA4</a> tests it.</p>
+<hr />
+<h2 id="prompt-caching-saving-money-on-repeated-prefixes">Prompt caching — saving money on repeated prefixes<a class="headerlink" href="#prompt-caching-saving-money-on-repeated-prefixes" title="Permanent link">&para;</a></h2>
+<p>When you send the same system prompt (or prefix) repeatedly, the provider can cache the processed tokens. Subsequent requests with the same prefix are cheaper and faster — you pay for the cached input at a reduced rate.</p>
+<p><strong>The exam angle:</strong> this pairs with the caching family from Week 2 — same concept (cache what doesn't change), applied to LLM tokens instead of HTTP responses.</p>
+<hr />
+<h2 id="self-check-can-you-answer-these-without-looking">Self-check — can you answer these without looking?<a class="headerlink" href="#self-check-can-you-answer-these-without-looking" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. Why do developers put core rules in the System prompt instead of the User prompt?</summary>
+<p>LLMs assign <strong>higher attention weights to system prompts</strong> — the model obeys
+them more diligently, making it harder for users to override the rules through
+their input.</p>
+</details>
+<details class="question">
+<summary>2. What does Structured Outputs guarantee — and what does it NOT?</summary>
+<p><strong>Guaranteed:</strong> valid JSON against your schema (token generation is constrained).
+<strong>NOT guaranteed:</strong> factual accuracy — the model can still be wrong, just
+grammatically correct.</p>
+</details>
+<details class="question">
+<summary>3. What's the difference between Structured Outputs and Python validation?</summary>
+<p>Structured Outputs <strong>constrains generation</strong> (prevention — bad JSON can't be
+produced). Python validation <strong>detects errors after</strong> (the model already
+produced bad JSON, your code catches it).</p>
+</details>
+<details class="question">
+<summary>4. An LLM returns 'negative', 'Negative', and 'neg' inconsistently. What do you do?</summary>
+<p>Pin the format in the prompt: "Respond with exactly one word: positive,
+negative, or neutral in lowercase." If it must never break, escalate to
+Structured Outputs.</p>
+</details>
+<details class="question">
+<summary>5. Should an LLM inference endpoint use GET or POST? Why?</summary>
+<p><strong>POST</strong> — the review text is a payload submitted for processing (REST
+semantics), it exceeds URL length limits (payload limits), and GET responses
+may be cached by proxies (leaking one user's result to another).</p>
+</details>
+<details class="question">
+<summary>6. What is an embedding?</summary>
+<p>A fixed-length vector of numbers that represents the <strong>meaning</strong> of a text.
+Similar meanings → nearby vectors. This is the foundation of semantic search
+and RAG.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.path", "navigation.prune", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tooltips", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/focus.js"></script>
+      
+        <script src="../../javascripts/grade-calc.js"></script>
+      
+    
+  </body>
+</html>

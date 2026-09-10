@@ -1,0 +1,1536 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Student-built end-term prep for Tools in Data Science (T2-2026). Exam-pattern-first notes, PYQ solutions with reasoning, and practice questions.">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../llm-grading-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>What the ET looks like - TDS ET Prep — May 2026</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-the-et-actually-looks-like" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-header__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TDS ET Prep — May 2026
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What the ET looks like
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plans
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../learn/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Learn
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../revise/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Revise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pyqs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Practice
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mock/mock-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mock
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../calculator/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Calculator
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-nav__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    TDS ET Prep — May 2026
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What the ET looks like
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What the ET looks like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-official-structure-80-marks-90-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The official structure — 80 marks, 90 minutes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The official structure — 80 marks, 90 minutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-applied-ai-judgment-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What "Applied AI Judgment" means
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-90-minutes-should-be-spent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the 90 minutes should be spent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-six-official-topics-the-study-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The six official topics — the study map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-marks-were-laid-out-in-previous-papers-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How marks were laid out in previous papers (history)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-questions-are-actually-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the questions are actually about
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-the-professor-gave-away" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy the professor gave away
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-in-this-terms-exam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is NOT in this term's exam
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm-grading-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Answers an LLM grades well
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learn/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learn
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../revise/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revise
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../pyqs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../mock/mock-1/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mock
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../calculator/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-official-structure-80-marks-90-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The official structure — 80 marks, 90 minutes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The official structure — 80 marks, 90 minutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-applied-ai-judgment-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What "Applied AI Judgment" means
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-90-minutes-should-be-spent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the 90 minutes should be spent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-six-official-topics-the-study-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The six official topics — the study map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-marks-were-laid-out-in-previous-papers-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How marks were laid out in previous papers (history)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-questions-are-actually-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the questions are actually about
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-the-professor-gave-away" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy the professor gave away
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-in-this-terms-exam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is NOT in this term's exam
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Exam
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="what-the-et-actually-looks-like">What the ET actually looks like<a class="headerlink" href="#what-the-et-actually-looks-like" title="Permanent link">&para;</a></h1>
+<p><span class="tx-meta"><strong>~6 min read</strong> · Read this first — everything else on this site assumes you know this page.</span></p>
+<p>The exam structure below is <strong>officially announced</strong> by the course team — not our inference from sessions or papers. Around it, everything else comes from four real papers (T1-2026 AN + FN, T3-2025 AN + FN) and three live revision sessions (ET-1, ET-2, ET-3).</p>
+<h2 id="the-official-structure-80-marks-90-minutes">The official structure — 80 marks, 90 minutes<a class="headerlink" href="#the-official-structure-80-marks-90-minutes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total marks</td>
+<td><strong>80</strong></td>
+</tr>
+<tr>
+<td>Duration</td>
+<td><strong>90 minutes</strong> (1.5 hours)</td>
+</tr>
+<tr>
+<td>Negative marking</td>
+<td><strong>None</strong> — same as every paper before</td>
+</tr>
+<tr>
+<td>Section 1</td>
+<td><strong>30 MCQ/MSQ questions · 39 marks</strong> — graded automatically</td>
+</tr>
+<tr>
+<td>Section 2</td>
+<td><strong>9 short-answer questions · 41 marks</strong> — "Applied AI Judgment", manually graded (not auto-graded)</td>
+</tr>
+</tbody>
+</table>
+<p>Marks per question are <strong>not fixed</strong> — within each section some questions carry 1 mark, some 2, and Section 2's questions are the heavy ones (4–5 marks each). One written answer can outweigh three objective questions.</p>
+<div class="admonition success">
+<p class="admonition-title">Must remember</p>
+<p>There is no negative marking. <strong>Never leave a question blank.</strong> A wrong guess costs the
+same as a skipped question — nothing. If 30 seconds are left, mark <em>something</em> on every
+unanswered question — and write <em>something</em> on every short answer too: an LLM
+grader can only reward what's on the page.</p>
+</div>
+<h3 id="what-applied-ai-judgment-means">What "Applied AI Judgment" means<a class="headerlink" href="#what-applied-ai-judgment-means" title="Permanent link">&para;</a></h3>
+<p>The official name for Section 2 sounds abstract, but it's simple in practice:</p>
+<blockquote>
+<p><strong>You're given a real situation involving an AI or data system — and your answer is the judgment you make about it.</strong></p>
+</blockquote>
+<p>The situations look like: a flawed API design, a suspicious pattern in a dataset, a claim someone made about a model's performance, a buggy script, a client's vague request. Your answer shows four things:</p>
+<ul>
+<li><strong>What's really going on</strong> — the mechanism, not the surface symptom</li>
+<li><strong>What the evidence supports</strong> — and what it doesn't</li>
+<li><strong>What else it could be</strong> — the alternative you tested before concluding</li>
+<li><strong>What to do next</strong> — a safe, reversible action</li>
+</ul>
+<p>No code, no syntax — <em>"we are least concerned about syntax"</em> (ET-3). The rubric rewards reasoning over conclusions: a well-argued alternative answer beats an asserted "correct" one. If you practiced the <a href="../llm-grading-guide/">P2-style thinking</a> of <em>evidence → alternatives → safe action</em>, that is exactly this skill.</p>
+<p>One confirmed question format inside this section: <strong>agent-prompting</strong> — given a software problem, <em>write the prompt you'd give a coding agent</em> (like Codex) to solve it. Role, context, task, constraints. Method: <a href="../llm-grading-guide/">the grading guide</a>.</p>
+<h2 id="how-the-90-minutes-should-be-spent">How the 90 minutes should be spent<a class="headerlink" href="#how-the-90-minutes-should-be-spent" title="Permanent link">&para;</a></h2>
+<p>With 39 questions on the paper, pace matters more than ever:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Section 1 — 30 questions, 39 marks   ~40-45 min   ≈ 80-90 seconds per MCQ
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Section 2 — 9 questions, 41 marks    ~45-50 min   ≈ 5 minutes per written answer
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Must remember</p>
+<p>Section 2 is worth <strong>more than half the paper</strong> (41 of 80). The classic mistake is
+burning 60 minutes perfecting MCQs and sprinting the written answers. When your
+Section-1 time budget is up, <strong>move</strong> — a missed MCQ costs 1-2 marks; a rushed
+or blank written answer costs 4-5.</p>
+</div>
+<h2 id="the-six-official-topics-the-study-map">The six official topics — the study map<a class="headerlink" href="#the-six-official-topics-the-study-map" title="Permanent link">&para;</a></h2>
+<p>The official study guide names <strong>six topics</strong>: topics 1–5 feed Section 1, topic 6 <em>is</em> Section 2. Every week of this course has a home in them — nothing you studied is wasted:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Official topic</th>
+<th>What it covers</th>
+<th>Learn it</th>
+<th>Revise it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Observability &amp; Monitoring</strong></td>
+<td>percentiles vs averages, rates vs counts, health vs readiness, AI cost tracking</td>
+<td><a href="../../weeks/week-6/#reading-metrics-correctly-averages-lie-percentiles-dont">Week 6</a></td>
+<td><a href="../../topics/data-ml/#reading-metrics-averages-lie-percentiles-dont">Data &amp; ML</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Data Pipeline Integrity</strong></td>
+<td>stable identity, change detection, partial runs, idempotent retries, reproducibility, provenance</td>
+<td><a href="../../weeks/week-6/#data-pipeline-integrity-five-properties-of-a-pipeline-you-can-trust">Week 6</a></td>
+<td><a href="../../topics/data-ml/#data-pipeline-integrity-the-five-properties">Data &amp; ML</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>CI/CD &amp; Release Security</strong></td>
+<td>secret isolation, supply chain, risky infra review, progressive rollouts</td>
+<td><a href="../../weeks/week-7/#release-security-four-things-cicd-must-get-right">Week 7</a></td>
+<td><a href="../../topics/git-security/#release-security-what-cicd-must-get-right">Git &amp; security</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Reliable AI/LLM Systems</strong></td>
+<td>verify output, structured output, grounding, authz in code</td>
+<td><a href="../../weeks/week-3/#reliability-discipline-for-llm-systems">Week 3</a></td>
+<td><a href="../../topics/llm-prompting/#reliability-discipline-for-llm-systems">LLMs &amp; prompting</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Web/API/Infra Fundamentals</strong></td>
+<td>statelessness, error design, CORS/authN/authZ, identity vs delegation, git history, containers</td>
+<td><a href="../../weeks/week-2/#statelessness-durable-storage-why-servers-are-allowed-to-die">Week 2</a></td>
+<td><a href="../../topics/web-apis/">Web &amp; APIs</a> · <a href="../../topics/git-security/">Git &amp; security</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Applied AI Judgment</strong></td>
+<td>robust prompts, evidence choice, high-leverage questions, rubric design, probability × impact, minimal fixes, valid vs invalid claims</td>
+<td><a href="../llm-grading-guide/">The grading guide</a></td>
+<td>same</td>
+</tr>
+</tbody>
+</table>
+<p>Some Section-1 questions will be <strong>scenario-stemmed</strong> — a short 2-3 sentence situation followed by one or two objective questions. That's the classic PYQ scenario-block style (the FastAPI-proxy story, the StreamFlix gateway), just compacted. The full scenarios live in Section 2.</p>
+<h2 id="how-marks-were-laid-out-in-previous-papers-history">How marks were laid out in previous papers (history)<a class="headerlink" href="#how-marks-were-laid-out-in-previous-papers-history" title="Permanent link">&para;</a></h2>
+<p>Past terms were 40-mark papers with a difficulty ramp — useful for how questions are <em>built</em>, not for this term's totals:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Part 1 — 1-mark questions     (~8-9 questions)   warm-up, single facts
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Part 2 — 2-mark questions     (~5 questions)     reasoning, "why does this happen"
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Part 3 — 3-mark questions     (~2 questions)     diagnosis, multi-step thinking
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Part 4 — Scenario blocks      (~3 blocks)        one story, 5-6 questions each
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Part 5 — Short answers        (~2 questions)     write 200 words, graded by an LLM
+</code></pre></div>
+<p>This term keeps the <em>kinds</em> of thinking (warm-up recall → reasoning → diagnosis → scenario judgment) but reorganizes them into the two official sections, with the written half grown from ~4 marks to 41.</p>
+<h2 id="what-the-questions-are-actually-about">What the questions are actually about<a class="headerlink" href="#what-the-questions-are-actually-about" title="Permanent link">&para;</a></h2>
+<p>Not syntax. Not memorized definitions. The papers test one thing: <strong>do you understand why a system behaves the way it does?</strong></p>
+<p>The recurring shapes:</p>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Example from a real paper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Why did this break?</strong></td>
+<td>UI on <code>:3000</code> fetches API on <code>:8000</code> → browser throws CORS error. Why?</td>
+</tr>
+<tr>
+<td><strong>What happens if...?</strong></td>
+<td>You run <code>sqlite3 new.db</code> and the file doesn't exist. What happens?</td>
+</tr>
+<tr>
+<td><strong>Pick the professional fix</strong></td>
+<td>API returns 500 under load. What do you check?</td>
+</tr>
+<tr>
+<td><strong>Spot the wrong belief</strong></td>
+<td>"COUNT(column) and COUNT(*) are the same." True or false?</td>
+</tr>
+<tr>
+<td><strong>Choose the right tool</strong></td>
+<td>Storing large numeric arrays: XML, JSON, CSV or Parquet?</td>
+</tr>
+<tr>
+<td><strong>Judge the situation</strong> <em>(Section 2)</em></td>
+<td>A dashboard shows a suspicious spike. What is it, and what do you do?</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Must remember</p>
+<p>Almost every question is a <em>scenario</em> + <em>one concept</em>. If you know the concept, the
+question takes 20 seconds. If you don't, the options can't save you. That's why this
+site is organized by concept, not by paper.</p>
+</div>
+<h2 id="strategy-the-professor-gave-away">Strategy the professor gave away<a class="headerlink" href="#strategy-the-professor-gave-away" title="Permanent link">&para;</a></h2>
+<p>These came straight from the revision sessions:</p>
+<div class="admonition success">
+<p class="admonition-title">Study concepts, not answers</p>
+<p>The professor's ET-3 advice on PYQs: use them to predict <strong>the core
+concepts, not the exact questions</strong> — this term's question shapes are new.
+The last three papers are enough; don't deep-dive older ones.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">The options are designed to guide you (Section 1)</p>
+<p>Read all four before answering. Many questions are built so that wrong options are
+<em>plausible-sounding nonsense</em> — eliminate those and the answer is what's left.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">These option tricks cover Section 1 only</p>
+<p>Elimination and option-reading work where there <em>are</em> options. Section 2 (41 marks)
+has none — for that, the <a href="../llm-grading-guide/">LLM-grading guide</a> <strong>is</strong> the strategy.</p>
+</div>
+<h2 id="what-is-not-in-this-terms-exam">What is NOT in this term's exam<a class="headerlink" href="#what-is-not-in-this-terms-exam" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">OpenRefine is excluded</p>
+<p>The professor said it explicitly in ET-2: not in this term's syllabus. If you see
+OpenRefine questions in old papers (text clustering, <code>value.toTitlecase()</code>), <strong>skip
+them — you will not be asked.</strong></p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Geospatial is almost certainly out</p>
+<p>Folium, GeoPandas and CRS appeared in T3-2025 and even T1-2026, but the current
+term's course content contains <strong>zero geospatial material</strong>. Learn only the
+30-second version: <em>distance functions expect (latitude, longitude) — swapped
+coordinates point somewhere else entirely.</em> That concept still transfers.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Spreadsheets and Seaborn are gone too</p>
+<p>Old-syllabus leftovers. Don't study them for this exam.</p>
+</div>
+<hr />
+<p><strong>Next steps:</strong> Read <a href="../llm-grading-guide/">How to write answers an LLM grades well</a> — Section 2 is 41 marks and this method is how you collect them. Then take <a href="../../mock/mock-1/">Mock-1</a> under a 90-minute timer.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.path", "navigation.prune", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tooltips", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/focus.js"></script>
+      
+        <script src="../../javascripts/grade-calc.js"></script>
+      
+    
+  </body>
+</html>

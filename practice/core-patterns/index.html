@@ -1,0 +1,2879 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Student-built end-term prep for Tools in Data Science (T2-2026). Exam-pattern-first notes, PYQ solutions with reasoning, and practice questions.">
+      
+      
+      
+      
+        <link rel="prev" href="../new-topics/">
+      
+      
+        <link rel="next" href="../short-answers/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Core patterns - TDS ET Prep — May 2026</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practice-core-patterns-fresh-scenarios" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-header__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TDS ET Prep — May 2026
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Core patterns
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plans
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exam/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../learn/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Learn
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../revise/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Revise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../pyqs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Practice
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mock/mock-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mock
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../calculator/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Calculator
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-nav__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    TDS ET Prep — May 2026
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../exam/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learn/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learn
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../revise/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revise
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practice
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../pyqs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PYQ solutions
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice questions
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practice questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    New topics (W4-W8)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core patterns
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cors-new-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CORS — new angles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORS — new angles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p19-the-file-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P19 · The file:// origin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p20-cors-doesnt-block-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P20 · CORS doesn't block curl
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p21-the-two-app-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P21 · The two-app container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p22-the-dockerfile-that-never-caches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P22 · The Dockerfile that never caches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p23-the-cdn-pricing-surprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P23 · The CDN pricing surprise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p24-the-dashboard-performance-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P24 · The dashboard performance problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-security-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets &amp; security — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets &amp; security — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p25-the-committed-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P25 · The committed .env file
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-asyncio-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP &amp; asyncio — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP &amp; asyncio — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p26-the-403-vs-401-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P26 · The 403 vs 401 in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p27-the-asyncio-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P27 · The asyncio pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-formats-sql-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data formats &amp; SQL — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data formats &amp; SQL — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p28-the-parquet-advantage-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P28 · The Parquet advantage in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p29-the-null-average" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P29 · The NULL average
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p30-the-groupby-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P30 · The groupby pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p31-the-etl-pattern-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P31 · The ETL pattern in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p32-race-condition-the-ticket-booking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P32 · Race condition — the ticket booking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p33-data-leakage-the-new-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P33 · Data leakage — the new scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p34-dependency-pinning-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P34 · Dependency pinning in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p35-the-json-parsing-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P35 · The JSON parsing trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p36-the-etl-idempotency-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P36 · The ETL idempotency check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-topic-drill-t1t2t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official-topic drill — T1/T2/T5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Official-topic drill — T1/T2/T5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p37-the-percentile-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P37 · The percentile report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p38-the-half-loaded-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P38 · The half-loaded table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p39-the-retry-that-doubled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P39 · The retry that doubled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p40-what-the-error-rate-said" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P40 · What the error rate said
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p41-the-audit-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P41 · The audit question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p42-the-fork-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P42 · The fork PR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p43-two-dashboards-one-truth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P43 · Two dashboards, one truth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p44-the-calendar-apps-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P44 · The calendar app's access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p45-the-rewritten-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P45 · The rewritten history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p46-the-strongest-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P46 · The strongest boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../short-answers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Short answers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../mock/mock-1/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mock
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../calculator/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cors-new-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CORS — new angles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORS — new angles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p19-the-file-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P19 · The file:// origin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p20-cors-doesnt-block-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P20 · CORS doesn't block curl
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p21-the-two-app-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P21 · The two-app container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p22-the-dockerfile-that-never-caches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P22 · The Dockerfile that never caches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p23-the-cdn-pricing-surprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P23 · The CDN pricing surprise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p24-the-dashboard-performance-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P24 · The dashboard performance problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-security-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets &amp; security — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets &amp; security — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p25-the-committed-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P25 · The committed .env file
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-asyncio-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP &amp; asyncio — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP &amp; asyncio — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p26-the-403-vs-401-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P26 · The 403 vs 401 in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p27-the-asyncio-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P27 · The asyncio pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-formats-sql-new-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data formats &amp; SQL — new scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data formats &amp; SQL — new scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p28-the-parquet-advantage-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P28 · The Parquet advantage in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p29-the-null-average" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P29 · The NULL average
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p30-the-groupby-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P30 · The groupby pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p31-the-etl-pattern-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P31 · The ETL pattern in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p32-race-condition-the-ticket-booking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P32 · Race condition — the ticket booking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p33-data-leakage-the-new-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P33 · Data leakage — the new scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p34-dependency-pinning-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P34 · Dependency pinning in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p35-the-json-parsing-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P35 · The JSON parsing trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p36-the-etl-idempotency-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P36 · The ETL idempotency check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-topic-drill-t1t2t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official-topic drill — T1/T2/T5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Official-topic drill — T1/T2/T5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p37-the-percentile-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P37 · The percentile report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p38-the-half-loaded-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P38 · The half-loaded table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p39-the-retry-that-doubled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P39 · The retry that doubled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p40-what-the-error-rate-said" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P40 · What the error rate said
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p41-the-audit-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P41 · The audit question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p42-the-fork-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P42 · The fork PR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p43-two-dashboards-one-truth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P43 · Two dashboards, one truth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p44-the-calendar-apps-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P44 · The calendar app's access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p45-the-rewritten-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P45 · The rewritten history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p46-the-strongest-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P46 · The strongest boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../pyqs/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Practice
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Practice questions
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="practice-core-patterns-fresh-scenarios">Practice — core patterns (fresh scenarios)<a class="headerlink" href="#practice-core-patterns-fresh-scenarios" title="Permanent link">&para;</a></h1>
+<div class="tx-meta">
+<p>~18 questions · PYQ-heavy topics with new scenarios · tests whether you've learned the concept or just the answer · <a href="../../weeks/week-1/">Week 1</a> · <a href="../../weeks/week-2/">Week 2</a></p>
+</div>
+<p>These are the topics the exam asks about in every paper — CORS, Docker, caching, secrets, status codes, asyncio, data formats — but in <strong>different scenarios</strong> than the PYQs. If you can answer these, you've learned the concept, not just the past paper.</p>
+<hr />
+<h2 id="cors-new-angles">CORS — new angles<a class="headerlink" href="#cors-new-angles" title="Permanent link">&para;</a></h2>
+<h3 id="p19-the-file-origin">P19 · The file:// origin<a class="headerlink" href="#p19-the-file-origin" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐⭐ · 1 mark · Topic: CORS</strong></p>
+<p>You open an HTML file directly from your filesystem (<code>file:///C:/project/index.html</code>) and it tries to fetch from <code>http://localhost:8000/api</code>. The browser blocks it. Why?</p>
+<ul>
+<li><strong>A.</strong> The API server is not running</li>
+<li><strong>B.</strong> The HTML file needs to be served from a web server first</li>
+<li><strong>C.</strong> Browsers don't allow JavaScript in local files</li>
+<li><strong>D.</strong> A <code>file://</code> page is a different origin from <code>http://localhost:8000</code> — the Same-Origin Policy blocks the read</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>D</strong> — A <code>file://</code> page is a different origin from <code>http://localhost:8000</code> — the Same-Origin Policy blocks the read.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Origin = scheme + host + port. <code>file://</code> has a different <strong>scheme</strong> from
+<code>http://</code> — so they're different origins even though both are "on your
+computer." The fix: serve the HTML from a local server (making the scheme
+match), or add CORS headers on the backend. This is the T1-FN Q18 scenario
+with the mechanism named.</p>
+<p>→ <a href="../../weeks/week-2/#cors-the-most-tested-concept-in-the-corpus">W2 — CORS</a></p>
+</details>
+<hr />
+<h3 id="p20-cors-doesnt-block-curl">P20 · CORS doesn't block curl<a class="headerlink" href="#p20-cors-doesnt-block-curl" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟢 Easy · ⭐⭐ · 1 mark · Topic: CORS</strong></p>
+<p>Your API works perfectly when tested with <code>curl</code> but shows a CORS error when called from a React app. What does this tell you?</p>
+<ul>
+<li><strong>A.</strong> The API has a bug that only manifests in browser contexts</li>
+<li><strong>B.</strong> The React app is sending the request with wrong headers</li>
+<li><strong>C.</strong> CORS is a browser-only enforcement — curl, Postman, and Python scripts are never blocked; only browser JavaScript is</li>
+<li><strong>D.</strong> The API needs to return different data format for browsers</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>C</strong> — CORS is a browser-only enforcement — curl is never blocked.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>The Same-Origin Policy is implemented in the <strong>browser's JavaScript engine</strong>.
+curl doesn't run JavaScript, doesn't have an origin, and doesn't enforce the
+policy. Your API may be working perfectly — it's the browser's <em>read</em> of the
+response that's refused. This distinction is the difference between debugging
+the server (wrong) and adding the CORS header (right).</p>
+<p>→ <a href="../../topics/docker-deployment/">W2 — CORS wrong belief</a></p>
+</details>
+<hr />
+<h2 id="docker-new-scenarios">Docker — new scenarios<a class="headerlink" href="#docker-new-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="p21-the-two-app-container">P21 · The two-app container<a class="headerlink" href="#p21-the-two-app-container" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐⭐ · 1 mark · Topic: Docker</strong></p>
+<p>Your Dockerfile builds successfully, the container starts, and the app logs "Server running on port 3000" — but <code>curl http://localhost:3000</code> from your host machine gets "connection refused." What's wrong?</p>
+<ul>
+<li><strong>A.</strong> You forgot <code>-p 3000:3000</code> on <code>docker run</code> — the port is not published to the host</li>
+<li><strong>B.</strong> The app is listening on the wrong interface inside the container</li>
+<li><strong>C.</strong> The container doesn't have network access</li>
+<li><strong>D.</strong> Port 3000 is already in use on the host</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>A</strong> — You forgot <code>-p 3000:3000</code> on <code>docker run</code> — the port is not published to the host.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>The app is running and listening <strong>inside the container</strong> — the log proves it.
+But the container's port 3000 is not mapped to the host's port 3000. The
+<code>EXPOSE 3000</code> in the Dockerfile is documentation only; <code>-p</code> is the actual
+bridge. This is the same EXPOSE-vs-<code>-p</code> question with the symptom described
+from the outside.</p>
+<p>→ <a href="../../topics/docker-deployment/#docker-expose-vs--p">W2 — EXPOSE vs -p</a></p>
+</details>
+<hr />
+<h3 id="p22-the-dockerfile-that-never-caches">P22 · The Dockerfile that never caches<a class="headerlink" href="#p22-the-dockerfile-that-never-caches" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🔴 Hard · ⭐⭐ · 1 mark · Topic: Docker</strong></p>
+<p>Your CI pipeline takes 8 minutes to build a Docker image, even when you only changed one line of Python code. The Dockerfile starts with <code>COPY . /app</code>. Why is the build so slow?</p>
+<ul>
+<li><strong>A.</strong> The base image is too large</li>
+<li><strong>B.</strong> <code>COPY . /app</code> is the first instruction — every code change invalidates the first layer, and every subsequent layer (including dependency installation) rebuilds from scratch</li>
+<li><strong>C.</strong> Docker builds are always slow when the project has many files</li>
+<li><strong>D.</strong> The CI runner doesn't have a Docker cache</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — <code>COPY . /app</code> is the first instruction — every code change invalidates the first layer, and every subsequent layer rebuilds.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Docker layer caching: a layer rebuilds when its inputs change, and every layer
+<strong>after</strong> a changed layer rebuilds too. <code>COPY . /app</code> first means the code
+layer changes on every edit → the <code>pip install</code> layer after it rebuilds →
+dependencies re-download. The fix: <code>COPY requirements.txt</code> first, <code>RUN pip
+install</code>, then <code>COPY . /app</code> — now the install layer stays cached.</p>
+<p>→ <a href="../../topics/docker-deployment/#docker-layer-caching">W2 — layer caching</a></p>
+</details>
+<hr />
+<h2 id="caching-new-scenarios">Caching — new scenarios<a class="headerlink" href="#caching-new-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="p23-the-cdn-pricing-surprise">P23 · The CDN pricing surprise<a class="headerlink" href="#p23-the-cdn-pricing-surprise" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐⭐ · 1 mark · Topic: Caching</strong></p>
+<p>Your API returns <code>Cache-Control: private, max-age=0</code>. Your CDN bill is unexpectedly high. Why?</p>
+<ul>
+<li><strong>A.</strong> The CDN is misconfigured and caching anyway</li>
+<li><strong>B.</strong> <code>max-age=0</code> means the CDN caches for 0 seconds but still counts the request</li>
+<li><strong>C.</strong> The CDN charges per header, and you're sending too many</li>
+<li><strong>D.</strong> <code>private</code> tells the CDN it may NOT cache, and <code>max-age=0</code> tells the browser the response is immediately stale — every request goes to the origin</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>D</strong> — <code>private</code> tells the CDN it may NOT cache, and <code>max-age=0</code> means immediately stale — every request hits the origin.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Two directives working together to prevent caching:
+- <code>private</code> = only the user's own browser may cache; shared caches (CDNs,
+  proxies) may not
+- <code>max-age=0</code> = the copy is stale the moment it arrives</p>
+<p>The fix depends on the data: if the response is the same for all users, use
+<code>public, max-age=&lt;sensible TTL&gt;</code> to let the CDN serve copies. If it's
+user-specific, the CDN correctly shouldn't cache it.</p>
+<p>→ <a href="../../topics/web-apis/#caching-ttl-cache-control-cache-buster">W2 — caching</a></p>
+</details>
+<hr />
+<h3 id="p24-the-dashboard-performance-problem">P24 · The dashboard performance problem<a class="headerlink" href="#p24-the-dashboard-performance-problem" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐⭐ · 1 mark · Topic: Caching</strong></p>
+<p>A dashboard queries a database that updates every 6 hours. 200 users view the dashboard every minute. The database is struggling. What's the fix?</p>
+<ul>
+<li><strong>A.</strong> Cache the query results with a TTL of 5–30 minutes — the database goes from 12,000 queries/hour to 2–12 queries/hour</li>
+<li><strong>B.</strong> Upgrade the database to a larger instance</li>
+<li><strong>C.</strong> Move the dashboard to a CDN</li>
+<li><strong>D.</strong> Reduce the number of users who can access the dashboard</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>A</strong> — Cache the query results with a TTL of 5–30 minutes.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>The workload is asymmetric: 1 update per 6 hours vs ~200 reads per minute.
+A TTL of 5–30 minutes means the database is queried once per interval
+instead of 200 times per minute — a 1000×+ reduction — while the data is at
+most 30 minutes stale (acceptable for data that changes every 6 hours). This
+is the ET-2 professor's dashboard-caching arithmetic with fresh numbers.</p>
+<p>→ <a href="../../weeks/week-2/#caching-ttl-cache-control-and-the-cache-buster">W2 — the dashboard pattern</a></p>
+</details>
+<hr />
+<h2 id="secrets-security-new-scenarios">Secrets &amp; security — new scenarios<a class="headerlink" href="#secrets-security-new-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="p25-the-committed-env-file">P25 · The committed .env file<a class="headerlink" href="#p25-the-committed-env-file" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🔴 Hard · ⭐⭐ · 1 mark · Topic: Secrets</strong></p>
+<p>You accidentally committed your <code>.env</code> file (containing API keys) to a public GitHub repo 3 days ago. You deleted it in the next commit. What must you do now?</p>
+<ul>
+<li><strong>A.</strong> Nothing — deleting the file removed the secrets</li>
+<li><strong>B.</strong> Delete the GitHub repository and create a new one</li>
+<li><strong>C.</strong> Rotate every key that was in the file — the git history still contains the .env, and anyone who cloned the repo has the secrets</li>
+<li><strong>D.</strong> Ask GitHub to purge the commit from their servers</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>C</strong> — Rotate every key — the git history still contains the secrets.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Git stores a full history of every commit. Deleting the file in a later
+commit adds a new commit — it doesn't remove the earlier one. Anyone who
+cloned the repo in the last 3 days has the <code>.env</code> file. Bots scan GitHub for
+API keys within minutes of a push. The only safe action: <strong>rotate (revoke and
+regenerate) every key that was exposed</strong>, then audit for unauthorized usage.</p>
+<p>→ <a href="../../topics/git-security/#secrets-the-env-workflow">W2 — secrets</a></p>
+</details>
+<hr />
+<h2 id="http-asyncio-new-scenarios">HTTP &amp; asyncio — new scenarios<a class="headerlink" href="#http-asyncio-new-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="p26-the-403-vs-401-in-practice">P26 · The 403 vs 401 in practice<a class="headerlink" href="#p26-the-403-vs-401-in-practice" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟢 Easy · ⭐⭐ · 1 mark · Topic: HTTP status codes</strong></p>
+<p>You're authenticated with a valid API key, but the API returns 403 when you try to access an admin endpoint. What does this mean?</p>
+<ul>
+<li><strong>A.</strong> Your API key is invalid or expired — get a new one</li>
+<li><strong>B.</strong> The endpoint doesn't exist</li>
+<li><strong>C.</strong> Your key is valid, but your account doesn't have permission for this endpoint</li>
+<li><strong>D.</strong> You're making too many requests</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>C</strong> — Your key is valid, but your account doesn't have permission for this endpoint.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p><strong>401 = who are you?</strong> (authentication failed — the key is wrong or expired).
+<strong>403 = I know you, but you can't do this</strong> (authorization failed — the key
+is valid but the account lacks permission). The question says "authenticated
+with a valid key" — so authentication succeeded, and the failure is on the
+authorization side.</p>
+<p>→ <a href="../../topics/web-apis/#http-status-codes-the-family">W1 — status codes</a></p>
+</details>
+<hr />
+<h3 id="p27-the-asyncio-pipeline">P27 · The asyncio pipeline<a class="headerlink" href="#p27-the-asyncio-pipeline" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐⭐ · 1 mark · Topic: Concurrency</strong></p>
+<p>You use <code>asyncio.gather</code> to call 3 APIs. API A responds in 200ms, API B in 500ms, API C in 2 seconds. What's the total time?</p>
+<ul>
+<li><strong>A.</strong> 200ms — the fastest response</li>
+<li><strong>B.</strong> 2 seconds — the slowest response</li>
+<li><strong>C.</strong> ~900ms — the average</li>
+<li><strong>D.</strong> 2.7 seconds — the sequential sum</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — 2 seconds — the slowest response.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Gather launches all tasks simultaneously and returns only when <strong>every task
+completes</strong>. The total is the <strong>max</strong>, not the sum (D — that would be
+sequential) or the average (C). Concurrency removes the sum, not the max —
+one slow API is still the bottleneck.</p>
+<p>→ <a href="../../topics/rag-agents/#asynciogather-the-timing-arithmetic">W5 — asyncio</a></p>
+</details>
+<hr />
+<h2 id="data-formats-sql-new-scenarios">Data formats &amp; SQL — new scenarios<a class="headerlink" href="#data-formats-sql-new-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="p28-the-parquet-advantage-in-practice">P28 · The Parquet advantage in practice<a class="headerlink" href="#p28-the-parquet-advantage-in-practice" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐⭐ · 1 mark · Topic: Data formats</strong></p>
+<p>You have a 2GB CSV file with 50 columns. You only need to analyse 3 columns. Converting to Parquet and querying with DuckDB is much faster. Why?</p>
+<ul>
+<li><strong>A.</strong> Parquet files are compressed with gzip by default</li>
+<li><strong>B.</strong> Parquet stores data in memory while CSV reads from disk</li>
+<li><strong>C.</strong> DuckDB has a query cache that CSV readers don't</li>
+<li><strong>D.</strong> Parquet is columnar — DuckDB reads only the 3 requested columns, touching a fraction of the 2GB</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>D</strong> — Parquet is columnar — DuckDB reads only the 3 requested columns.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>CSV is row-based: reading 3 of 50 columns means parsing every row to extract
+those 3 values — the full 2GB is scanned. Parquet is columnar: each column's
+values live together, so DuckDB reads only the 3 columns' blocks — about 6%
+of the data. This is the same Parquet-vs-CSV question with the mechanism
+emphasised over the "which is faster" framing.</p>
+<p>→ <a href="../../topics/data-ml/#parquet-vs-text-formats">W1 — data formats</a></p>
+</details>
+<hr />
+<h3 id="p29-the-null-average">P29 · The NULL average<a class="headerlink" href="#p29-the-null-average" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟢 Easy · ⭐ · 1 mark · Topic: SQL</strong></p>
+<p>You run <code>SELECT AVG(rating) FROM reviews</code> and get 3.8. Then you notice 50 rows have NULL ratings. What was actually calculated?</p>
+<ul>
+<li><strong>A.</strong> The average of only the non-NULL rows — NULLs are skipped by aggregate functions</li>
+<li><strong>B.</strong> The average treating NULLs as 0</li>
+<li><strong>C.</strong> An error should have been raised</li>
+<li><strong>D.</strong> The result is NULL because NULLs are present</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>A</strong> — The average of only the non-NULL rows — NULLs are skipped.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>SQL's three-valued logic: NULL means <em>unknown</em>, not zero. <code>AVG</code>, <code>SUM</code>, and
+<code>COUNT(column)</code> <strong>skip NULL values</strong>. The average of <code>[4, 5, NULL, 3]</code> is 4
+(average of 4, 5, 3), not 3 (average of 4, 5, 0, 3). <code>COUNT(*)</code> counts all
+rows; <code>COUNT(rating)</code> counts only non-NULL values.</p>
+<p>→ <a href="../../weeks/week-1/#sqlite-one-database-one-file">W1 — SQLite</a></p>
+</details>
+<hr />
+<h3 id="p30-the-groupby-pattern">P30 · The groupby pattern<a class="headerlink" href="#p30-the-groupby-pattern" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟢 Easy · ⭐⭐ · 1 mark · Topic: pandas</strong></p>
+<p>You have a DataFrame <code>df</code> with columns <code>department</code>, <code>salary</code>, and <code>years</code>. You want the average salary per department. Which is correct?</p>
+<ul>
+<li><strong>A.</strong> <code>df.sort_values('department')['salary'].mean()</code></li>
+<li><strong>B.</strong> <code>df.filter('department')['salary'].mean()</code></li>
+<li><strong>C.</strong> <code>df.groupby('department')['salary'].mean()</code></li>
+<li><strong>D.</strong> <code>df['salary'].mean()</code> grouped by <code>df['department']</code></li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>C</strong> — <code>df.groupby('department')['salary'].mean()</code></p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p><strong>groupby = split–apply–combine</strong>: split rows by department, apply <code>mean()</code> to
+each group's salary column, combine into one table. Sort (A) arranges but
+doesn't aggregate; filter (B) selects rows by condition (and takes callables,
+not column names); D is not valid pandas syntax. The professor taught this
+exact pattern in ET-2.</p>
+<p>→ <a href="../../topics/data-ml/#pandas-the-exams-favourite-operations">W6 — pandas</a></p>
+</details>
+<hr />
+<h3 id="p31-the-etl-pattern-in-practice">P31 · The ETL pattern in practice<a class="headerlink" href="#p31-the-etl-pattern-in-practice" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐⭐ · 1 mark · Topic: ETL</strong></p>
+<p>Your daily ETL job processes yesterday's orders. Some orders from 3 days ago were updated yesterday. Your job misses them because it only looks at yesterday's data. What's the professional fix?</p>
+<ul>
+<li><strong>A.</strong> Reprocess all historical data daily to catch every update</li>
+<li><strong>B.</strong> Use a lookback window (process the last 3–5 days) with deduplication on order ID + update timestamp</li>
+<li><strong>C.</strong> Run the job more frequently (every hour instead of daily)</li>
+<li><strong>D.</strong> Ask the upstream team to stop updating old orders</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — Use a lookback window with deduplication on order ID + update timestamp.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>The professor's flagship ETL pattern: <strong>lookback window</strong> catches late-arriving
+updates without reprocessing history; <strong>deduplication on (order_id,
+update_timestamp)</strong> means re-seeing a row is harmless — the newest version
+wins. A is "a failure of design" (cost-extensive, slow, database-locking);
+C doesn't help if the job still only looks at yesterday; D is not how
+businesses work.</p>
+<p>→ <a href="../../topics/data-ml/#etl-the-lookback--dedup-pattern">W6 — ETL</a></p>
+</details>
+<hr />
+<h3 id="p32-race-condition-the-ticket-booking">P32 · Race condition — the ticket booking<a class="headerlink" href="#p32-race-condition-the-ticket-booking" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐ · 1 mark · Topic: Databases</strong></p>
+<p>Two users simultaneously try to book the last available seat on a flight. The server checks "is a seat available?", gets "yes" for both, and books both — overselling the flight. What is this called and what's the fix?</p>
+<ul>
+<li><strong>A.</strong> Deadlock — restart the server</li>
+<li><strong>B.</strong> Load balancer failure — add a second server instance</li>
+<li><strong>C.</strong> Cache invalidation — clear the cache between requests</li>
+<li><strong>D.</strong> Race condition — use a database lock or atomic decrement so only one booking succeeds</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>D</strong> — Race condition — use a database lock or atomic decrement.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p><strong>Check-then-act race:</strong> two processes read "available" in the same instant,
+both proceed to write. The fix is atomicity: a database lock (the check and
+write happen as one unit), a unique constraint (the DB rejects the second
+insert), or an atomic decrement (<code>UPDATE flights SET seats = seats - 1 WHERE
+seats &gt; 0</code> — only one succeeds). Nothing else in the stack rescues you for
+free.</p>
+<p>→ <a href="../../topics/git-security/#race-conditions-the-simultaneous-write">W1 — race conditions</a></p>
+</details>
+<hr />
+<h3 id="p33-data-leakage-the-new-scenario">P33 · Data leakage — the new scenario<a class="headerlink" href="#p33-data-leakage-the-new-scenario" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🔴 Hard · ⭐ · 1 mark · Topic: ML evaluation</strong></p>
+<p>A stock price model achieves 97% test accuracy. The dataset is a time series, and the train/test split was done randomly (shuffled). In production, accuracy drops to 61%. What went wrong?</p>
+<ul>
+<li><strong>A.</strong> Random shuffling on a time series creates temporal leakage — future data appeared in the training set, so the model "predicted" patterns it had already seen</li>
+<li><strong>B.</strong> The model overfitted to the training data</li>
+<li><strong>C.</strong> The production data has a different distribution</li>
+<li><strong>D.</strong> The model needs more training epochs</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>A</strong> — Random shuffling on a time series creates temporal leakage.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Time-series data must be split <strong>chronologically</strong> — train on the past, test
+on the future. Random shuffling mixes future rows into the training set, so
+the model learns tomorrow's patterns and "predicts" them brilliantly. In
+production, there is no future to peek at — the honest number appears. This
+is the same concept as <a href="../../pyqs/t1-2026-an/#q16-the-fraud-model-collapse">T1-AN Q16</a>
+with a different domain (stocks instead of fraud).</p>
+<p>→ <a href="../../topics/data-ml/#ml-data-leakage-the-signature">W8 — data leakage</a></p>
+</details>
+<hr />
+<h3 id="p34-dependency-pinning-in-practice">P34 · Dependency pinning in practice<a class="headerlink" href="#p34-dependency-pinning-in-practice" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟢 Easy · ⭐ · 1 mark · Topic: Reproducibility</strong></p>
+<p>Your teammate's pipeline works on their machine but fails on yours with an import error. They installed packages with <code>pip install pandas</code> (unpinned); you have a different version. What's the fix?</p>
+<ul>
+<li><strong>A.</strong> Install the exact same version they have: <code>pip install pandas==2.2.0</code></li>
+<li><strong>B.</strong> Both install from a <code>requirements.txt</code> with pinned versions (<code>pandas==2.2.0</code>)</li>
+<li><strong>C.</strong> Use a virtual environment so versions don't conflict</li>
+<li><strong>D.</strong> Update both machines to the latest version of every package</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — Both install from a <code>requirements.txt</code> with pinned versions.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Pinning ensures the <strong>same install works identically everywhere</strong> — your
+machine, their machine, the CI runner, the production server. A fixes the
+immediate problem but not the systemic one; C isolates environments but
+doesn't ensure the same versions; D risks breaking code that depends on
+specific versions. The professional pattern: <code>requirements.txt</code> with exact
+versions, committed to git, installed identically everywhere.</p>
+<p>→ <a href="../../topics/git-security/#dependency-management-the-middle-path">W1 — dependency management</a></p>
+</details>
+<hr />
+<h3 id="p35-the-json-parsing-trap">P35 · The JSON parsing trap<a class="headerlink" href="#p35-the-json-parsing-trap" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟢 Easy · ⭐ · 1 mark · Topic: JSON</strong></p>
+<p>An API returns a JSON response where the <code>weather</code> field is an array of objects. You try <code>data['weather']['description']</code> and get a TypeError. Why?</p>
+<ul>
+<li><strong>A.</strong> The JSON is malformed</li>
+<li><strong>B.</strong> The API requires authentication for this field</li>
+<li><strong>C.</strong> <code>data['weather']</code> returns a <strong>list</strong>, not a dict — you must index into it first: <code>data['weather'][0]['description']</code></li>
+<li><strong>D.</strong> You need to use <code>json.loads</code> before accessing fields</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>C</strong> — <code>data['weather']</code> returns a list — you must index into it first.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>JSON structure: <code>"weather": [{"description": "clear sky", ...}]</code> — the value
+is an <strong>array of objects</strong>, not a single object. Chaining <code>['description']</code>
+directly onto an array is a TypeError. You must index into the array (<code>[0]</code>)
+before accessing keys. This is the same concept as
+<a href="../../pyqs/t3-2025-an/#q25-reading-the-json-response">T3-AN Q25</a> with the
+error type named.</p>
+<p>→ <a href="../../weeks/week-1/#data-formats-which-tool-for-which-job">W1 — JSON parsing</a></p>
+</details>
+<hr />
+<h3 id="p36-the-etl-idempotency-check">P36 · The ETL idempotency check<a class="headerlink" href="#p36-the-etl-idempotency-check" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · ⭐ · 1 mark · Topic: ETL</strong></p>
+<p>Your ETL script writes directly to <code>output.csv</code>. A crash mid-write leaves a corrupted file. The next scheduled run reads the corrupted file and produces garbage. What should you have done?</p>
+<ul>
+<li><strong>A.</strong> Added error handling to catch the crash</li>
+<li><strong>B.</strong> Used a database instead of a CSV file</li>
+<li><strong>C.</strong> Run the script more frequently so crashes are caught sooner</li>
+<li><strong>D.</strong> Written to a temporary file first, then atomically renamed to <code>output.csv</code> — a reader never sees a half-written file</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>D</strong> — Written to a temporary file first, then atomically renamed.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p><strong>Idempotency</strong> (running twice = same result as once) requires atomic writes:
+build the output in a temp file, then <code>mv</code> (rename) it to the final name in
+one operation. A rename is atomic on POSIX — either the old file or the new
+file exists, never a half-written version. This is the same pattern as
+<a href="../../pyqs/t3-2025-an/#q11-idempotent-etl-scripts">T3-AN Q11</a> with the
+crash scenario made explicit.</p>
+<p>→ <a href="../../topics/data-ml/#etl-the-lookback--dedup-pattern">W6 — ETL patterns</a></p>
+</details>
+<hr />
+<h2 id="official-topic-drill-t1t2t5">Official-topic drill — T1/T2/T5<a class="headerlink" href="#official-topic-drill-t1t2t5" title="Permanent link">&para;</a></h2>
+<p><em>New questions targeting the official study-guide sub-topics that had no coverage before.</em></p>
+<h3 id="p37-the-percentile-report">P37 · The percentile report<a class="headerlink" href="#p37-the-percentile-report" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · 1 mark · T1: Metrics</strong></p>
+<p>A dashboard reports "average latency 150ms" and "p99 latency 4 seconds" for the same service. The correct interpretation:</p>
+<ul>
+<li><strong>A.</strong> The dashboard has a bug — the numbers are inconsistent</li>
+<li><strong>B.</strong> Typical requests are fast, but 1 in 100 is catastrophic — the mean averages away a severe tail. Investigate the slow tail</li>
+<li><strong>C.</strong> Average is the better number; ignore p99</li>
+<li><strong>D.</strong> p99 means 99% of requests take 4 seconds</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — A low mean with a high p99 is the signature of a tail problem: most
+users are fine, the unluckiest 1% suffer. The mean can't see it; percentiles can.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>The mean is dominated by the <em>bulk</em> of requests; p99 is defined by the <em>worst</em>.
+Both numbers are true simultaneously — that's exactly why percentiles exist.</p>
+<p>→ <a href="../../topics/data-ml/#reading-metrics-averages-lie-percentiles-dont">Reading metrics</a></p>
+</details>
+<hr />
+<h3 id="p38-the-half-loaded-table">P38 · The half-loaded table<a class="headerlink" href="#p38-the-half-loaded-table" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · 1 mark · T2: Partial runs</strong></p>
+<p>An ETL job crashed midway through loading a table, and a BI tool queried the table during the crash. The design that prevents anyone from ever reading a half-loaded table:</p>
+<ul>
+<li><strong>A.</strong> Load faster so crashes are less likely</li>
+<li><strong>B.</strong> Load into a staging table and swap atomically when complete — readers see all-or-nothing</li>
+<li><strong>C.</strong> Tell the BI team to refresh later</li>
+<li><strong>D.</strong> Retry the job; duplicates are better than missing rows</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — Atomic swap (or run-boundary marking) means a partial load is never
+visible. Speed, hopes, and duplicates don't fix visibility.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>The pattern: <strong>staging + atomic swap</strong>. Readers either see the previous complete
+load or the new complete load — never the middle.</p>
+<p>→ <a href="../../topics/data-ml/#data-pipeline-integrity-the-five-properties">Pipeline integrity</a></p>
+</details>
+<hr />
+<h3 id="p39-the-retry-that-doubled">P39 · The retry that doubled<a class="headerlink" href="#p39-the-retry-that-doubled" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · 1 mark · T2: Idempotency</strong></p>
+<p>A webhook handler processes payment notifications. The payment provider retries failed deliveries — automatically, up to 5 times. The handler must be:</p>
+<ul>
+<li><strong>A.</strong> Fast, so retries never happen</li>
+<li><strong>B.</strong> Idempotent — a duplicate notification for the same payment must be a no-op (unique payment ID check before processing)</li>
+<li><strong>C.</strong> Asynchronous, so order doesn't matter</li>
+<li><strong>D.</strong> Encrypted, so retries are safe</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — If the provider retries (and it will), the same notification arrives
+twice. Without a check-then-process on the payment ID, you double-record.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p><strong>Retries are certain, not possible</strong> — any system that receives deliveries
+(webhooks, queue messages, imports) must treat duplicates as normal input.</p>
+<p>→ <a href="../../topics/data-ml/#data-pipeline-integrity-the-five-properties">Pipeline integrity</a></p>
+</details>
+<hr />
+<h3 id="p40-what-the-error-rate-said">P40 · What the error rate said<a class="headerlink" href="#p40-what-the-error-rate-said" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · 1 mark · T1: Rates vs counts</strong></p>
+<p>Monday: 500 errors from 50,000 requests. Tuesday: 600 errors from 90,000 requests. The correct comparison:</p>
+<ul>
+<li><strong>A.</strong> Tuesday is worse — 100 more errors</li>
+<li><strong>B.</strong> Monday is worse — 1.0% error rate vs Tuesday's 0.67%; counts without denominators mislead</li>
+<li><strong>C.</strong> They're equal — close enough</li>
+<li><strong>D.</strong> Tuesday's traffic is the problem</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — 500/50,000 = 1.0%; 600/90,000 = 0.67%. Reliability <em>improved</em> on
+Tuesday despite more errors — the rate is the comparable number.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Always: <strong>count of what, over what denominator, in what window.</strong> Raw counts
+track traffic; rates track health.</p>
+<p>→ <a href="../../topics/data-ml/#reading-metrics-averages-lie-percentiles-dont">Reading metrics</a></p>
+</details>
+<hr />
+<h3 id="p41-the-audit-question">P41 · The audit question<a class="headerlink" href="#p41-the-audit-question" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🔴 Hard · 1 mark · T2: Provenance</strong></p>
+<p>An auditor asks your data team to prove that a corrected revenue figure is trustworthy. The strongest evidence:</p>
+<ul>
+<li><strong>A.</strong> The team lead's assurance that the correction was right</li>
+<li><strong>B.</strong> A correction log showing: the original wrong value, the corrected value, the reason, who approved, and when — with the raw data still recoverable</li>
+<li><strong>C.</strong> The corrected dashboard itself</li>
+<li><strong>D.</strong> An email thread agreeing the number looked wrong</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — Provenance is the <em>record</em>: original → correction → reason → authority
+→ timestamp. Assurance and dashboards are claims; the log is evidence.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p><strong>Corrections never destroy the record of what was corrected.</strong> Append-only
+versions or a correction log — that's what makes corrections auditable.</p>
+<p>→ <a href="../../topics/data-ml/#data-pipeline-integrity-the-five-properties">Pipeline integrity</a></p>
+</details>
+<hr />
+<h3 id="p42-the-fork-pr">P42 · The fork PR<a class="headerlink" href="#p42-the-fork-pr" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · 1 mark · T3: Secret isolation</strong></p>
+<p>Your CI workflow runs on <code>pull_request</code> (including forks) and its steps reference <code>$DEPLOY_KEY</code>. A first-time contributor's PR includes <code>run: echo $DEPLOY_KEY</code>. What should happen — and why it's a design failure if it works:</p>
+<ul>
+<li><strong>A.</strong> The echo prints the key into the public build log — untrusted triggers must never see secrets; scope secrets to trusted events only</li>
+<li><strong>B.</strong> Nothing — contributors are trustworthy</li>
+<li><strong>C.</strong> The echo fails silently</li>
+<li><strong>D.</strong> GitHub blocks PRs with echo commands</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>A</strong> — Fork PR code is untrusted code. If untrusted triggers can reference
+secrets, a one-line "test" exfiltrates them. Secret visibility must be gated
+by trigger trust.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Same principle as prompt injection: <strong>untrusted input must never reach
+privileged capabilities.</strong></p>
+<p>→ <a href="../../topics/git-security/#release-security-what-cicd-must-get-right">Release security</a></p>
+</details>
+<hr />
+<h3 id="p43-two-dashboards-one-truth">P43 · Two dashboards, one truth<a class="headerlink" href="#p43-two-dashboards-one-truth" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · 1 mark · T5: Statelessness</strong></p>
+<p>Two identical API instances behind a load balancer. A user logs in on instance A; their next request hits instance B and appears logged out. The diagnosis:</p>
+<ul>
+<li><strong>A.</strong> The load balancer is misrouting</li>
+<li><strong>B.</strong> Session state lives in instance A's memory — in-memory state is invisible to other instances. Sessions belong in shared durable storage</li>
+<li><strong>C.</strong> Instance B is a different app version</li>
+<li><strong>D.</strong> The user's cookies are disabled</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — The classic statelessness failure. Any instance must be able to serve
+any request — which requires state (sessions, carts, uploads) to live
+outside the instances.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>In-memory state works until the second instance or the first restart — then
+it's a mystery bug. Redis/DB for sessions; treat memory as disposable cache.</p>
+<p>→ <a href="../../topics/web-apis/#statelessness-durable-storage-why-servers-are-allowed-to-die">Statelessness</a></p>
+</details>
+<hr />
+<h3 id="p44-the-calendar-apps-access">P44 · The calendar app's access<a class="headerlink" href="#p44-the-calendar-apps-access" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🟡 Medium · 1 mark · T5: Delegated access</strong></p>
+<p>A scheduling app asks for "read your calendar" via Google OAuth. A user later finds the app's practices suspicious and wants it gone. The correct remedy and why it works:</p>
+<ul>
+<li><strong>A.</strong> Change the Google password — tokens expire instantly then</li>
+<li><strong>B.</strong> Revoke the app's grant in Google settings — the scoped token dies without touching the password, because the app never had it</li>
+<li><strong>C.</strong> Delete the app's account on its own site — that always kills Google access</li>
+<li><strong>D.</strong> Revoke and change the password — both are required</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — Delegated access means the app holds a scoped, revocable token, not
+your credentials. Revocation ends it; the password was never exposed.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>This is the entire point of OAuth delegation: <strong>least privilege, revocable
+by the user, credentials never shared.</strong></p>
+<p>→ <a href="../../topics/web-apis/#identity-vs-delegated-access-whos-asking-on-whose-behalf">Identity vs delegated access</a></p>
+</details>
+<hr />
+<h3 id="p45-the-rewritten-history">P45 · The rewritten history<a class="headerlink" href="#p45-the-rewritten-history" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🔴 Hard · 1 mark · T5: Git history</strong></p>
+<p>After <code>git filter-repo</code> removes a leaked key from history and the team force-pushes, a teammate's local repo still shows the old commits and their pushes are rejected. Why — and the fix:</p>
+<ul>
+<li><strong>A.</strong> Their clone is haunted; re-install git</li>
+<li><strong>B.</strong> The rewrite changed every commit hash from the rewrite point back — their local history now diverges. They must re-clone (or hard-reset to the new remote). This is why rewrites are announced</li>
+<li><strong>C.</strong> They need to push harder</li>
+<li><strong>D.</strong> filter-repo undid itself</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — Rewriting history invalidates every hash from the rewrite point back.
+Old clones reference dead IDs. Announce, coordinate, re-clone.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p>Hashes are content addresses — change the content (drop a commit), change the
+address. <strong><code>--force-with-lease</code></strong> protects the push; coordination protects
+the team.</p>
+<p>→ <a href="../../topics/git-security/#safe-git-history-changes-rewriting-is-surgery">Git history</a></p>
+</details>
+<hr />
+<h3 id="p46-the-strongest-boundary">P46 · The strongest boundary<a class="headerlink" href="#p46-the-strongest-boundary" title="Permanent link">&para;</a></h3>
+<div class="tx-question">
+<p><strong>🔴 Hard · 1 mark · T4: Authorization</strong></p>
+<p>"Only the sales team may see the client list" — for an LLM assistant with RAG over company documents. Rank from strongest to weakest:</p>
+<ul>
+<li><strong>A.</strong> System prompt instruction &gt; post-hoc output filter &gt; retrieval scoping</li>
+<li><strong>B.</strong> Retrieval scoping (client list not in the sales team's corpus) &gt; permission checks in code &gt; system prompt instruction</li>
+<li><strong>C.</strong> All three are equivalent — defense in depth means any one suffices</li>
+<li><strong>D.</strong> Fine-tuning &gt; everything</li>
+</ul>
+</div>
+<details class="success">
+<summary>Answer</summary>
+<p><strong>B</strong> — Architectural controls (what <em>can</em> be retrieved, what code enforces)
+are deterministic; prompt instructions are requests the model can be talked
+out of.</p>
+</details>
+<details class="note">
+<summary>Why</summary>
+<p><strong>A prompt is not a security boundary.</strong> What the system cannot access, it
+cannot leak — no matter how clever the injection.</p>
+<p>→ <a href="../../topics/llm-prompting/#reliability-discipline-for-llm-systems">Reliability discipline</a></p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.path", "navigation.prune", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tooltips", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/focus.js"></script>
+      
+        <script src="../../javascripts/grade-calc.js"></script>
+      
+    
+  </body>
+</html>

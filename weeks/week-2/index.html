@@ -1,0 +1,2862 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Student-built end-term prep for Tools in Data Science (T2-2026). Exam-pattern-first notes, PYQ solutions with reasoning, and practice questions.">
+      
+      
+      
+      
+        <link rel="prev" href="../week-1/">
+      
+      
+        <link rel="next" href="../week-3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Week 2 — APIs & deployment - TDS ET Prep — May 2026</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-2-apis-deployment-the-web-platform" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-header__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TDS ET Prep — May 2026
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 2 — APIs & deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plans
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exam/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../learn/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Learn
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../revise/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Revise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pyqs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Practice
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mock/mock-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mock
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../calculator/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Calculator
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TDS ET Prep — May 2026" class="md-nav__button md-logo" aria-label="TDS ET Prep — May 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    TDS ET Prep — May 2026
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../exam/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../learn/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learn
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learn
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Week notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge course
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 — Tools & fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 — APIs & deployment
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 — APIs & deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fastapi-the-exams-favourite-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI — the exam's favourite backend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors-the-most-tested-concept-in-the-corpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CORS — the most-tested concept in the corpus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORS — the most-tested concept in the corpus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-an-origin-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an origin is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-policy-and-its-reason" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The policy and its reason
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-fix-it-and-who-cant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who can fix it — and who can't
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-ttl-cache-control-and-the-cache-buster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching — TTL, Cache-Control, and the cache-buster
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching — TTL, Cache-Control, and the cache-buster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ttl-time-to-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TTL — Time-To-Live
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-control-the-header-that-grants-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache-Control — the header that grants permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cache-buster-forcing-a-fresh-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The cache-buster — forcing a fresh fetch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dashboard-pattern-et-2s-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The dashboard pattern (ET-2's arithmetic)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-the-env-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets — the .env workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets — the .env workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-the-history-is-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the history is the problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-principle-behind-it-12-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The principle behind it (12-factor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-each-value-lives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where each value lives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-the-exams-favourite-deployment-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker — the exam's favourite deployment story
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker — the exam&#39;s favourite deployment story">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-environment-parity-the-core-promise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Environment parity — the core promise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-missing-install-isolation-cuts-both-ways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The missing install — isolation cuts both ways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-expose-vs-p-documentation-vs-the-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. EXPOSE vs -p — documentation vs the bridge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-layer-caching-the-build-speed-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Layer caching — the build-speed question
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-platforms-know-the-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment platforms — know the tiers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment platforms — know the tiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-two-serverless-limits-the-exams-favourite-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two serverless limits — the exam's favourite pair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-resilience-story-why-edge-locations-dont-care" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The resilience story — why edge locations don't care
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-port-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The port trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statelessness-durable-storage-why-servers-are-allowed-to-die" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statelessness &amp; durable storage — why servers are allowed to die
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-error-design-failing-usefully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API error design — failing usefully
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-vs-delegated-access-whos-asking-and-on-whose-behalf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity vs delegated access — who's asking, and on whose behalf
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safe-git-history-changes-rewriting-is-surgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safe git history changes — rewriting is surgery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-oauth-sessions-vs-bearer-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google OAuth — sessions vs bearer tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-testing-observability-the-three-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging, testing &amp; observability — the three signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudflare-tunnels-exposing-localhost-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloudflare tunnels — exposing localhost safely
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-llms-the-tool-selection-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local LLMs — the tool-selection table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-check-can-you-answer-these-without-looking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-check — can you answer these without looking?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 — Prompting & LLMs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 — RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 — Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 — Scraping & extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 — Security & automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 — ML platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sessions/et-01/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revision sessions
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../revise/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revise
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../pyqs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../mock/mock-1/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mock
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../calculator/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fastapi-the-exams-favourite-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI — the exam's favourite backend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors-the-most-tested-concept-in-the-corpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CORS — the most-tested concept in the corpus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORS — the most-tested concept in the corpus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-an-origin-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an origin is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-policy-and-its-reason" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The policy and its reason
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-fix-it-and-who-cant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who can fix it — and who can't
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-ttl-cache-control-and-the-cache-buster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching — TTL, Cache-Control, and the cache-buster
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching — TTL, Cache-Control, and the cache-buster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ttl-time-to-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TTL — Time-To-Live
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-control-the-header-that-grants-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache-Control — the header that grants permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cache-buster-forcing-a-fresh-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The cache-buster — forcing a fresh fetch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dashboard-pattern-et-2s-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The dashboard pattern (ET-2's arithmetic)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-the-env-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets — the .env workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets — the .env workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-the-history-is-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the history is the problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-principle-behind-it-12-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The principle behind it (12-factor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-each-value-lives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where each value lives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-the-exams-favourite-deployment-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker — the exam's favourite deployment story
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker — the exam&#39;s favourite deployment story">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-environment-parity-the-core-promise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Environment parity — the core promise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-missing-install-isolation-cuts-both-ways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The missing install — isolation cuts both ways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-expose-vs-p-documentation-vs-the-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. EXPOSE vs -p — documentation vs the bridge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-layer-caching-the-build-speed-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Layer caching — the build-speed question
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-platforms-know-the-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment platforms — know the tiers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment platforms — know the tiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-two-serverless-limits-the-exams-favourite-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two serverless limits — the exam's favourite pair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-resilience-story-why-edge-locations-dont-care" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The resilience story — why edge locations don't care
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-port-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The port trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statelessness-durable-storage-why-servers-are-allowed-to-die" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statelessness &amp; durable storage — why servers are allowed to die
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-error-design-failing-usefully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API error design — failing usefully
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-vs-delegated-access-whos-asking-and-on-whose-behalf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity vs delegated access — who's asking, and on whose behalf
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safe-git-history-changes-rewriting-is-surgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safe git history changes — rewriting is surgery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-oauth-sessions-vs-bearer-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google OAuth — sessions vs bearer tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-testing-observability-the-three-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging, testing &amp; observability — the three signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudflare-tunnels-exposing-localhost-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloudflare tunnels — exposing localhost safely
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-llms-the-tool-selection-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local LLMs — the tool-selection table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-check-can-you-answer-these-without-looking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-check — can you answer these without looking?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../learn/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Learn
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../week-bridge/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Week notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="week-2-apis-deployment-the-web-platform">Week 2 — APIs, deployment &amp; the web platform<a class="headerlink" href="#week-2-apis-deployment-the-web-platform" title="Permanent link">&para;</a></h1>
+<div class="tx-meta">
+<p>~25 min read · Examinable: 🔥🔥🔥 (highest PYQ density) · GA2 · <a href="../../sessions/et-01/">ET-1 session</a></p>
+</div>
+<p>This is the week the exam loves most. CORS, Docker, caching, secrets, deployment limits — nearly every 🔥🔥 topic in the <a href="../../pyqs/#the-priority-list-how-often-each-topic-is-asked">frequency table</a> lives here. The course files are practical walkthroughs; this page adds what the exam actually asks: <strong>the theory layer, the decision rules, and the traps.</strong></p>
+<p>Course files: FastAPI · CORS middleware · Google OAuth · config management · Docker Compose · deployment platforms · logging/testing · observability · Cloudflare tunnels · local LLMs (LM Studio, Ollama, llama.cpp, vLLM, MLX).</p>
+<hr />
+<h2 id="fastapi-the-exams-favourite-backend">FastAPI — the exam's favourite backend<a class="headerlink" href="#fastapi-the-exams-favourite-backend" title="Permanent link">&para;</a></h2>
+<p><strong>What it is:</strong> a Python framework that turns functions into HTTP endpoints. You write a decorator above a function; the world can call it over HTTP and get JSON back.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/health"</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">health</span><span class="p">():</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">}</span>
+</code></pre></div>
+<p>Run it with <code>uv run uvicorn main:app --reload</code>, and two magic URLs appear: <code>/docs</code> (interactive Swagger UI where you can click and test every endpoint) and <code>/redoc</code> (clean documentation). FastAPI reads your Python type hints to generate both — the same type hints that power its request validation.</p>
+<p><strong>Why it matters for the exam:</strong> FastAPI appears almost always as the <em>backend in a scenario</em> — the CORS story, the LLM-proxy story, the reliability short-answer. You never write FastAPI code in the ET; you reason about <strong>what it does</strong>:</p>
+<ul>
+<li>It runs <strong>server-side</strong> — it can read environment variables, touch databases, and hold secrets that the browser must never see.</li>
+<li>It <strong>sends response headers</strong> — which is where CORS permission and <code>Cache-Control</code> live.</li>
+<li>It <strong>validates with Pydantic</strong> — declare <code>age: int</code> in a request model and a string <code>"25"</code> is coerced, <code>"abc"</code> is a clean 422 error, a missing field never reaches your function (<a href="../../pyqs/t1-2026-fn/#q14-pydantic-type-coercion">T1-FN Q14</a>).</li>
+<li>It <strong>serves JSON</strong> — <code>response.json()</code> on the client parses what FastAPI returned.</li>
+</ul>
+<p>The exam's FastAPI scenarios follow one pattern: <em>a student builds a FastAPI app, something goes wrong (browser blocks it, LLM bill explodes, one request hangs the server), and you diagnose why.</em> Understanding the four points above is enough to diagnose all of them.</p>
+<div class="tx-anchor">
+<p><strong>Asked in:</strong> GA2 (<code>fastapi-metrics-cors-server</code>, <code>middleware-ratelimit-cors-server</code>) · <a href="../../pyqs/t1-2026-fn/#q24-making-the-endpoint-reliable">T1-FN Q24 — the FastAPI reliability short-answer</a></p>
+</div>
+<hr />
+<h2 id="cors-the-most-tested-concept-in-the-corpus">CORS — the most-tested concept in the corpus<a class="headerlink" href="#cors-the-most-tested-concept-in-the-corpus" title="Permanent link">&para;</a></h2>
+<h3 id="what-an-origin-is">What an origin is<a class="headerlink" href="#what-an-origin-is" title="Permanent link">&para;</a></h3>
+<p><strong>Origin = scheme + host + port.</strong> Change any one of the three and you have a different origin:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>http://localhost:3000   ← frontend (React dev server)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>http://localhost:8000   ← backend API — DIFFERENT origin (port differs)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>https://localhost:3000  ← different again (scheme differs)
+</code></pre></div>
+<p>This is why "they're both on localhost" doesn't help — the ports differ, so the browser treats them as strangers.</p>
+<h3 id="the-policy-and-its-reason">The policy and its reason<a class="headerlink" href="#the-policy-and-its-reason" title="Permanent link">&para;</a></h3>
+<p>The browser's <strong>Same-Origin Policy</strong> stops JavaScript on one origin from reading a response from another origin — unless the <em>receiving server</em> explicitly allows it via the <code>Access-Control-Allow-Origin</code> response header. In FastAPI:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.middleware.cors</span><span class="w"> </span><span class="kn">import</span> <span class="n">CORSMiddleware</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">CORSMiddleware</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">allow_origins</span><span class="o">=</span><span class="p">[</span><span class="s2">"http://localhost:3000"</span><span class="p">],</span>  <span class="c1"># the frontend's origin</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Must remember — the security rationale (the professor's own words)</p>
+<p>Browsers block cross-origin reads because web apps load <strong>heavily nested
+third-party JavaScript libraries</strong>. If one is compromised, it could execute
+background requests to an external server and <strong>exfiltrate sensitive client
+data</strong>. The Same-Origin Policy is the guardrail; CORS is the server's controlled
+permission — the gate in the guardrail.</p>
+<p>Picture it: you're logged into your bank in one tab. You open <code>evil.com</code> in
+another. Evil.com's JavaScript tries <code>fetch("https://bank.com/api/me")</code> — and
+the browser blocks the <em>read</em>, because bank.com never said evil.com could listen.</p>
+</div>
+<h3 id="who-can-fix-it-and-who-cant">Who can fix it — and who can't<a class="headerlink" href="#who-can-fix-it-and-who-cant" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Trap — only the backend can fix a CORS error</p>
+<p>The <strong>server that sends the response</strong> grants permission — so only the backend
+can add the header. The frontend cannot grant itself permission (that would
+defeat the entire security model). If an option says "add the header to the fetch
+call," it's wrong.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Wrong belief — 'CORS is a server error'</p>
+<p>No — it's a <strong>browser enforcement</strong>. <code>curl</code>, Postman, and Python scripts are
+never blocked by CORS; only browser JavaScript is. Your API may even be working
+perfectly — it's the browser's read that's refused.</p>
+</div>
+<div class="tx-anchor">
+<p><strong>Asked in 6 places:</strong> <a href="../../pyqs/t1-2026-an/#q13-fixing-the-cors-error">T1-AN Q13 — the fix</a> · <a href="../../pyqs/t1-2026-an/#q18-why-the-browser-blocked-it">T1-AN Q18 — the error side</a> · <a href="../../pyqs/t1-2026-fn/#q2-why-the-cors-error-happens">T1-FN Q2 — the reason</a> · <a href="../../pyqs/t1-2026-fn/#q18-the-local-html-block">T1-FN Q18 — the local HTML block</a> · <a href="../../sessions/et-01/">ET-1 session</a> · GA2</p>
+</div>
+<hr />
+<h2 id="caching-ttl-cache-control-and-the-cache-buster">Caching — TTL, Cache-Control, and the cache-buster<a class="headerlink" href="#caching-ttl-cache-control-and-the-cache-buster" title="Permanent link">&para;</a></h2>
+<p>Three exam questions in every recent paper come from this one family. Understand the flow and all three fall:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Browser → Proxy → CDN → Origin server
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   ↕         ↕      ↕
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  each layer can keep a copy — if the response says it may
+</code></pre></div>
+<h3 id="ttl-time-to-live">TTL — Time-To-Live<a class="headerlink" href="#ttl-time-to-live" title="Permanent link">&para;</a></h3>
+<p>How long a cached copy stays fresh. After the TTL expires, the next request goes to the origin again. The <strong>units are always seconds</strong>: 3600 = 1 hour, 7200 = 2 hours, 300 = 5 minutes.</p>
+<h3 id="cache-control-the-header-that-grants-permission">Cache-Control — the header that grants permission<a class="headerlink" href="#cache-control-the-header-that-grants-permission" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Cache-Control: public, max-age=3600
+</code></pre></div>
+<ul>
+<li><code>public</code> = intermediaries (proxies, CDNs) may cache — not just your own browser</li>
+<li><code>max-age=3600</code> = the copy is fresh for 3600 seconds</li>
+</ul>
+<p>Within that window, repeat requests <strong>never reach the origin</strong> — which is why the student's LLM bill collapsed in the FastAPI scenario: the same movie summary was served from a cache for an hour instead of re-invoking the LLM every refresh.</p>
+<h3 id="the-cache-buster-forcing-a-fresh-fetch">The cache-buster — forcing a fresh fetch<a class="headerlink" href="#the-cache-buster-forcing-a-fresh-fetch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>https://api.example.com/data        ← cached
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>https://api.example.com/data?t=123  ← NEW URL = cache miss → origin hit
+</code></pre></div>
+<p>Caches key on the full URL. Change the URL (append a random query parameter) and the cache has never seen it — it must fetch. This is why deployments bump <code>app.js?v=3</code>: one character invalidates every user's cached copy at once.</p>
+<div class="admonition success">
+<p class="admonition-title">The professor's Twitter example (ET-1)</p>
+<p>On a slow network, Twitter's sidebar and UI render instantly while the tweets
+lag. The static assets come from your <strong>local browser cache</strong> — saved on a
+previous visit, no network needed. The dynamic content (your timeline) can't be
+cached and must be fetched. That's caching in one image: <strong>cache what doesn't
+change; fetch what does.</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trap — the units ladder</p>
+<p>"The API uses <code>max-age=7200</code>. How long does the cache hold data?" The options:
+7200 milliseconds / 7200 minutes / 2 hours / 72 days. Only "2 hours" survives
+the units check. When the exam offers four unit-interpretations of one number,
+it's testing whether you know the <em>convention</em> (seconds), not the arithmetic.</p>
+</div>
+<h3 id="the-dashboard-pattern-et-2s-arithmetic">The dashboard pattern (ET-2's arithmetic)<a class="headerlink" href="#the-dashboard-pattern-et-2s-arithmetic" title="Permanent link">&para;</a></h3>
+<p>A dataset updating hourly but queried every few seconds is the perfect cache candidate: one write per hour, ~3600 reads. A <strong>5-minute TTL</strong> means the database is hit once per interval regardless of user count — the professor's exact example of balancing freshness against database conservation.</p>
+<div class="tx-anchor">
+<p><strong>Asked in 8+ places:</strong> <a href="../../pyqs/t1-2026-an/#q19-what-max-age3600-does">T1-AN Q19 — what max-age does</a> · <a href="../../pyqs/t1-2026-an/#q22-forcing-fresh-data-past-the-cache">T1-AN Q22 — the cache-buster</a> · <a href="../../pyqs/t1-2026-fn/#q13-the-cache-control-headers-benefit">T1-FN Q13 — the benefit</a> · <a href="../../pyqs/t1-2026-fn/#q19-reading-the-cache-duration">T1-FN Q19 — the units</a> · <a href="../../pyqs/t1-2026-fn/#q21-forcing-a-fresh-fetch">T1-FN Q21 — forcing fresh</a> · <a href="../../pyqs/t3-2025-fn/#q9-caching-an-hourly-updated-dashboard">T3-FN Q9 — the dashboard TTL</a> · <a href="../../sessions/et-01/">ET-1</a> · <a href="../../sessions/et-02/">ET-2</a></p>
+</div>
+<hr />
+<h2 id="secrets-the-env-workflow">Secrets — the .env workflow<a class="headerlink" href="#secrets-the-env-workflow" title="Permanent link">&para;</a></h2>
+<p>The single most repeated security mark in the paper set — asked in at least one form in <strong>every paper</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># .env — stays on YOUR machine, never committed</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>sk-...
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">DATABASE_URL</span><span class="o">=</span>sqlite:///./dev.db
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nv">SECRET_KEY</span><span class="o">=</span>generated-with-openssl-rand-hex-32
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># .gitignore — add BEFORE the first commit
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>.env
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>*.env
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># load in code</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"OPENAI_API_KEY"</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="why-the-history-is-the-problem">Why the history is the problem<a class="headerlink" href="#why-the-history-is-the-problem" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title">Must remember</p>
+<p>Once a secret is pushed to GitHub, it's in the <strong>history forever</strong> — clones,
+forks, scrapers all have it. Deleting the file later doesn't delete the history.
+Bots scan GitHub for API keys <strong>within minutes</strong> of a push. The only safe
+workflow: <code>.env</code> + <code>.gitignore</code> + <code>os.getenv()</code>.</p>
+<p>The professor's escalation: scraped keys → impersonation → "a security disaster."</p>
+</div>
+<h3 id="the-principle-behind-it-12-factor">The principle behind it (12-factor)<a class="headerlink" href="#the-principle-behind-it-12-factor" title="Permanent link">&para;</a></h3>
+<p><strong>Same code, different values.</strong> Your app runs identically in dev / staging / production by reading different environment variables — config lives in the <em>environment</em>, never in the <em>code</em>. That's why <code>.env</code> exists at all: it's the environment, in a file, for local development.</p>
+<h3 id="where-each-value-lives">Where each value lives<a class="headerlink" href="#where-each-value-lives" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>What belongs there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.env</code></td>
+<td>Project-specific secrets and config</td>
+</tr>
+<tr>
+<td><code>~/.bashrc</code></td>
+<td>Machine/user-level defaults (every terminal session)</td>
+</tr>
+<tr>
+<td>GitHub Actions secrets</td>
+<td>CI/CD values</td>
+</tr>
+<tr>
+<td>Hugging Face Space secrets</td>
+<td>Deployment values</td>
+</tr>
+</tbody>
+</table>
+<p>Golden rule: <strong>commit code and <code>.env.example</code>; never commit <code>.env</code>.</strong> The <code>.env.example</code> file (with empty values) tells teammates what to create.</p>
+<div class="tx-anchor">
+<p><strong>Asked in 5+ places:</strong> <a href="../../pyqs/t1-2026-an/#q5-what-goes-into-gitignore">T1-AN Q5 — the .gitignore MSQ</a> · <a href="../../pyqs/t1-2026-fn/#q8-why-env-files-exist">T1-FN Q8 — why .env exists</a> · <a href="../../pyqs/t3-2025-an/#q24-where-the-api-key-lives">T3-AN Q24 — where the API key lives</a> · <a href="../../pyqs/t3-2025-fn/#q6-why-environment-variables">T3-FN Q6 — environment variables</a> · <a href="../../sessions/et-01/">ET-1</a></p>
+</div>
+<hr />
+<h2 id="docker-the-exams-favourite-deployment-story">Docker — the exam's favourite deployment story<a class="headerlink" href="#docker-the-exams-favourite-deployment-story" title="Permanent link">&para;</a></h2>
+<p>Four exam questions live here, all asked in every recent paper. Together they cover Docker's entire examinable surface.</p>
+<h3 id="1-environment-parity-the-core-promise">1. Environment parity — the core promise<a class="headerlink" href="#1-environment-parity-the-core-promise" title="Permanent link">&para;</a></h3>
+<p>An Ubuntu container built anywhere runs identically on Windows, macOS, Linux — because the OS is <em>inside the image</em>. Docker packages the entire runtime: operating system, system libraries, Python, your dependencies, your code. The host machine's setup becomes irrelevant. "Works on my machine" stops being an excuse.</p>
+<p>The exam asks this as: <em>you build on Linux, push to Docker Hub, a colleague pulls on Windows — what happens?</em> It just works (<a href="../../pyqs/t1-2026-fn/#q5-docker-on-windows">T1-FN Q5</a>).</p>
+<h3 id="2-the-missing-install-isolation-cuts-both-ways">2. The missing install — isolation cuts both ways<a class="headerlink" href="#2-the-missing-install-isolation-cuts-both-ways" title="Permanent link">&para;</a></h3>
+<p>A container that crashes with "can't find the <code>requests</code> library" is missing one line:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>Containers are <strong>isolated by design</strong> — nothing from your laptop leaks in, <em>including your installed packages</em>. The Dockerfile must install everything itself. The professor paired these two ideas deliberately: parity works <em>because</em> isolation is total.</p>
+<h3 id="3-expose-vs-p-documentation-vs-the-bridge">3. EXPOSE vs -p — documentation vs the bridge<a class="headerlink" href="#3-expose-vs-p-documentation-vs-the-bridge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8501        # documentation: "this app listens on 8501" — a LABEL</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span>app<span class="w">   </span><span class="c1"># THIS publishes the port to the host</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">The professor's one-liner (ET-2)</p>
+<p><strong>EXPOSE is a label; <code>-p</code> is the bridge.</strong> EXPOSE tells other containers and
+tooling which port the app uses — it does not make the port reachable from your
+machine. Only <code>-p host:container</code> at runtime does that. If a container runs but
+<code>localhost:8501</code> refuses to connect, you forgot <code>-p</code>.</p>
+</div>
+<h3 id="4-layer-caching-the-build-speed-question">4. Layer caching — the build-speed question<a class="headerlink" href="#4-layer-caching-the-build-speed-question" title="Permanent link">&para;</a></h3>
+<p>Docker builds images in <strong>layers</strong>, one instruction per layer. The caching rule: a layer rebuilds only when its inputs change — and every layer <em>after</em> a changed layer rebuilds too.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.<span class="w">      </span>#<span class="w"> </span>←<span class="w"> </span>copy<span class="w"> </span>ONLY<span class="w"> </span>the<span class="w"> </span>dependency<span class="w"> </span>list<span class="w"> </span>first
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">   </span>#<span class="w"> </span>←<span class="w"> </span>install<span class="w"> </span><span class="o">(</span>stays<span class="w"> </span>cached<span class="o">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.<span class="w">                     </span>#<span class="w"> </span>←<span class="w"> </span>NOW<span class="w"> </span>copy<span class="w"> </span>the<span class="w"> </span>code
+</code></pre></div>
+<p>Copy the code first (<code>COPY . .</code> before <code>RUN pip install</code>) and every minor code edit changes the COPY layer — which invalidates the install layer — which re-downloads every dependency on every build. Copy <code>requirements.txt</code> first and the install layer stays cached across code-only changes. Same final image; completely different build speed.</p>
+<div class="admonition warning">
+<p class="admonition-title">Trap — reading the crash</p>
+<p>A container that exited still has its stdout/stderr captured:
+<code>docker logs &lt;container&gt;</code> replays them. The first stop for any crash — the box
+keeps the diary.</p>
+</div>
+<div class="tx-anchor">
+<p><strong>Asked in 10+ places:</strong> <a href="../../pyqs/t1-2026-an/#q28-expose-vs--p">T1-AN Q28 — EXPOSE vs -p</a> · <a href="../../pyqs/t1-2026-an/#q24-docker-layer-caching">T1-AN Q24 — layer caching SA</a> · <a href="../../pyqs/t1-2026-fn/#q5-docker-on-windows">T1-FN Q5 — parity</a> · <a href="../../pyqs/t1-2026-fn/#q11-the-missing-pip-install">T1-FN Q11 — missing install</a> · <a href="../../pyqs/t3-2025-fn/#q27-running-with-the-port-published">T3-FN Q27 — the run command</a> · <a href="../../pyqs/t3-2025-fn/#q29-reading-the-crash-logs">T3-FN Q29 — docker logs</a> · <a href="../../pyqs/t3-2025-fn/#q28-why-docker-for-deployment">T3-FN Q30 — why Docker</a> · <a href="../../pyqs/t3-2025-fn/#q30-the-dockerfile-install-line">T3-FN Q31 — the install line</a> · <a href="../../pyqs/t3-2025-fn/#q31-what-expose-does">T3-FN Q32 — EXPOSE</a> · <a href="../../sessions/et-01/">ET-1</a> · <a href="../../sessions/et-02/">ET-2</a></p>
+</div>
+<hr />
+<h2 id="deployment-platforms-know-the-tiers">Deployment platforms — know the tiers<a class="headerlink" href="#deployment-platforms-know-the-tiers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Best for</th>
+<th>The exam angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Pages</strong></td>
+<td>Static files only (HTML/CSS/JS)</td>
+<td><strong>No backend, no database</strong> — FastAPI on Pages fails</td>
+</tr>
+<tr>
+<td><strong>Hugging Face Spaces</strong></td>
+<td>ML demos, Gradio/Streamlit</td>
+<td>Port 7860, Docker Spaces</td>
+</tr>
+<tr>
+<td><strong>Vercel</strong></td>
+<td>Serverless frontend/backend</td>
+<td><strong>Strict timeouts</strong> (~10s at the edge)</td>
+</tr>
+<tr>
+<td><strong>Render / Railway</strong></td>
+<td>Backend + DB + Redis</td>
+<td>Full app hosting</td>
+</tr>
+<tr>
+<td><strong>GCP Cloud Run / AWS ECS</strong></td>
+<td>Managed Docker containers</td>
+<td>Production containers</td>
+</tr>
+<tr>
+<td><strong>Cloudflare Workers</strong></td>
+<td>Edge functions</td>
+<td><strong>300+ edge locations</strong> — independent failure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-two-serverless-limits-the-exams-favourite-pair">The two serverless limits — the exam's favourite pair<a class="headerlink" href="#the-two-serverless-limits-the-exams-favourite-pair" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title">RAM + Time — memorize them as a pair</p>
+<ul>
+<li><strong>Time:</strong> an edge function needing 40 seconds dies at the 10-second limit →
+  <a href="../../pyqs/t1-2026-an/#q17-the-edge-function-timeout">T1-AN Q17</a>. Serverless
+  platforms enforce hard ceilings — no negotiation, no warning.</li>
+<li><strong>RAM:</strong> a 2GB file works on your laptop (8–32 GB), dies on a free-tier
+  function (128–512 MB) → <a href="../../pyqs/t1-2026-fn/#q10-serverless-memory-limits">T1-FN Q10</a>.
+  The fix is streaming/chunking, not a bigger plan.</li>
+</ul>
+<p>Long jobs belong in containers, queues, or workers — not serverless functions.</p>
+</div>
+<h3 id="the-resilience-story-why-edge-locations-dont-care">The resilience story — why edge locations don't care<a class="headerlink" href="#the-resilience-story-why-edge-locations-dont-care" title="Permanent link">&para;</a></h3>
+<p>When Vercel crashes, a Cloudflare Worker doing the same job <strong>keeps serving</strong> — it runs on 300+ independent edge locations, and one provider's outage doesn't touch them. This is the architecture of edge computing: code runs <em>near the user</em>, replicated everywhere, with no single origin to fail (<a href="../../pyqs/t1-2026-an/#q8-cloudflare-workers-resilience">T1-AN Q8</a>).</p>
+<h3 id="the-port-trap">The port trap<a class="headerlink" href="#the-port-trap" title="Permanent link">&para;</a></h3>
+<p>Locally you use <code>8000</code>; many platforms inject <code>$PORT</code>. The platform-safe pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>uv<span class="w"> </span>run<span class="w"> </span>uvicorn<span class="w"> </span>main:app<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="si">${</span><span class="nv">PORT</span><span class="k">:-</span><span class="nv">8000</span><span class="si">}</span>
+</code></pre></div>
+<div class="tx-anchor">
+<p><strong>Asked in:</strong> GA2 (<code>deploy-analytics-platform-server</code>, <code>compose-redis-tunnel-server</code>) · <a href="../../pyqs/t1-2026-an/#q8-cloudflare-workers-resilience">T1-AN Q8 — edge resilience</a> · <a href="../../pyqs/t1-2026-an/#q17-the-edge-function-timeout">T1-AN Q17 — the timeout</a> · <a href="../../pyqs/t1-2026-fn/#q10-serverless-memory-limits">T1-FN Q10 — the RAM limit</a> · <a href="../../pyqs/t1-2026-fn/#q3-fastapi-on-github-pages">T1-FN Q3 — GitHub Pages</a></p>
+</div>
+<hr />
+<h2 id="statelessness-durable-storage-why-servers-are-allowed-to-die">Statelessness &amp; durable storage — why servers are allowed to die<a class="headerlink" href="#statelessness-durable-storage-why-servers-are-allowed-to-die" title="Permanent link">&para;</a></h2>
+<p><em>On the official topic list: Web/API/Infra Fundamentals.</em></p>
+<p><strong>Stateless</strong> means: the server keeps <em>nothing</em> in memory between requests. Any request can go to any instance, and any instance can be killed and replaced at any moment. That's what makes scaling and deploys safe — no instance is special because no instance <em>remembers</em> anything.</p>
+<p><strong>Where does state go? Everywhere else — durably:</strong></p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Lives in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data that must survive</td>
+<td><strong>Database</strong></td>
+</tr>
+<tr>
+<td>Fast, temporary lookups</td>
+<td><strong>Redis / cache</strong></td>
+</tr>
+<tr>
+<td>Work to be done later</td>
+<td><strong>Queue</strong> (a worker picks it up)</td>
+</tr>
+<tr>
+<td>User identity between requests</td>
+<td><strong>Session store / token</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The trap the exam tests:</strong> an app keeps a Python dictionary of logged-in users in memory. It works locally, works with one instance — then the platform restarts the container (serverless does this <em>constantly</em>) and everyone is logged out, or a second instance is added and half the users "don't exist." The fix: sessions in Redis/DB, files in object storage, in-memory caches treated as <em>disposable</em> (rebuildable) state.</p>
+<p><strong>The architectural pattern that follows:</strong> API (stateless) → queue (durable) → worker (does the slow thing) → database (durable). Each part can crash, restart, and scale independently — that's the serverless-limits workaround (<a href="#deployment-platforms-know-the-tiers">the two limits</a> above) and the resilience story, unified.</p>
+<hr />
+<h2 id="api-error-design-failing-usefully">API error design — failing usefully<a class="headerlink" href="#api-error-design-failing-usefully" title="Permanent link">&para;</a></h2>
+<p><em>On the official topic list: Web/API/Infra Fundamentals.</em></p>
+<p>Returning the <em>right</em> error is a design skill, not a formality. The rules:</p>
+<p><strong>1. The status code carries the category.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Who can fix it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>400</strong></td>
+<td>malformed request (bad JSON, missing field, failed validation)</td>
+<td>the caller</td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td>not authenticated — <em>who are you?</em></td>
+<td>the caller (credentials)</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td>authenticated, not permitted — <em>I know you, you can't do this</em></td>
+<td>the caller (permissions) or the owner</td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td>resource doesn't exist (or is hidden on purpose)</td>
+<td>the caller's URL</td>
+</tr>
+<tr>
+<td><strong>422</strong></td>
+<td>well-formed request, semantically invalid (Pydantic's validation errors)</td>
+<td>the caller's data</td>
+</tr>
+<tr>
+<td><strong>429</strong></td>
+<td>rate limit exceeded — slow down / retry later</td>
+<td>the caller (eventually)</td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td><em>our</em> code or dependencies failed</td>
+<td>the server team</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. The body carries the diagnosis.</strong> <code>400 Bad Request</code> alone tells the caller nothing. A useful error names the field, the problem, and ideally the fix: <code>{"error": "quantity must be &gt;= 1, got 0", "field": "quantity"}</code>. Pydantic + FastAPI give this nearly free.</p>
+<p><strong>3. Fail fast, fail loud — never silently.</strong> Reject bad input at the boundary with a clear error <em>before</em> processing. The alternative — accepting it and failing downstream — produces the 3am-debugging scenario: the error surfaces far from its cause. (The same principle as <a href="../../sessions/et-03/">the sentiment API case</a>.)</p>
+<p><strong>4. Never leak internals in errors.</strong> Stack traces to the client are a security hole (they map your code); log the trace server-side, return a clean message + a request ID the user can quote.</p>
+<div class="admonition tip">
+<p class="admonition-title">CORS / auth / authorization — three distinct concerns</p>
+<p>Exams mix these deliberately. <strong>CORS</strong> = <em>the browser's</em> rule about reading
+cross-origin responses (fixed by the <em>server's</em> response headers). <strong>AuthN</strong> =
+verifying identity (401 when it fails). <strong>AuthZ</strong> = verifying permission (403
+when it fails). A request can pass all three checks, fail any one of them, and
+each failure is fixed by a different party.</p>
+</div>
+<hr />
+<h2 id="identity-vs-delegated-access-whos-asking-and-on-whose-behalf">Identity vs delegated access — who's asking, and on whose behalf<a class="headerlink" href="#identity-vs-delegated-access-whos-asking-and-on-whose-behalf" title="Permanent link">&para;</a></h2>
+<p><em>On the official topic list: Web/API/Infra Fundamentals.</em></p>
+<p>Builds directly on <a href="#google-oauth-sessions-vs-bearer-tokens">sessions vs bearer tokens</a>:</p>
+<ul>
+<li><strong>Identity</strong> = <em>who you are</em> — the user or service making the request (API key, session, JWT).</li>
+<li><strong>Delegated access</strong> = <em>what you're allowed to do on someone else's behalf</em> — the classic OAuth flow: "connect this app to my Google Drive" means the app acts <em>as you</em>, but only within the scopes you granted.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>API key (identity)</th>
+<th>OAuth token (delegated)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Represents</td>
+<td>the key's owner, fully</td>
+<td>the user, limited to granted scopes</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>everything the key can do</td>
+<td>only what was delegated (read email, not delete)</td>
+</tr>
+<tr>
+<td>Revocation</td>
+<td>rotate the key</td>
+<td>user revokes the app's grant — key survives</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The exam shape:</strong> "A third-party app reads a user's calendar." That's delegated access — the app never holds the user's password, holds a <em>scoped, revocable</em> token instead. The design principle: <strong>least privilege</strong> — grant the minimum scope, for the minimum time, revocable by the user. When you audit such a system, the questions are: what scopes? who granted? how revoked?</p>
+<hr />
+<h2 id="safe-git-history-changes-rewriting-is-surgery">Safe git history changes — rewriting is surgery<a class="headerlink" href="#safe-git-history-changes-rewriting-is-surgery" title="Permanent link">&para;</a></h2>
+<p><em>On the official topic list: Web/API/Infra Fundamentals.</em></p>
+<p>Sometimes history must change: a secret was committed, a giant file bloats the repo, garbage commits must go before a public release. The safe procedure:</p>
+<p><strong>1. Stop the bleeding first.</strong> If a secret is in history, <strong>rotate it immediately</strong> — treat it as leaked the moment it was pushed, whatever you do to history afterwards. Removing it from the repo does not un-leak it (<a href="#secrets-the-env-workflow">secrets</a>).</p>
+<p><strong>2. Rewrite on a branch, review, then force-push.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>filter-repo<span class="w"> </span>--path<span class="w"> </span>.env<span class="w"> </span>--invert-paths<span class="w">   </span><span class="c1"># or BFG for large files</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>push<span class="w"> </span>--force-with-lease<span class="w">                   </span><span class="c1"># safer than --force</span>
+</code></pre></div>
+<ul>
+<li><strong><code>--force-with-lease</code> over <code>--force</code>:</strong> it refuses to overwrite if someone pushed in the meantime — history rewrites are the one place a plain force-push silently destroys teammates' work.</li>
+<li><strong>Coordinate first:</strong> everyone must rebase after a rewrite; announce it, or you'll spend the day untangling diverged histories.</li>
+</ul>
+<p><strong>3. What changes and what doesn't.</strong> Rewriting changes commit hashes from the rewrite point back — every commit ID after the affected history is <em>new</em>. Tags, open PRs, and local clones all reference the old IDs. This is why rewrites are rare, announced, and treated as surgery — not routine cleanup.</p>
+<div class="admonition warning">
+<p class="admonition-title">Trap — 'I deleted the file, so the secret is gone'</p>
+<p>Deleting the file in a new commit leaves it in every previous commit — still
+cloneable by anyone. History rewrite (or rotation) is the only real fix.</p>
+</div>
+<p>→ Short-note version: <a href="../../topics/web-apis/">Web &amp; APIs</a> · <a href="../../topics/git-security/">Git, security &amp; practices</a></p>
+<hr />
+<h2 id="google-oauth-sessions-vs-bearer-tokens">Google OAuth — sessions vs bearer tokens<a class="headerlink" href="#google-oauth-sessions-vs-bearer-tokens" title="Permanent link">&para;</a></h2>
+<p>Two ways a server remembers who you are, and the exam's identity questions live on this distinction:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Session cookie</th>
+<th>Bearer token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage</td>
+<td>Browser stores a cookie automatically</td>
+<td>Client stores a token manually</td>
+</tr>
+<tr>
+<td>Sending</td>
+<td>Browser attaches it to every request</td>
+<td>Client puts it in the <code>Authorization</code> header</td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td><code>HttpOnly</code> flag → JavaScript can't read it</td>
+<td>Readable by whoever holds it</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Browser apps</td>
+<td>APIs, scripts, mobile apps</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>HttpOnly</code> cookie flag is the security detail worth knowing: it prevents XSS attacks from stealing your session — JavaScript simply cannot access the cookie, even when running on your page.</p>
+<p>→ GA2: <code>oauth-jwks-verify-server</code></p>
+<hr />
+<h2 id="logging-testing-observability-the-three-signals">Logging, testing &amp; observability — the three signals<a class="headerlink" href="#logging-testing-observability-the-three-signals" title="Permanent link">&para;</a></h2>
+<p>When your app runs in production, these are the three ways to understand it from outside:</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Question it answers</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Logs</strong></td>
+<td>What exactly happened?</td>
+<td><code>user_id=12 login failed</code></td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>How much / how fast?</td>
+<td><code>http_requests_total</code>, p95 latency</td>
+</tr>
+<tr>
+<td><strong>Traces</strong></td>
+<td>Where did this request spend time?</td>
+<td>API → DB → Payment (230ms → 180ms → 20ms)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">The exam connection — debugging a 500</p>
+<p>With a gateway in the path, a 500 error could originate from <strong>any layer the
+request crossed</strong>: routing logic, auth middleware, the service itself, or the
+network between them (<a href="../../pyqs/t1-2026-fn/#q28-debugging-the-500">T1-FN Q28</a>).
+Observability is how you tell them apart. Bad debugging: "it works on my
+laptop." Good debugging: the dashboard shows p95 latency up, 500s up, <code>/search</code>
+slow, logs show DB timeout — now you know where to look.</p>
+</div>
+<p>The practical stack: Python's <code>logging</code> module (<code>logger.info()</code>, <code>logger.error()</code>), pytest for tests, FastAPI's <code>TestClient</code> for endpoint tests, Prometheus for metrics (your app exposes <code>/metrics</code>, Prometheus scrapes it).</p>
+<div class="tx-anchor">
+<p><strong>Asked in:</strong> GA2 (<code>observability-metrics-server</code>) · <a href="../../pyqs/t1-2026-fn/#q28-debugging-the-500">T1-FN Q28 — debugging the 500</a></p>
+</div>
+<hr />
+<h2 id="cloudflare-tunnels-exposing-localhost-safely">Cloudflare tunnels — exposing localhost safely<a class="headerlink" href="#cloudflare-tunnels-exposing-localhost-safely" title="Permanent link">&para;</a></h2>
+<p>A tunnel gives your local app a public URL without deploying it — for webhook testing, demos, sharing with a professor. The course's key distinction (and the exam's hidden trap):</p>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>127.0.0.1</code> / <code>localhost</code></td>
+<td>Only my own machine</td>
+</tr>
+<tr>
+<td><code>0.0.0.0</code></td>
+<td>Listen on all local interfaces — <strong>not</strong> a public URL</td>
+</tr>
+<tr>
+<td><code>192.168.x.x</code></td>
+<td>My private Wi-Fi/LAN — other devices on same network</td>
+</tr>
+<tr>
+<td>Public IP</td>
+<td>Internet-facing (router/ISP)</td>
+</tr>
+</tbody>
+</table>
+<p>The common confusion: binding to <code>0.0.0.0</code> makes your server <em>listen</em> everywhere on your machine's network interfaces — it does <strong>not</strong> put you on the internet. For that, you need a tunnel (or a deployment).</p>
+<p>→ GA2: <code>ollama-tunnel-llm-server</code>, <code>compose-redis-tunnel-server</code></p>
+<hr />
+<h2 id="local-llms-the-tool-selection-table">Local LLMs — the tool-selection table<a class="headerlink" href="#local-llms-the-tool-selection-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Best for</th>
+<th>Why you'd pick it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LM Studio</strong></td>
+<td>GUI, model search, local API</td>
+<td>Beginner-friendly, no terminal</td>
+</tr>
+<tr>
+<td><strong>Ollama</strong></td>
+<td>Fast CLI prototyping, local REST API</td>
+<td>Developer's default for local models</td>
+</tr>
+<tr>
+<td><strong>llama.cpp</strong></td>
+<td>Deep control, GGUF models, CPU/GPU tuning</td>
+<td>Systems-minded, maximum offline</td>
+</tr>
+<tr>
+<td><strong>vLLM</strong></td>
+<td>Production GPU serving, batching</td>
+<td>Backend/ML engineer, throughput</td>
+</tr>
+<tr>
+<td><strong>MLX / mlx-lm</strong></td>
+<td>Apple Silicon native</td>
+<td>Mac-only, M-chip optimized</td>
+</tr>
+</tbody>
+</table>
+<p>The legal idea worth one mark: <strong>tool license and model license are separate</strong> — a tool may be MIT while the model you download has its own terms (check the model card on Hugging Face).</p>
+<p>→ GA2: <code>local-llm-structured-server</code></p>
+<hr />
+<h2 id="self-check-can-you-answer-these-without-looking">Self-check — can you answer these without looking?<a class="headerlink" href="#self-check-can-you-answer-these-without-looking" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. Frontend on :3000, backend on :8000 — the browser blocks the fetch. Who fixes it, and how?</summary>
+<p>The <strong>backend</strong>, by adding <code>Access-Control-Allow-Origin</code> for the frontend's origin.
+The frontend can't grant itself permission. Different ports = different origins.</p>
+</details>
+<details class="question">
+<summary>2. Your Docker container runs but <code>localhost:8501</code> refuses to connect. What did you forget?</summary>
+<p>The <code>-p 8501:8501</code> flag on <code>docker run</code>. <code>EXPOSE 8501</code> in the Dockerfile is
+documentation only — a label, not a bridge.</p>
+</details>
+<details class="question">
+<summary>3. A 2GB file loads fine on your laptop but crashes a serverless function. Why?</summary>
+<p>Free-tier functions enforce strict RAM limits (128–512 MB vs your laptop's
+8–32 GB). The fix: stream/chunk, don't load it all — or use a container.</p>
+</details>
+<details class="question">
+<summary>4. <code>max-age=7200</code> — how long is the cache fresh?</summary>
+<p><strong>2 hours.</strong> <code>max-age</code> is always in seconds: 7200 ÷ 3600 = 2.</p>
+</details>
+<details class="question">
+<summary>5. Why does copying all your code before <code>pip install</code> ruin Docker build speed?</summary>
+<p>Every code edit changes the <code>COPY</code> layer, which invalidates all later layers —
+including the dependency install. Copy <code>requirements.txt</code> first so the install
+layer stays cached across code-only changes.</p>
+</details>
+<details class="question">
+<summary>6. What's the difference between a session cookie and a bearer token?</summary>
+<p>A session cookie is stored by the browser and attached automatically (with
+<code>HttpOnly</code> protection). A bearer token is stored by the client and sent manually
+in the <code>Authorization</code> header — better for APIs and scripts.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.path", "navigation.prune", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tooltips", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/focus.js"></script>
+      
+        <script src="../../javascripts/grade-calc.js"></script>
+      
+    
+  </body>
+</html>
