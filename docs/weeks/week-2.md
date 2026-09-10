@@ -322,6 +322,107 @@ uv run uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
 
 ---
 
+## Statelessness & durable storage — why servers are allowed to die
+
+*On the official topic list: Web/API/Infra Fundamentals.*
+
+**Stateless** means: the server keeps *nothing* in memory between requests. Any request can go to any instance, and any instance can be killed and replaced at any moment. That's what makes scaling and deploys safe — no instance is special because no instance *remembers* anything.
+
+**Where does state go? Everywhere else — durably:**
+
+| State | Lives in |
+|---|---|
+| Data that must survive | **Database** |
+| Fast, temporary lookups | **Redis / cache** |
+| Work to be done later | **Queue** (a worker picks it up) |
+| User identity between requests | **Session store / token** |
+
+**The trap the exam tests:** an app keeps a Python dictionary of logged-in users in memory. It works locally, works with one instance — then the platform restarts the container (serverless does this *constantly*) and everyone is logged out, or a second instance is added and half the users "don't exist." The fix: sessions in Redis/DB, files in object storage, in-memory caches treated as *disposable* (rebuildable) state.
+
+**The architectural pattern that follows:** API (stateless) → queue (durable) → worker (does the slow thing) → database (durable). Each part can crash, restart, and scale independently — that's the serverless-limits workaround ([the two limits](#deployment-platforms-know-the-tiers) above) and the resilience story, unified.
+
+---
+
+## API error design — failing usefully
+
+*On the official topic list: Web/API/Infra Fundamentals.*
+
+Returning the *right* error is a design skill, not a formality. The rules:
+
+**1. The status code carries the category.**
+
+| Code | Meaning | Who can fix it |
+|---|---|---|
+| **400** | malformed request (bad JSON, missing field, failed validation) | the caller |
+| **401** | not authenticated — *who are you?* | the caller (credentials) |
+| **403** | authenticated, not permitted — *I know you, you can't do this* | the caller (permissions) or the owner |
+| **404** | resource doesn't exist (or is hidden on purpose) | the caller's URL |
+| **422** | well-formed request, semantically invalid (Pydantic's validation errors) | the caller's data |
+| **429** | rate limit exceeded — slow down / retry later | the caller (eventually) |
+| **500** | *our* code or dependencies failed | the server team |
+
+**2. The body carries the diagnosis.** `400 Bad Request` alone tells the caller nothing. A useful error names the field, the problem, and ideally the fix: `{"error": "quantity must be >= 1, got 0", "field": "quantity"}`. Pydantic + FastAPI give this nearly free.
+
+**3. Fail fast, fail loud — never silently.** Reject bad input at the boundary with a clear error *before* processing. The alternative — accepting it and failing downstream — produces the 3am-debugging scenario: the error surfaces far from its cause. (The same principle as [the sentiment API case](../sessions/et-03.md).)
+
+**4. Never leak internals in errors.** Stack traces to the client are a security hole (they map your code); log the trace server-side, return a clean message + a request ID the user can quote.
+
+!!! tip "CORS / auth / authorization — three distinct concerns"
+    Exams mix these deliberately. **CORS** = *the browser's* rule about reading
+    cross-origin responses (fixed by the *server's* response headers). **AuthN** =
+    verifying identity (401 when it fails). **AuthZ** = verifying permission (403
+    when it fails). A request can pass all three checks, fail any one of them, and
+    each failure is fixed by a different party.
+
+---
+
+## Identity vs delegated access — who's asking, and on whose behalf
+
+*On the official topic list: Web/API/Infra Fundamentals.*
+
+Builds directly on [sessions vs bearer tokens](#google-oauth-sessions-vs-bearer-tokens):
+
+- **Identity** = *who you are* — the user or service making the request (API key, session, JWT).
+- **Delegated access** = *what you're allowed to do on someone else's behalf* — the classic OAuth flow: "connect this app to my Google Drive" means the app acts *as you*, but only within the scopes you granted.
+
+| | API key (identity) | OAuth token (delegated) |
+|---|---|---|
+| Represents | the key's owner, fully | the user, limited to granted scopes |
+| Scope | everything the key can do | only what was delegated (read email, not delete) |
+| Revocation | rotate the key | user revokes the app's grant — key survives |
+
+**The exam shape:** "A third-party app reads a user's calendar." That's delegated access — the app never holds the user's password, holds a *scoped, revocable* token instead. The design principle: **least privilege** — grant the minimum scope, for the minimum time, revocable by the user. When you audit such a system, the questions are: what scopes? who granted? how revoked?
+
+---
+
+## Safe git history changes — rewriting is surgery
+
+*On the official topic list: Web/API/Infra Fundamentals.*
+
+Sometimes history must change: a secret was committed, a giant file bloats the repo, garbage commits must go before a public release. The safe procedure:
+
+**1. Stop the bleeding first.** If a secret is in history, **rotate it immediately** — treat it as leaked the moment it was pushed, whatever you do to history afterwards. Removing it from the repo does not un-leak it ([secrets](#secrets-the-env-workflow)).
+
+**2. Rewrite on a branch, review, then force-push.**
+
+```bash
+git filter-repo --path .env --invert-paths   # or BFG for large files
+git push --force-with-lease                   # safer than --force
+```
+
+- **`--force-with-lease` over `--force`:** it refuses to overwrite if someone pushed in the meantime — history rewrites are the one place a plain force-push silently destroys teammates' work.
+- **Coordinate first:** everyone must rebase after a rewrite; announce it, or you'll spend the day untangling diverged histories.
+
+**3. What changes and what doesn't.** Rewriting changes commit hashes from the rewrite point back — every commit ID after the affected history is *new*. Tags, open PRs, and local clones all reference the old IDs. This is why rewrites are rare, announced, and treated as surgery — not routine cleanup.
+
+!!! warning "Trap — 'I deleted the file, so the secret is gone'"
+    Deleting the file in a new commit leaves it in every previous commit — still
+    cloneable by anyone. History rewrite (or rotation) is the only real fix.
+
+→ Short-note version: [Web & APIs](../topics/web-apis.md) · [Git, security & practices](../topics/git-security.md)
+
+---
+
 ## Google OAuth — sessions vs bearer tokens
 
 Two ways a server remembers who you are, and the exam's identity questions live on this distinction:

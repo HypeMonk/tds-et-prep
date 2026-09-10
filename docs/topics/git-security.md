@@ -96,3 +96,80 @@ Two users sign up with the same username at the same millisecond. Without lockin
 ??? question "Practice: Why pin dependencies?"
     **Reproducible pipelines** — prevents updates from breaking code. Same install
     works tomorrow. → [T1-AN Q14](../pyqs/t1-2026-an.md#q14-why-pin-dependencies)
+
+
+---
+
+## Release security — what CI/CD must get right
+
+*Official topic 3: CI/CD & Release Security.*
+
+**1 · Untrusted code never sees deploy credentials.** Anyone can open a PR — so **PR code is untrusted code**. Tests on a fork PR run with **zero secrets**; deploy credentials only flow to trusted triggers (push/merge to `main` by maintainers).
+
+!!! success "Must remember — the trust of the trigger gates the secrets it sees"
+    Fork-PR CI runs: tests execute, **zero secrets** are visible. Maintainer
+    merges: deploy credentials may flow. The trust level of the *event* decides
+    the privilege of the *run*.
+
+!!! warning "Trap — the exfiltrating PR"
+    A "test" that prints environment variables into the build log, or curls them
+    to an external URL. If CI secrets were visible to PR runs, they're gone.
+    Same defense as prompt injection: **untrusted input never reaches privileged
+    capabilities.**
+
+**2 · Supply-chain hardening.** Every dependency is attack surface you accepted:
+
+- **Pin exact versions + lockfile** — no `latest`, no loose `flask>=2`
+- **Verify hashes** — install what was reviewed, not what resolves today
+- **Review dependency diffs in CI** — not just your own code
+- **Fewer dependencies** — minimal surface
+
+**3 · Reviewing risky infra changes.** A one-line Terraform change can open a database to the internet — infra blast radius is the whole system. Infra changes go through PR review with the **plan/diff visible** (what will this *do*?); anything touching security groups, credentials, or permissions gets a second, informed pair of eyes.
+
+**4 · Safe progressive rollouts.** Deploy is a slope, not a switch:
+
+```
+canary (1-5%) -> staged (25% -> 50% -> 100%) -> full
+```
+
+!!! success "Must remember — what a canary buys you"
+    Each rollout step watches health **rates** (error rate, p95 — not raw counts)
+    and **auto-rolls-back on regression**. A bad deploy then hurts 5% of users
+    for two minutes, not everyone for an hour.
+
+→ Full treatment: [Week 7 — release security](../weeks/week-7.md#release-security-four-things-cicd-must-get-right)
+
+---
+
+## Safe git history changes — rewriting is surgery
+
+*Official topic 5: Web/API/Infra Fundamentals.*
+
+**When history must change:** a secret was committed, a giant file bloats the repo, garbage commits before going public.
+
+**The safe procedure:**
+
+1. **Rotate first if a secret was pushed** — it was leaked the moment it left your machine; rewriting history does not un-leak it
+2. **Rewrite on a branch, review, then:**
+
+```bash
+git filter-repo --path .env --invert-paths
+git push --force-with-lease        # not plain --force
+```
+
+3. **Coordinate** — everyone rebases after the rewrite; announce it or spend a day untangling diverged histories
+
+!!! success "Must remember — force-with-lease over force"
+    `--force-with-lease` refuses to overwrite if someone pushed in the meantime —
+    history rewrites are the one place a plain force-push silently destroys
+    teammates' work.
+
+!!! warning "Trap — \"I deleted the file, so the secret is gone\""
+    Deleting the file in a new commit leaves it in every previous commit — still
+    cloneable by anyone. Only rewrite + rotation fix it.
+
+!!! info "What rewriting costs"
+    Every commit hash from the rewrite point back changes — tags, open PRs, and
+    local clones reference dead IDs. Hence: rare, announced, surgical.
+
+→ Full treatment: [Week 2 — safe git history changes](../weeks/week-2.md#safe-git-history-changes-rewriting-is-surgery)

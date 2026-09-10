@@ -2,6 +2,19 @@
 
 The full material — course content with the theory layer the exam actually tests, plus the professor's own revision-session walkthroughs.
 
+## The six official exam topics — where each lives
+
+The end-term's official study guide names six topics. Every one is covered below — read the week section to *learn* it, the short note to *revise* it:
+
+| Official topic | Learn it | Revise it |
+|---|---|---|
+| **1. Observability & Monitoring** (metrics, percentiles, readiness, AI cost) | [Week 6 — reading metrics](../weeks/week-6.md#reading-metrics-correctly-averages-lie-percentiles-dont) | [Data & ML](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont) |
+| **2. Data Pipeline Integrity** (identity, idempotency, provenance) | [Week 6 — pipeline integrity](../weeks/week-6.md#data-pipeline-integrity-five-properties-of-a-pipeline-you-can-trust) | [Data & ML](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) |
+| **3. CI/CD & Release Security** (secret isolation, supply chain, rollouts) | [Week 7 — release security](../weeks/week-7.md#release-security-four-things-cicd-must-get-right) | [Git, security & practices](../topics/git-security.md#release-security-what-cicd-must-get-right) |
+| **4. Reliable AI/LLM Systems** (verify output, authz in code) | [Week 3 — reliability discipline](../weeks/week-3.md#reliability-discipline-for-llm-systems) | [LLMs & prompting](../topics/llm-prompting.md#reliability-discipline-for-llm-systems) |
+| **5. Web/API/Infra Fundamentals** (statelessness, error design, delegated access) | [Week 2 — the four new sections](../weeks/week-2.md#statelessness-durable-storage-why-servers-are-allowed-to-die) | [Web & APIs](../topics/web-apis.md#statelessness-durable-storage-why-servers-are-allowed-to-die) |
+| **6. Applied AI Judgment** | [The grading guide](../exam/llm-grading-guide.md) — it *is* the topic | same |
+
 ## Week notes
 
 Read in course order, or jump to the weeks the [frequency table](../pyqs/index.md#the-priority-list-how-often-each-topic-is-asked) says matter most for you.

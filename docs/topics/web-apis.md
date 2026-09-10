@@ -88,3 +88,92 @@ The professor's model: the **Caesar cipher** (shift every letter by 2) — a toy
 ??? question "Practice: Why is HTTPS recommended for API tokens?"
     Tokens over HTTP are readable by anyone on the network path. HTTPS encrypts
     them so only sender and receiver can read. → [T1-FN Q6](../pyqs/t1-2026-fn.md#q6-why-https-for-tokens)
+
+
+---
+
+## Statelessness & durable storage — why servers are allowed to die
+
+*Official topic 5: Web/API/Infra Fundamentals.*
+
+**Stateless = the server remembers nothing between requests.** Any request can hit any instance; any instance can be killed and replaced. That's what makes scaling and deploys safe.
+
+**State lives elsewhere — durably:**
+
+| State | Lives in |
+|---|---|
+| Must survive | **database** |
+| Fast lookups | **Redis / cache** |
+| Work for later | **queue** → worker |
+| Who you are between requests | **session store / token** |
+
+!!! warning "Trap — the in-memory login dict"
+    Works locally, works with one instance; the platform restarts the container
+    (serverless does this constantly) and everyone's logged out — or a second
+    instance means half your users "don't exist." Sessions belong in Redis/DB;
+    in-memory caches are *disposable* (rebuildable) state.
+
+!!! success "Must remember — the pattern that follows"
+    Stateless API → durable queue → worker → database. Each part crashes,
+    restarts, and scales independently — it's the serverless-limits workaround
+    and the resilience story, unified.
+
+→ Full treatment: [Week 2 — statelessness](../weeks/week-2.md#statelessness-durable-storage-why-servers-are-allowed-to-die)
+
+---
+
+## API error design — failing usefully
+
+*Official topic 5: Web/API/Infra Fundamentals.*
+
+**The code carries the category, the body carries the diagnosis:**
+
+| Code | Meaning | Who fixes it |
+|---|---|---|
+| **400** | malformed request | caller |
+| **401** | not authenticated — *who are you?* | caller (credentials) |
+| **403** | authenticated, not permitted | caller (permissions) |
+| **404** | doesn't exist (or hidden on purpose) | caller's URL |
+| **422** | well-formed, semantically invalid (Pydantic) | caller's data |
+| **429** | rate limit — slow down | caller, eventually |
+| **500** | *our* code/dependencies failed | server team |
+
+!!! success "Must remember — a useful error names the specifics"
+    Field, problem, ideally the fix: `{"error": "quantity must be >= 1, got 0",
+    "field": "quantity"}` — not a bare `400`. **Fail fast, fail loud:** reject
+    bad input at the boundary *before* processing; silent acceptance is the 3am
+    scenario where the error surfaces far from its cause.
+
+!!! danger "Never leak internals"
+    Stack traces to the client map your code (a security hole). Log the trace
+    server-side; return a clean message + a request ID the user can quote.
+
+!!! tip "CORS / authN / authZ are three different problems"
+    CORS = the *browser's* cross-origin read rule (fixed by the server's response
+    headers). Authentication = identity (401). Authorization = permission (403).
+    Each failure is fixed by a different party — exams mix them deliberately.
+
+→ Full treatment: [Week 2 — API error design](../weeks/week-2.md#api-error-design-failing-usefully)
+
+---
+
+## Identity vs delegated access — who's asking, on whose behalf
+
+*Official topic 5: Web/API/Infra Fundamentals.*
+
+- **Identity** — *who you are* (API key, session, JWT)
+- **Delegated access** — *what you may do on someone else's behalf* (the OAuth flow: "connect this app to my Drive" — the app acts as you, within granted scopes)
+
+| | API key (identity) | OAuth token (delegated) |
+|---|---|---|
+| Represents | the key's owner, fully | the user, limited to granted scopes |
+| Scope | everything the key can do | only what was delegated |
+| Revocation | rotate the key | user revokes the app's grant |
+
+!!! success "Must remember — the exam shape"
+    "A third-party app reads a user's calendar" = delegated access — the app
+    holds a *scoped, revocable* token, never the user's password. Audit
+    questions: what scopes? who granted? how revoked? **Least privilege:**
+    minimum scope, minimum time, revocable by the user.
+
+→ Full treatment: [Week 2 — identity vs delegated access](../weeks/week-2.md#identity-vs-delegated-access-whos-asking-and-on-whose-behalf)

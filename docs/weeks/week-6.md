@@ -143,6 +143,79 @@ The course's framing: **be a good citizen of the web** — the same restraint th
 
 ---
 
+## Reading metrics correctly — averages lie, percentiles don't
+
+*On the official topic list: Observability & Monitoring.*
+
+**The trap:** someone reports "average response time is 200ms — we're fine." The average is the most quoted and most misleading number in monitoring.
+
+**Why the mean lies:** it's dominated by the slow tail. If 95 requests take 100ms and 5 take 5,000ms, the mean is ~345ms — but the *typical* experience is 100ms and five users had a terrible one. Neither truth survives the average.
+
+**Percentiles tell both stories:**
+
+| Metric | What it says | The question it answers |
+|---|---|---|
+| **p50 (median)** | half of requests were faster than this | what's the typical experience? |
+| **p95** | 95% were faster; the slowest 5% were worse | what do my worst-but-normal users feel? |
+| **p99** | the worst 1% — the tail | what do the unluckiest users feel? |
+
+- **Latency targets are percentile targets:** "p95 under 500ms" is a real SLO; "average under 500ms" is a wish.
+- **Tail behaviour is where bugs live:** a memory leak shows in p99 long before it moves the mean; a slow DB query drags p95 while p50 stays flat.
+
+**Rates vs raw counts — the second half of the trap:**
+
+- **Raw count:** "we had 400 errors yesterday" — meaningless alone. 400 out of 500 requests = catastrophe; 400 out of 4 million = noise.
+- **Rate:** "error *rate* is 10%" or "errors per minute" — comparable across time and traffic levels.
+- **The classic mistake:** a dashboard shows error count rising all day. Panic? No — traffic also rose; the *rate* stayed flat at 0.1%. Always ask: **count of what, over what denominator, in what window?**
+
+!!! warning "Trap — the average of an average"
+    Averaging per-day averages gives equal weight to a quiet Sunday and a Black
+    Friday. Aggregate from raw events, or report percentiles per window.
+
+**Health checks vs true readiness** — the deployment cousin of this topic:
+
+- **Liveness ("is the process up?"):** the app runs and can answer a request at all. Failing this means *restart me*.
+- **Readiness ("can I serve real traffic?"):** DB connected, cache warm, required dependencies responding, config loaded. Failing this means *don't send me users yet* — the process is alive but not useful.
+
+The trap: a service passes its health check (process alive) while its database connection is down — so the load balancer keeps routing traffic to a service that errors on every request. **Readiness is the one that gates traffic.**
+
+!!! tip "Cost tracking for AI systems — the monitoring that pays for itself"
+    LLM features burn money per request, so cost is a **first-class metric**, not
+    an afterthought: tokens in/out per request, cost per request, cost per
+    *successful* request (failed calls cost money too), and daily spend against
+    budget. A runaway agent loop or an accidentally-hot polling loop can spend
+    more in an afternoon than a month of normal traffic — the same alerting
+    principles (rates, thresholds, anomalies) applied to dollars.
+
+→ Short-note version: [Data & ML — reading metrics](../topics/data-ml.md)
+
+---
+
+## Data pipeline integrity — five properties of a pipeline you can trust
+
+*On the official topic list: Data Pipeline Integrity.*
+
+The official topic names five things. Each is one pattern:
+
+**1. Stable identity and change detection in incremental updates.** Every row needs an identity that survives re-reads — a natural key (order ID), a surrogate key, or a content hash. "Changed" means *the identity's payload differs from last time*, not "I saw the row again." Incremental pipelines run on this: compare hashes, write only diffs, and a row that reappears unchanged is a no-op.
+
+**2. Handling partial or failed runs safely.** The run died halfway — 60% of rows written, 40% missing, and the dashboard already reads the table. Safe designs assume this will happen: write to a **staging table** and swap atomically (readers never see the half-state), or record run boundaries so downstream knows "this load is partial." The unsafe design: write straight to the live table, one row at a time.
+
+**3. Safe retries for uncertain writes — idempotency.** The pipeline wrote the row, but the confirmation was lost in a network blip, so it retries — and now the row is there twice. An **idempotent** operation produces the same result run once or run ten times: a unique constraint on the natural key (`INSERT ... ON CONFLICT DO NOTHING`), a dedup step before write, or check-then-write against a processed-log. **Any pipeline that can be retried must be idempotent, because retries always happen eventually.**
+
+**4. Reproducibility of data and model runs.** Same input + same code + same dependencies = same output, every time. For data: pinned snapshots, recorded query versions, raw events retained. For models: fixed random seeds, pinned library versions, and an experiment log (MLflow's job: parameters, metrics, artifacts — enough to re-run and compare). Without it, "the number changed" is undiagnosable — you can't tell a real change from an environment drift.
+
+**5. Provenance when correcting data.** You fixed 300 wrong rows. Six months later: *which* rows, *why*, *who decided*, and *what did they say before*? Provenance = an audit trail of corrections: a change log (row ID, old value, new value, reason, timestamp, who), or better, append-only versions where corrections are new rows and history is never overwritten. The rule: **corrections never destroy the record of what was corrected** — you may need to un-correct, or justify the correction, later.
+
+!!! success "The one-line summary"
+    **Identity** (know what a row is) → **atomicity** (never half-load) →
+    **idempotency** (retries are safe) → **reproducibility** (same input, same
+    output) → **provenance** (corrections leave a trail). Each protects the next.
+
+→ Short-note version: [Data & ML — pipeline integrity](../topics/data-ml.md)
+
+---
+
 ## Self-check — can you answer these without looking?
 
 ??? question "1. Why is Parquet 5–10× smaller than CSV for the same data?"

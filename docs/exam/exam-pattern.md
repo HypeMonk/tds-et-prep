@@ -12,7 +12,7 @@ The exam structure below is **officially announced** by the course team — not 
 | Duration | **90 minutes** (1.5 hours) |
 | Negative marking | **None** — same as every paper before |
 | Section 1 | **30 MCQ/MSQ questions · 39 marks** — graded automatically |
-| Section 2 | **9 short-answer questions · 41 marks** — "Applied AI Judgment", graded offline by an LLM |
+| Section 2 | **9 short-answer questions · 41 marks** — "Applied AI Judgment", manually graded (not auto-graded) |
 
 Marks per question are **not fixed** — within each section some questions carry 1 mark, some 2, and Section 2's questions are the heavy ones (4–5 marks each). One written answer can outweigh three objective questions.
 
@@ -54,16 +54,18 @@ Section 2 — 9 questions, 41 marks    ~45-50 min   ≈ 5 minutes per written an
     Section-1 time budget is up, **move** — a missed MCQ costs 1-2 marks; a rushed
     or blank written answer costs 4-5.
 
-## Section 1's four topic areas — the official map
+## The six official topics — the study map
 
-The announcement names four areas. Every week of this course has a home in them — nothing you studied is wasted:
+The official study guide names **six topics**: topics 1–5 feed Section 1, topic 6 *is* Section 2. Every week of this course has a home in them — nothing you studied is wasted:
 
-| Official area | Weeks that feed it | Where to revise |
-|---|---|---|
-| **Systems, APIs, Networking & Deployment** | Bridge, W1, W2 | [Web & APIs](../topics/web-apis.md) · [Docker & deployment](../topics/docker-deployment.md) |
-| **Observability, Monitoring & Data Integrity** | W6 + the ETL/freshness thread | [Data & ML](../topics/data-ml.md) · [Week 6](../weeks/week-6.md) |
-| **CI/CD, Infrastructure & Security** | W7 | [Git, security & practices](../topics/git-security.md) · [Week 7](../weeks/week-7.md) |
-| **AI/LLM System Design & Governance** | W3, W4, W5, W8 | [LLMs & prompting](../topics/llm-prompting.md) · [RAG & agents](../topics/rag-agents.md) |
+| # | Official topic | What it covers | Learn it | Revise it |
+|---|---|---|---|---|
+| 1 | **Observability & Monitoring** | percentiles vs averages, rates vs counts, health vs readiness, AI cost tracking | [Week 6](../weeks/week-6.md#reading-metrics-correctly-averages-lie-percentiles-dont) | [Data & ML](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont) |
+| 2 | **Data Pipeline Integrity** | stable identity, change detection, partial runs, idempotent retries, reproducibility, provenance | [Week 6](../weeks/week-6.md#data-pipeline-integrity-five-properties-of-a-pipeline-you-can-trust) | [Data & ML](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) |
+| 3 | **CI/CD & Release Security** | secret isolation, supply chain, risky infra review, progressive rollouts | [Week 7](../weeks/week-7.md#release-security-four-things-cicd-must-get-right) | [Git & security](../topics/git-security.md#release-security-what-cicd-must-get-right) |
+| 4 | **Reliable AI/LLM Systems** | verify output, structured output, grounding, authz in code | [Week 3](../weeks/week-3.md#reliability-discipline-for-llm-systems) | [LLMs & prompting](../topics/llm-prompting.md#reliability-discipline-for-llm-systems) |
+| 5 | **Web/API/Infra Fundamentals** | statelessness, error design, CORS/authN/authZ, identity vs delegation, git history, containers | [Week 2](../weeks/week-2.md#statelessness-durable-storage-why-servers-are-allowed-to-die) | [Web & APIs](../topics/web-apis.md) · [Git & security](../topics/git-security.md) |
+| 6 | **Applied AI Judgment** | robust prompts, evidence choice, high-leverage questions, rubric design, probability × impact, minimal fixes, valid vs invalid claims | [The grading guide](llm-grading-guide.md) | same |
 
 Some Section-1 questions will be **scenario-stemmed** — a short 2-3 sentence situation followed by one or two objective questions. That's the classic PYQ scenario-block style (the FastAPI-proxy story, the StreamFlix gateway), just compacted. The full scenarios live in Section 2.
 

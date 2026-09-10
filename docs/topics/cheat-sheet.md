@@ -10,7 +10,10 @@
 
 ## The paper
 
-- **80 marks · 90 minutes** · 30 MCQ/MSQ + 9 written · **no negative marking — answer everything**
+- **80 marks · 90 minutes** · Section 1: 30 MCQ/MSQ, 39 marks (official topics 1–5) · Section 2: 9 written, 41 marks (topic 6) · **no negative marking — answer everything**
+
+**The six official topics (memorize the list):**
+1. Observability & Monitoring · 2. Data Pipeline Integrity · 3. CI/CD & Release Security · 4. Reliable AI/LLM Systems · 5. Web/API/Infra Fundamentals · 6. Applied AI Judgment
 - MCQ + MSQ + numerical + **short answers (LLM-graded)**
 - Marks ramp: 1-mark warm-ups → 2-mark reasoning → 3-mark diagnosis → scenario blocks → SA
 - The big marks are at the END — move briskly through Part 1
@@ -114,3 +117,19 @@ Part 5 (short answers)         →  15 minutes — structure matters
 | Cache API responses | **TTL matching update frequency** | Bounded staleness, bounded load |
 | Secure an LLM from injection | **System/user roles + filtered input** | Role separation is primary, filtering is secondary |
 | Make an LLM return reliable JSON | **Structured Outputs** | Constrains generation, not just validates after |
+
+
+**Official-topic must-remembers (new):**
+
+- 🟢 **p95/p99 beats the mean** — the average hides the slow tail; latency targets are percentile targets
+- 🟢 **Rates, not counts** — "400 errors" means nothing without the denominator and window
+- 🟢 **Liveness ≠ readiness** — "process up" vs "can serve traffic"; readiness gates routing
+- 🟢 **Idempotent writes** — `ON CONFLICT DO NOTHING` / unique keys: a retry must be a no-op
+- 🟢 **Staging + atomic swap** — readers never see a half-loaded table
+- 🟢 **Corrections keep provenance** — old value, new value, reason, who, when — never destroy the record
+- 🟢 **Untrusted triggers see no secrets** — fork-PR CI runs with zero credentials
+- 🟢 **A prompt is not a security boundary** — authorization lives in code and retrieval scope, never in the system prompt
+- 🟢 **Stateless servers, durable state** — sessions in Redis/DB, work in queues; memory is disposable
+- 🟢 **Identity vs delegated access** — who you are vs what you're allowed on someone's behalf; tokens are scoped and revocable
+- 🟡 **Deleted ≠ gone** — a secret in history stays in every past commit; rotate first, then `filter-repo` + `--force-with-lease`
+- 🟡 **Canary before full rollout** — 5% of users for 2 minutes beats everyone for an hour; auto-rollback on error *rates*

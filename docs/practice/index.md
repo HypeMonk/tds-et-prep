@@ -2,7 +2,7 @@
 
 <div class="tx-meta" markdown>
 
-~74 questions · covers PYQ-heavy topics with fresh scenarios + all new-week topics · difficulty-tagged · collapsible answers
+~82 questions · covers all six official topics + PYQ-heavy patterns + new-week topics · difficulty-tagged · collapsible answers
 
 </div>
 
@@ -18,24 +18,22 @@ New questions in the exact shapes the exam uses. Answers are ours (not from a pa
     section. Then [Mock-1](../mock/mock-1.md) and [Mock-2](../mock/mock-2.md)
     for the full 80-mark simulations.
 
-## How practice maps to the official exam areas
+## How practice maps to the six official topics
 
-Section 1 of the end-term draws from four official areas. Every practice set feeds them:
-
-| Official area (Section 1) | Practice it here |
+| Official topic | Practice it here |
 |---|---|
-| **Systems, APIs, Networking & Deployment** | [Core patterns](core-patterns.md) — CORS, Docker, caching, status codes, asyncio |
-| **Observability, Monitoring & Data Integrity** | [Core patterns](core-patterns.md) — ETL, dedup, pandas + [New topics](new-topics.md) data questions |
-| **CI/CD, Infrastructure & Security** | [New topics](new-topics.md) — LLM security, plus git/secrets in [core patterns](core-patterns.md) |
-| **AI/LLM System Design & Governance** | [New topics](new-topics.md) — RAG, agents, ML platforms |
-
-Section 2 ("Applied AI Judgment", 41 marks) is practiced in [short answers](short-answers.md) and both mocks' Section 2.
+| **T1 Observability & Monitoring** | [Core patterns](core-patterns.md) — the official-topic drill (P37, P40) + mocks |
+| **T2 Data Pipeline Integrity** | [Core patterns](core-patterns.md) — drill (P38, P39, P41) + mocks |
+| **T3 CI/CD & Release Security** | [Core patterns](core-patterns.md) — drill (P42) + [New topics](new-topics.md) security questions |
+| **T4 Reliable AI/LLM Systems** | [New topics](new-topics.md) — RAG, agents + drill (P46) |
+| **T5 Web/API/Infra Fundamentals** | [Core patterns](core-patterns.md) — CORS, Docker, statelessness (P43), delegated access (P44), git history (P45) |
+| **T6 Applied AI Judgment** | [Short answers](short-answers.md) — SA-25–32 (rubric design, probability×impact, minimal fixes, valid claims) + both mocks' Section 2 |
 
 ## The question sets
 
 | Set | What it covers | Questions | Why |
 |---|---|---|---|
 | **[New topics](new-topics.md)** | RAG · agents · LLM security · ML platforms | ~18 | No PYQ exists — the exam will test these fresh |
-| **[Core patterns](core-patterns.md)** | CORS · Docker · caching · secrets · status codes · asyncio · data formats | ~18 | PYQ-heavy topics, new scenarios — tests transfer |
-| **[Short answers](short-answers.md)** | The LLM-graded section | 24 | Section 2 practice — the writing method |
+| **[Core patterns](core-patterns.md)** | CORS · Docker · caching · secrets · status codes · asyncio · data formats · **official-topic drill (T1/T2/T3/T5)** | ~28 | PYQ-heavy topics + the new official sub-topics |
+| **[Short answers](short-answers.md)** | The LLM-graded section | 32 | Section 2 practice — incl. rubric-design, probability×impact, minimal-fix shapes |
 | **[Mock-1](../mock/mock-1.md)** / **[Mock-2](../mock/mock-2.md)** | Full 80-mark papers, official structure | 30 MCQ + 9 written each | The dress rehearsals |

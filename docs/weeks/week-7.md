@@ -144,6 +144,48 @@ jobs:
 
 ---
 
+## Release security — four things CI/CD must get right
+
+*On the official topic list: CI/CD & Release Security.*
+
+**1. Isolating untrusted code from deployment credentials.** Anyone can open a pull request — which means **PR code is untrusted code**. If your deploy workflow triggers on PRs *and* has access to deploy secrets, a stranger's "helpful fix" can exfiltrate your cloud credentials. The rule: **secrets only flow to trusted triggers.**
+
+- `pull_request` from a fork → runs tests, sees **zero secrets**
+- `push`/`merge` to `main` (maintainers only) → may access deploy credentials
+- The *principle* is what the exam wants: **the trust level of the trigger gates the secrets it can see**
+
+!!! warning "Trap — the exfiltrating PR"
+    The classic scenario: a PR's "test" prints environment variables into the build
+    log, or sends them to an external URL. If CI secrets were visible, they're gone.
+    Same defense as prompt injection: untrusted input must never reach privileged
+    capabilities.
+
+**2. Supply-chain hardening.** Your build pulls hundreds of packages you didn't write. Each is a risk that a dependency update ships something malicious or broken:
+
+- **Pin exact versions + lockfile** — no floating `latest`, no loose `flask>=2`
+- **Verify hashes/lockfile integrity** so what you install is what was reviewed
+- **Review the diff of dependency changes** in CI, not just your own code
+- **Minimal dependencies** — every package is attack surface you accepted
+
+**3. Reviewing risky infrastructure changes.** A one-line Terraform change can open a database to the internet. Infra changes deserve *more* review scrutiny than app code because their blast radius is the whole system. The practices: infra changes go through the same PR review as code, the **plan/diff is part of the review** (what will this *do*?), and changes that touch security groups, credentials, or permissions need a second, informed pair of eyes.
+
+**4. Safe progressive rollouts.** "Deploy to production" is not a switch — it's a slope:
+
+```
+canary (1–5% of traffic) → staged rollout (25% → 50% → 100%) → full
+```
+
+Each step watches health metrics (error *rate*, p95 latency — not raw counts) and **auto-rolls-back on regression**. The point isn't that deploys become slow; it's that a bad deploy hurts 5% of users for two minutes instead of everyone for an hour.
+
+!!! success "The one-line summary"
+    **Untrusted triggers see no secrets** · **pin and verify everything you
+    install** · **review infra diffs like they're dangerous (they are)** ·
+    **roll out gradually with automatic rollback.**
+
+→ Short-note version: [Git, security & practices — release security](../topics/git-security.md)
+
+---
+
 ## Advanced Docker — multi-stage and security
 
 **Multi-stage builds:** use a large builder image to compile, then copy only the artifacts to a slim runtime image. Smaller final image, faster deploys, smaller attack surface.

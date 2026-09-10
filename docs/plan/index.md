@@ -8,8 +8,20 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 
 !!! tip "How to pick"
     Be honest about how many days you actually have — a 3-day plan you follow beats
-    a 7-day plan you abandon on day 4. Each plan assumes ~3–4 hours of focused
-    study per day.
+    a 7-day plan you abandon on day 4. The full plan assumes **4–5 hours a day**;
+    the shorter plans 3–4. Every day lists its hour budget — if you have more time,
+    add another PYQ paper or a second mock, not more reading.
+
+!!! info "Topic coverage checklist — tick as you go"
+    The exam draws from the [six official topics](../exam/exam-pattern.md#the-six-official-topics-the-study-map).
+    Whatever plan you follow, make sure each box is ticked by exam day:
+
+    - [ ] **T1 Observability & Monitoring** — [read](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont) · practiced via [Mock-1 M1–M4](../mock/mock-1.md)
+    - [ ] **T2 Data Pipeline Integrity** — [read](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) · practiced via Mock-1 M5–M8
+    - [ ] **T3 CI/CD & Release Security** — [read](../topics/git-security.md#release-security-what-cicd-must-get-right) · practiced via Mock-1 M9–M12
+    - [ ] **T4 Reliable AI/LLM Systems** — [read](../topics/llm-prompting.md#reliability-discipline-for-llm-systems) · practiced via Mock-1 M13–M16
+    - [ ] **T5 Web/API/Infra Fundamentals** — [read](../topics/web-apis.md#statelessness-durable-storage-why-servers-are-allowed-to-die) · practiced via Mock-1 M17–M22
+    - [ ] **T6 Applied AI Judgment** — the [grading guide](../exam/llm-grading-guide.md) + one full mock Section 2
 
 !!! info "This term's paper: 41 of 80 marks are written"
     Every plan below now includes **writing practice** — short answers and a
@@ -24,41 +36,41 @@ Pick your countdown · every plan uses the same priority order · [frequency tab
 
 *Complete coverage. Everything on the site, in priority order.*
 
-### Day 1 — Know the game + the hottest week
+### Day 1 — Know the game + the hottest week *(4h)*
 - [What the ET actually looks like](../exam/exam-pattern.md) — 6 min (official 80-mark structure)
 - [How to write answers an LLM grades well](../exam/llm-grading-guide.md) — 9 min (41 of 80 marks — read fully)
 - [Week 2 — APIs, deployment](../weeks/week-2.md) — 25 min (the highest PYQ density)
 - [T1-2026 AN solutions](../pyqs/t1-2026-an.md) — attempt + review all 28 questions
 
-### Day 2 — The fundamentals + their paper
+### Day 2 — The fundamentals + their paper *(4h)*
 - [Week 1 — Tools & fundamentals](../weeks/week-1.md) — 20 min
 - [T1-2026 FN solutions](../pyqs/t1-2026-fn.md) — attempt + review
 - [T3-2025 FN solutions](../pyqs/t3-2025-fn.md) — attempt + review (the professor's ET-2 walkthrough)
 
-### Day 3 — LLMs + the older paper + writing start
+### Day 3 — LLMs + the older paper + writing start *(4h)*
 - [Week 3 — Prompting & LLMs](../weeks/week-3.md) — 20 min
 - [T3-2025 AN solutions](../pyqs/t3-2025-an.md) — attempt + review (contains the RAG block)
 - [ET-1 session](../sessions/et-01.md) — 15 min (the professor's own walkthrough)
 - [Practice: short answers](../practice/short-answers.md) — write the 🟢 easy set (SA-9–16), compare structure
 
-### Day 4 — New content: RAG + agents
+### Day 4 — New content: RAG + agents *(4h)*
 - [Week 4 — RAG](../weeks/week-4.md) — 18 min
 - [Week 5 — Agents](../weeks/week-5.md) — 18 min
 - [Practice: new topics](../practice/new-topics.md) — attempt all 18 questions
 
-### Day 5 — New content: security + ML + more writing
+### Day 5 — New content: security + ML + more writing *(4.5h)*
 - [Week 7 — Security & automation](../weeks/week-7.md) — 20 min
 - [Week 8 — ML platforms](../weeks/week-8.md) — 15 min
 - [Practice: core patterns](../practice/core-patterns.md) — attempt all 18 questions
 - [Practice: short answers](../practice/short-answers.md) — write SA-17–24 (the reasoning + agent-prompt set)
 
-### Day 6 — Remaining weeks + both mocks
+### Day 6 — Remaining weeks + both mocks *(5h)*
 - [Week 6 — Scraping & extraction](../weeks/week-6.md) — 18 min
 - [Week 5 — asyncio section](../weeks/week-5.md#asyncio-the-exams-concurrency-questions) — re-read
 - [Mock-1](../mock/mock-1.md) — full 80-mark simulation (90 min), self-score both sections
 - [Bridge course](../weeks/week-bridge.md) — skim if shaky on basics
 
-### Day 7 — Compress + simulate
+### Day 7 — Compress + simulate *(4.5h)*
 - [All short notes](../revise/index.md) — ~40 min (tick shaky concepts)
 - [Cheat sheet](../topics/cheat-sheet.md) — print it
 - [Mock-2](../mock/mock-2.md) — full 80-mark simulation (90 min)

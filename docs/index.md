@@ -80,7 +80,8 @@ syllabus, and all 9 graded assignments.
 - 📚 **[Week notes](learn/index.md)**
 
     The current syllabus, week by week — with the theory layer the course never
-    gave you. Every section linked to its PYQ.
+    gave you. Now covers **all six official exam topics** — see
+    [the topic map](learn/index.md#the-six-official-exam-topics-where-each-lives).
 
 - 🎓 **[Revision sessions](learn/index.md#revision-sessions)**
 

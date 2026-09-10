@@ -2,7 +2,7 @@
 
 <div class="tx-meta" markdown>
 
-**80 marks · 90 minutes** · Section 1: 30 MCQ/MSQ, 39 marks · Section 2: 9 short answers, 41 marks · [Answer key at the bottom](#answer-key)
+**80 marks · 90 minutes** · Section 1: 30 MCQ/MSQ, 39 marks (official topics 1–5) · Section 2: 9 short answers, 41 marks (topic 6 — Applied AI Judgment) · [Answer key at the bottom](#answer-key)
 
 </div>
 
@@ -17,22 +17,22 @@
 
 ## Section 1 · MCQ / MSQ — 39 marks
 
-*30 questions · 21 one-mark + 9 two-mark · ~40–45 minutes · MSQs are marked "pick all correct"*
+*30 questions · 21 one-mark + 9 two-mark · ~40–45 minutes · every question tagged to its official topic · MSQs marked "pick all correct"*
 
-### A · Systems, APIs, Networking & Deployment
+### Topic 1 · Observability & Monitoring
 
 ### M1
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · Systems: CORS**
+**🟢 Easy · 1 mark · T1: Metrics**
 
-A React app on `http://localhost:3000` calls an API on `http://localhost:8000`. The browser console shows a CORS error. Who must change for this to work?
+Your API's *average* response time is 180ms, but support tickets say "the site is slow." The metric most likely to reveal what users are complaining about:
 
-- **A.** The backend — it must send `Access-Control-Allow-Origin` permitting the frontend's origin
-- **B.** The frontend — it must add a CORS header to its fetch call
-- **C.** Both — CORS requires changes on both sides
-- **D.** Neither — the browser must be launched with security disabled
+- **A.** Total requests per day
+- **B.** p95 or p99 latency — the slow tail the average hides
+- **C.** Average CPU usage
+- **D.** Error count
 
 </div>
 
@@ -40,14 +40,14 @@ A React app on `http://localhost:3000` calls an API on `http://localhost:8000`. 
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · Systems: HTTP**
+**🟡 Medium · 1 mark · T1: Metrics**
 
-An API call returns HTTP **500**. Where should you look first?
+Error *count* rose from 400 to 800 yesterday. Traffic also doubled. The correct reading:
 
-- **A.** The frontend JavaScript
-- **B.** The backend code and its database
-- **C.** The browser cache
-- **D.** The DNS settings
+- **A.** Reliability halved — urgent incident
+- **B.** Error *rate* is unchanged — investigate only if rates, not counts, moved
+- **C.** The monitoring is broken
+- **D.** Traffic is the incident
 
 </div>
 
@@ -55,14 +55,14 @@ An API call returns HTTP **500**. Where should you look first?
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · Systems: HTTP clients**
+**🟡 Medium · 2 marks · T1: Health checks**
 
-`response.text()` vs `response.json()` in Python's `requests` — the difference:
+A service passes its health check while its database connection is down, and the load balancer keeps sending it traffic. The design flaw:
 
-- **A.** `.text` is faster; `.json` is more accurate
-- **B.** `.text` works only for HTML; `.json` works for everything
-- **C.** `.text` returns a string; `.json` parses the body as JSON and raises on invalid JSON
-- **D.** They are interchangeable
+- **A.** The health check tests liveness (process up) when the balancer needs readiness (can serve real traffic)
+- **B.** The load balancer should not check health
+- **C.** The database needs a health check too — that alone fixes it
+- **D.** The service needs more instances
 
 </div>
 
@@ -70,29 +70,31 @@ An API call returns HTTP **500**. Where should you look first?
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 1 mark · Systems: Docker**
+**🟡 Medium · 2 marks · T1: AI cost tracking — MSQ, pick all correct**
 
-A Dockerfile contains `EXPOSE 8000`. The service is still unreachable from the host. Why?
+Your company ships an LLM feature. Cost monitoring worth setting up:
 
-- **A.** `EXPOSE` publishes nothing — you need `-p 8000:8000` on `docker run`
-- **B.** The port must also be opened in the cloud firewall first
-- **C.** `EXPOSE` only works for HTTP services
-- **D.** The image must be rebuilt after adding `EXPOSE`
+- **A.** Tokens in/out and cost per request
+- **B.** Cost per *successful* request — failed calls cost money too
+- **C.** Daily spend against a budget, with alerts on anomalies
+- **D.** The model's parameter count
 
 </div>
+
+### Topic 2 · Data Pipeline Integrity
 
 ### M5
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 2 marks · Systems: APIs — MSQ, pick all correct**
+**🟡 Medium · 1 mark · T2: Idempotency**
 
-Your FastAPI endpoint receives a payload where `quantity` arrives as the string `"5"`. With a Pydantic model declaring `quantity: int`, which statements are true?
+A pipeline crash restarted and re-processed 30 minutes of orders — revenue doubled for that window. The property the pipeline lacked:
 
-- **A.** Pydantic converts `"5"` to the integer `5` and the request succeeds
-- **B.** Pydantic guarantees the value is a *valid* quantity for your business logic
-- **C.** A payload missing the `quantity` field is rejected with a validation error before your code runs
-- **D.** Validation happens at the boundary, so downstream code can trust the type
+- **A.** Idempotency — running twice produced different results than running once
+- **B.** Scalability
+- **C.** Compression
+- **D.** Encryption
 
 </div>
 
@@ -100,14 +102,14 @@ Your FastAPI endpoint receives a payload where `quantity` arrives as the string 
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 2 marks · Systems: Deployment**
+**🟡 Medium · 1 mark · T2: Change detection**
 
-A teammate's script works on their laptop but crashes on the server with `ModuleNotFoundError`. The most professional fix:
+Your daily scraper re-reads a page. The correct signal that content *actually changed*:
 
-- **A.** Install the missing module manually on the server each time it crashes
-- **B.** Switch the server to the same OS as the laptop
-- **C.** Copy the teammate's entire Python folder to the server
-- **D.** Ship a pinned `requirements.txt` and install from it in deployment
+- **A.** The page was fetched again today
+- **B.** The scrape took longer than yesterday
+- **C.** The content hash differs from the stored hash for the same identity
+- **D.** The page's URL changed
 
 </div>
 
@@ -115,14 +117,14 @@ A teammate's script works on their laptop but crashes on the server with `Module
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · Systems: Concurrency**
+**🔴 Hard · 2 marks · T2: Failed runs — MSQ, pick all correct**
 
-`asyncio.gather` runs 5 API calls concurrently: four take 1s, one takes 8s. Total time:
+A load job died halfway: 60% of rows written to the live table, 40% missing, dashboards already reading it. Designs that prevent this:
 
-- **A.** 8 seconds
-- **B.** 5 seconds
-- **C.** 12 seconds
-- **D.** Depends on the GIL
+- **A.** Write to a staging table, then swap atomically — readers never see a half-state
+- **B.** Retry the job immediately without any record of what was already written
+- **C.** Record run boundaries so downstream knows a load is partial
+- **D.** Use a unique constraint on the natural key so a retry can't double rows
 
 </div>
 
@@ -130,31 +132,31 @@ A teammate's script works on their laptop but crashes on the server with `Module
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · Systems: API design**
+**🟡 Medium · 1 mark · T2: Provenance**
 
-Why is POST the right method for an ML inference endpoint?
+Six months after you corrected 300 wrong rows, an auditor asks: which rows, why, and what they said before. The practice that makes this answerable:
 
-- **A.** POST responses are cached better
-- **B.** POST is faster for JSON
-- **C.** The payload goes in the request body — no URL length limits, no exposure in logs, auth headers supported
-- **D.** GET cannot return JSON
+- **A.** Trust your memory
+- **B.** Re-run the pipeline and hope
+- **C.** Email the auditor a screenshot of the dashboard
+- **D.** A correction log (or append-only versions) recording row ID, old → new value, reason, and who decided — kept at correction time
 
 </div>
 
-### B · Observability, Monitoring & Data Integrity
+### Topic 3 · CI/CD & Release Security
 
 ### M9
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 1 mark · Observability: Shell**
+**🟡 Medium · 1 mark · T3: Secret isolation**
 
-You run `grep -r "TODO"` with no file argument. The terminal appears to hang. What's happening?
+Your CI runs tests on every pull request, including forks from strangers. The rule:
 
-- **A.** The search is running very slowly
-- **B.** grep is waiting on standard input — no search origin was given
-- **C.** grep crashed and must be killed
-- **D.** The directory has no matching files
+- **A.** PR tests get full secrets — testing needs the real environment
+- **B.** PR tests see zero secrets; deploy credentials only flow to trusted triggers (maintainer merges)
+- **C.** Secrets should be hardcoded so tests always pass
+- **D.** Only maintainers can open PRs, so secrets are safe
 
 </div>
 
@@ -162,114 +164,7 @@ You run `grep -r "TODO"` with no file argument. The terminal appears to hang. Wh
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · Observability: Data formats**
-
-You query a 20-column analytics table but only ever read 3 columns. Best storage format:
-
-- **A.** CSV — universal compatibility
-- **B.** JSON — structured
-- **C.** Parquet — columnar, so you read only the 3 columns' bytes
-- **D.** XML — schema validation
-
-</div>
-
-### M11
-
-<div class="tx-question" markdown>
-
-**🟢 Easy · 1 mark · Observability: Monitoring**
-
-Production is misbehaving intermittently. The first thing good observability gives you:
-
-- **A.** A faster CPU
-- **B.** Fewer users, so fewer failures
-- **C.** Automatic bug fixes
-- **D.** Logs, metrics and traces that show *where* in the stack the failure lives
-
-</div>
-
-### M12
-
-<div class="tx-question" markdown>
-
-**🟡 Medium · 2 marks · Observability: Data integrity — MSQ, pick all correct**
-
-Before joining two datasets on a timestamp, which checks protect the result's integrity?
-
-- **A.** Confirm both timestamps are in the same timezone (or convert first)
-- **B.** Check the freshness of each source — when was each last updated?
-- **C.** Rename the columns to match
-- **D.** Look for duplicate keys that would multiply rows after the join
-
-</div>
-
-### M13
-
-<div class="tx-question" markdown>
-
-**🟡 Medium · 1 mark · Observability: Data integrity**
-
-Two datasets record the "same" event — one in IST, one in UTC, both without timezone markers. After joining on timestamp, ~2% match. The likeliest cause:
-
-- **A.** Random data loss
-- **B.** The join key is a string
-- **C.** The 5.5-hour offset — identical labels refer to different instants
-- **D.** One dataset is sorted
-
-</div>
-
-### M14
-
-<div class="tx-question" markdown>
-
-**🔴 Hard · 2 marks · Observability: Measurement**
-
-A daily ETL job changes its extraction window. The next day, a dashboard metric drops 30%, and the operations team reports nothing changed in reality. The most useful first check:
-
-- **A.** Reinstall the dashboard
-- **B.** Average the two days and move on
-- **C.** Ask the operations team to recheck reality
-- **D.** Compare the job's extraction window and row counts before vs after the change — the measurement changed, not the world
-
-</div>
-
-### M15
-
-<div class="tx-question" markdown>
-
-**🟡 Medium · 1 mark · Observability: ETL**
-
-Why does a well-designed ETL job reprocess a lookback window with deduplication?
-
-- **A.** To make the job run longer and use idle compute
-- **B.** To avoid needing a primary key
-- **C.** Because the database requires it
-- **D.** To catch late-arriving or updated records while keeping each event exactly once
-
-</div>
-
-### C · CI/CD, Infrastructure & Security
-
-### M16
-
-<div class="tx-question" markdown>
-
-**🟢 Easy · 1 mark · CI/CD: Secrets**
-
-When should `.gitignore` list `.env`?
-
-- **A.** After the first commit, so the file history is preserved
-- **B.** Before anything is committed — tracked files are never ignored
-- **C.** `.gitignore` cannot exclude `.env` files
-- **D.** Only in public repositories
-
-</div>
-
-### M17
-
-<div class="tx-question" markdown>
-
-**🟢 Easy · 1 mark · CI/CD: Secrets**
+**🟢 Easy · 1 mark · T3: Leaked secrets**
 
 A real API key was pushed to a public repo an hour ago. First action:
 
@@ -280,105 +175,45 @@ A real API key was pushed to a public repo an hour ago. First action:
 
 </div>
 
-### M18
+### M11
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · CI/CD: Shell**
+**🟡 Medium · 2 marks · T3: Supply chain — MSQ, pick all correct**
 
-You add `export TOKEN="abc"` to `~/.bashrc`. In your already-open terminal, `echo $TOKEN` prints nothing. Fix without restarting:
+Ways to harden your build against dependency risk:
 
-- **A.** `source ~/.bashrc`
-- **B.** `bash ~/.bashrc` in a new tab
-- **C.** Re-login to the machine
-- **D.** `export` again in `.bash_profile`
+- **A.** Pin exact versions with a lockfile — no floating `latest`
+- **B.** Verify hashes so you install what was reviewed
+- **C.** Add more dependencies — redundancy is safety
+- **D.** Review dependency-change diffs in CI, not just your own code
 
 </div>
 
-### M19
+### M12
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 2 marks · CI/CD: LLM security — MSQ, pick all correct**
+**🟡 Medium · 1 mark · T3: Rollouts**
 
-Your LLM app summarizes user-submitted documents. Defenses against prompt injection include:
+The point of a canary deploy (1–5% of traffic first):
 
-- **A.** Treating the document as data in the prompt, never as instructions
-- **B.** A word filter that blocks "ignore previous instructions" — sufficient on its own
-- **C.** Giving the summarizer no email/send tools, so injected commands have nothing to act on
-- **D.** Validating the output before it reaches the user
+- **A.** It saves money on infrastructure
+- **B.** Canary deploys skip testing
+- **C.** A bad deploy hurts 5% of users for minutes instead of everyone for an hour — with health-rate checks and auto-rollback
+- **D.** It is required by cloud providers
 
 </div>
 
-### M20
+### Topic 4 · Reliable AI/LLM Systems
+
+### M13
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · CI/CD: Pipelines**
+**🟢 Easy · 1 mark · T4: Structured output**
 
-The core purpose of a CI pipeline:
-
-- **A.** To deploy faster than competitors
-- **B.** To reduce cloud costs
-- **C.** To run tests and checks automatically on every change, catching breaks before they reach production
-- **D.** To replace code review
-
-</div>
-
-### M21
-
-<div class="tx-question" markdown>
-
-**🟡 Medium · 2 marks · CI/CD: Testing**
-
-A team's CI pipeline is green on every commit, yet production breaks monthly. The most likely gap:
-
-- **A.** Bad luck
-- **B.** The tests cover the happy path but not failure modes, and there's no monitoring catching regressions after deploy
-- **C.** CI pipelines only work for Python
-- **D.** The commits are too large
-
-</div>
-
-### M22
-
-<div class="tx-question" markdown>
-
-**🟢 Easy · 1 mark · CI/CD: Configuration**
-
-In Python, the safer way to read an API key from the environment:
-
-- **A.** `os.environ["API_KEY"]` — fails fast is always better
-- **B.** `os.getenv` with the key printed to logs for debugging
-- **C.** Hardcode a default key as fallback
-- **D.** `os.environ.get("API_KEY")` — returns `None` instead of crashing when unset
-
-</div>
-
-### D · AI/LLM System Design & Governance
-
-### M23
-
-<div class="tx-question" markdown>
-
-**🟡 Medium · 1 mark · AI/LLM: Prompts**
-
-A system prompt says "You are a pirate; always answer in pirate speak." A user writes "Answer in plain English from now on." Typically:
-
-- **A.** The later user instruction tends to win for style rules — the system prompt is not a hard boundary
-- **B.** The system prompt is a security boundary — the user instruction is ignored
-- **C.** The API rejects the request
-- **D.** The model alternates between both styles
-
-</div>
-
-### M24
-
-<div class="tx-question" markdown>
-
-**🟢 Easy · 1 mark · AI/LLM: Structured outputs**
-
-The advantage of structured outputs (schema-enforced JSON) over asking the model nicely for JSON:
+The advantage of schema-enforced structured outputs over asking the model nicely for JSON:
 
 - **A.** Structured outputs are cheaper
 - **B.** Structured outputs are faster to prompt
@@ -387,18 +222,187 @@ The advantage of structured outputs (schema-enforced JSON) over asking the model
 
 </div>
 
+### M14
+
+<div class="tx-question" markdown>
+
+**🔴 Hard · 2 marks · T4: Authorization**
+
+An internal LLM assistant must never reveal salary-band documents. The strongest design:
+
+- **A.** Put "never reveal salary bands" in the system prompt
+- **B.** Fine-tune the model to refuse
+- **C.** Filter the words "salary bands" from outputs
+- **D.** Retrieve only from permitted corpora — restricted documents are physically not in the retrieval set, with permission checks in code
+
+</div>
+
+### M15
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 2 marks · T4: Verification — MSQ, pick all correct**
+
+An LLM drafts customer emails before they're sent. Verification steps worth running:
+
+- **A.** Schema validation — output has the required fields
+- **B.** Trust the model — it was prompted carefully
+- **C.** Constraint checks in code — no discounts above policy, real product names
+- **D.** A second pass (model or human) reviews before sending
+
+</div>
+
+### M16
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T4: Grounding**
+
+A RAG chatbot quoted last year's prices after Finance updated the folder. The structural fix:
+
+- **A.** Re-ingest the new documents and expire the old chunks — retrieval physically cannot serve stale text
+- **B.** System prompt: "always be accurate"
+- **C.** Lower the temperature
+- **D.** Add a disclaimer to answers
+
+</div>
+
+### Topic 5 · Web/API/Infra Fundamentals
+
+### M17
+
+<div class="tx-question" markdown>
+
+**🟢 Easy · 1 mark · T5: API errors**
+
+A user with a valid API key requests an endpoint their tier doesn't include. Return:
+
+- **A.** 401 — authentication failed
+- **B.** 403 — authenticated, not permitted
+- **C.** 500 — server error
+- **D.** 429 — rate limited
+
+</div>
+
+### M18
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T5: Statelessness**
+
+An app stores logged-in users in an in-memory Python dict. It breaks the moment the platform restarts the container or scales to two instances. Why:
+
+- **A.** Python dicts are slow
+- **B.** The container needs more RAM
+- **C.** In-memory state dies with the instance and is invisible to other instances — sessions belong in durable shared storage (Redis/DB)
+- **D.** Dicts aren't thread-safe
+
+</div>
+
+### M19
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T5: Delegated access**
+
+A third-party app reads your calendar through Google OAuth, without ever seeing your password. This is:
+
+- **A.** Identity-based access — the app is you
+- **B.** Session-based access
+- **C.** A security violation
+- **D.** Delegated access — a scoped, revocable token limited to what you granted
+
+</div>
+
+### M20
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 2 marks · T5: Error design — MSQ, pick all correct**
+
+Your API rejects a malformed request. A *well-designed* error response:
+
+- **A.** Uses the right status code (400/422 — the caller can fix it)
+- **B.** Names the field, the problem, and ideally the fix in the body
+- **C.** Includes the full stack trace so the caller sees what happened
+- **D.** Returns a request ID the user can quote when reporting it
+
+</div>
+
+### M21
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T5: Git history**
+
+A secret was committed and pushed. "I deleted the file in a new commit" — what's still true:
+
+- **A.** The secret is gone for good
+- **B.** The secret remains in every previous commit, still cloneable — rotate the key, then rewrite history
+- **C.** Deleting the file rewrites history automatically
+- **D.** Only maintainers can see old commits
+
+</div>
+
+### M22
+
+<div class="tx-question" markdown>
+
+**🟢 Easy · 1 mark · T5: Docker**
+
+A Dockerfile contains `EXPOSE 8000`. The service is still unreachable from the host because:
+
+- **A.** `EXPOSE` is documentation — publishing needs `-p 8000:8000` on `docker run`
+- **B.** The port must also be opened in the cloud firewall first
+- **C.** `EXPOSE` only works for HTTP services
+- **D.** The image must be rebuilt after adding `EXPOSE`
+
+</div>
+
+### Mixed · topics 1–5
+
+### M23
+
+<div class="tx-question" markdown>
+
+**🟢 Easy · 1 mark · T5: HTTP**
+
+An API call returns HTTP **500**. Where should you look first?
+
+- **A.** The frontend JavaScript
+- **B.** The browser cache
+- **C.** The backend code and its database — the client request was valid
+- **D.** The DNS settings
+
+</div>
+
+### M24
+
+<div class="tx-question" markdown>
+
+**🟢 Easy · 1 mark · T5: Concurrency**
+
+`asyncio.gather` runs 5 API calls concurrently: four take 1s, one takes 8s. Total time:
+
+- **A.** 8 seconds — the max, not the sum
+- **B.** 5 seconds
+- **C.** 12 seconds
+- **D.** Depends on the GIL
+
+</div>
+
 ### M25
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 2 marks · AI/LLM: RAG**
+**🟡 Medium · 1 mark · T2: Reproducibility**
 
-A RAG system answers a question using stale documentation and gives an outdated price. Put the pipeline in order:
+Two runs of the same model-training script on the same data give different results. The first thing to check:
 
-- **A.** Retrieve → chunk → embed → generate
-- **B.** Chunk → embed → store → retrieve relevant chunks → generate grounded on them
-- **C.** Embed the question → generate → retrieve to verify
-- **D.** Generate → embed → store
+- **A.** Random seeds are fixed and library versions are pinned — the two foundations of reproducibility
+- **B.** Buy more compute
+- **C.** The results are close enough anyway
+- **D.** Retrain a third time and take the best
 
 </div>
 
@@ -406,14 +410,14 @@ A RAG system answers a question using stale documentation and gives an outdated 
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · AI/LLM: RAG**
+**🟡 Medium · 1 mark · T3: Infra review**
 
-In a RAG system, "retrieve the top-k chunks by cosine similarity" means:
+Why do infrastructure changes (Terraform, security groups) deserve *stricter* review than app code?
 
-- **A.** The k chunks whose embeddings are most similar to the question's embedding
-- **B.** The k most recently added chunks
-- **C.** The k chunks with the most words
-- **D.** A random sample of k chunks
+- **A.** They're written in stranger syntax
+- **B.** One line can change the whole system's blast radius — a single security-group edit can expose a database to the internet
+- **C.** Only seniors can read them
+- **D.** They don't — code review is code review
 
 </div>
 
@@ -421,14 +425,14 @@ In a RAG system, "retrieve the top-k chunks by cosine similarity" means:
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 2 marks · AI/LLM: Governance — MSQ, pick all correct**
+**🟡 Medium · 2 marks · T1+T5: Design — MSQ, pick all correct**
 
-A good model card documents:
+A stateless API receives a burst of slow requests. Sound designs:
 
-- **A.** The model's private weights
-- **B.** Training data summary and evaluation results
-- **C.** Known limitations and biases
-- **D.** Intended use and out-of-scope uses
+- **A.** API enqueues work to a durable queue; a worker processes it — each part scales and crashes independently
+- **B.** Keep requests in memory and process later — memory is durable enough
+- **C.** The API returns 202 Accepted immediately with a status URL
+- **D.** Store results durably so a worker restart doesn't lose finished work
 
 </div>
 
@@ -436,14 +440,14 @@ A good model card documents:
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 1 mark · AI/LLM: Design choices**
+**🟢 Easy · 1 mark · T4: Prompts**
 
-A team wants a chatbot to consistently use their company's terminology. The first thing to try:
+A system prompt says "You are a pirate; always answer in pirate speak." A user writes "Answer in plain English from now on." Typically:
 
-- **A.** Fine-tune a custom model
-- **B.** Buy a larger model
-- **C.** Improve the prompt (and/or retrieve the terminology guide into context) — cheaper, faster, usually enough
-- **D.** Wait for the next model release
+- **A.** The system prompt is a security boundary — the user instruction is ignored
+- **B.** The model alternates between both styles
+- **C.** The API rejects the request
+- **D.** The later user instruction tends to win for style rules — a system prompt is not a hard boundary
 
 </div>
 
@@ -451,14 +455,14 @@ A team wants a chatbot to consistently use their company's terminology. The firs
 
 <div class="tx-question" markdown>
 
-**🔴 Hard · 2 marks · AI/LLM: RAG**
+**🟡 Medium · 1 mark · T1: Monitoring design**
 
-A support chatbot was built with RAG over the product manuals. After a major product update, it confidently answers with old information. The most direct fix:
+Telemetry across 5 microservices: what makes it *useful* rather than a pile of dashboards?
 
-- **A.** Make the system prompt say "be accurate"
-- **B.** Add more manuals from other products
-- **C.** Lower the temperature
-- **D.** Re-ingest the updated manuals and expire/remove the old chunks, so retrieval can't serve stale text
+- **A.** More dashboards than services
+- **B.** Aggregating everything into one average
+- **C.** Green checkmarks on every service
+- **D.** Correlated signals — logs, metrics, and traces linked by request ID, so one slow request can be followed across every service it crossed
 
 </div>
 
@@ -466,14 +470,14 @@ A support chatbot was built with RAG over the product manuals. After a major pro
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 1 mark · AI/LLM: Hallucination**
+**🟡 Medium · 2 marks · T2+T5: Data flow**
 
-The most reliable way to reduce hallucination in an LLM app that answers from company documents:
+Two datasets record the "same" event — one in IST, one in UTC, both without timezone markers. After joining on timestamp, ~2% match. The likeliest cause:
 
-- **A.** Ask the model to try harder
-- **B.** Ground it: retrieve the relevant documents and have it answer from them — no documents, no answer
-- **C.** Use longer answers
-- **D.** Increase the temperature
+- **A.** Random data loss
+- **B.** The join key is a string
+- **C.** The 5.5-hour offset — identical labels refer to different instants; normalize timezones before joining
+- **D.** One dataset is sorted
 
 </div>
 
@@ -481,13 +485,13 @@ The most reliable way to reduce hallucination in an LLM app that answers from co
 
 ## Section 2 · Applied AI Judgment — 41 marks
 
-*9 questions · ~45–50 minutes · ~5 minutes each · structured answers, max ~200 words · method: [the grading guide](../exam/llm-grading-guide.md)*
+*9 questions · official topic 6 · ~45–50 minutes · ~5 minutes each · structured answers, max ~200 words · method: [the grading guide](../exam/llm-grading-guide.md)*
 
 ### S1 · The hardcoded sentiment endpoint
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 4 marks · Judgment: API design**
+**🟡 Medium · 4 marks · T6: Diagnosing a design**
 
 A teammate ships this FastAPI endpoint:
 
@@ -506,7 +510,7 @@ Users report: empty requests still return "positive", and downstream systems fai
 
 <div class="tx-question" markdown>
 
-**🔴 Hard · 5 marks · Judgment: Data integrity**
+**🔴 Hard · 5 marks · T6: Weighing evidence and action**
 
 A nightly analytics job flags a suspicious pattern: ~200 login records every night carry a timestamp of exactly `23:59:59`, clustered across many users. Security suspects a credential-stuffing attack and wants to lock the affected accounts.
 
@@ -514,35 +518,23 @@ You have: the login events file, a cron-job schedule file, and an application re
 
 </div>
 
-### S3 · The stale pricing bot
+### S3 · The 96% accuracy claim
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 4 marks · Judgment: RAG**
+**🔴 Hard · 5 marks · T6: Separating valid from invalid claims**
 
-A company's sales chatbot answers pricing questions using RAG over a pricing document folder. Finance updates prices quarterly. This quarter, the bot quoted three customers last year's price, and sales lost those deals when the quotes couldn't be honored.
+A vendor pitches a fraud-detection model: "96% accurate on historical data." Your audit finds they shuffled the dataset randomly before splitting into train and test — and the data contains multiple transactions per customer, plus features computed *after* the fraud decision (e.g., `chargeback_filed`).
 
-What went wrong in the system design (name the specific gap), and what would you change so the bot *cannot* quote a stale price — not just is less likely to?
+Name the problems with the evaluation, what each does to the 96% figure, and what a trustworthy evaluation would look like.
 
 </div>
 
-### S4 · The agent with too much power
+### S4 · Write the Codex prompt
 
 <div class="tx-question" markdown>
 
-**🔴 Hard · 5 marks · Judgment: Agent safety**
-
-You're deploying a research agent that can: search the web, read files on a shared drive, and send summary emails to a mailing list. A security reviewer asks: "If an attacker gets prompt injection into this agent, what's the worst that happens?"
-
-Describe the guardrails you'd implement — at least four distinct layers — and say which single layer you'd keep if you could only keep one, and why.
-
-</div>
-
-### S5 · Write the Codex prompt
-
-<div class="tx-question" markdown>
-
-**🔴 Hard · 5 marks · Judgment: Agent prompting**
+**🔴 Hard · 5 marks · T6: Writing robust prompts**
 
 A Python script is supposed to watch a folder for new `.csv` sales reports and append them to a master file. In practice it:
 
@@ -554,25 +546,37 @@ A Python script is supposed to watch a folder for new `.csv` sales reports and a
 
 </div>
 
-### S6 · Three questions for the client
+### S5 · Three questions for the client
 
 <div class="tx-question" markdown>
 
-**🟢 Easy · 4 marks · Judgment: Requirements**
+**🟢 Easy · 4 marks · T6: High-leverage questions**
 
-A client says: *"We want AI to automate our support."* That's all you know. What are the three most important follow-up questions you would ask before building anything — one sentence each on *why it matters*?
+A client says: *"We want AI to automate our hiring screening."* That's everything you know. What are the three most important follow-up questions you would ask before building anything — one sentence each on why the answer changes the design?
 
 </div>
 
-### S7 · The 96% accuracy claim
+### S6 · Design the rubric
 
 <div class="tx-question" markdown>
 
-**🔴 Hard · 5 marks · Judgment: Model evaluation**
+**🔴 Hard · 5 marks · T6: Designing rubrics to catch flawed AI analysis**
 
-A vendor pitches a fraud-detection model: "96% accurate on historical data." Your audit finds they shuffled the dataset randomly before splitting into train and test — and the data contains multiple transactions per customer, plus features computed *after* the fraud decision (e.g., `chargeback_filed`).
+Your team is about to ship an AI system that writes first-draft market analyses. Leadership asks you to design the review rubric — the checklist a reviewer uses to catch a flawed analysis before it ships.
 
-Name the problems with the evaluation, what each does to the 96% figure, and what a trustworthy evaluation would look like.
+List the dimensions you would check (with one line each on what flawed analysis looks like there), and state what the rubric should *never* reward.
+
+</div>
+
+### S7 · The agent with too much power
+
+<div class="tx-question" markdown>
+
+**🔴 Hard · 5 marks · T6: Probability and impact of errors**
+
+You're deploying a research agent that can: search the web, read files on a shared drive, and send summary emails to a mailing list. A security reviewer asks: "If an attacker gets prompt injection into this agent, what's the worst that happens?"
+
+Describe the guardrails you'd implement — at least four distinct layers — and, crucially, rank them by which failure modes they cover (which errors are likely, which are merely possible, which are catastrophic) and say which single layer you'd keep if you could only keep one, and why.
 
 </div>
 
@@ -580,11 +584,11 @@ Name the problems with the evaluation, what each does to the 96% figure, and wha
 
 <div class="tx-question" markdown>
 
-**🟡 Medium · 4 marks · Judgment: CI/CD**
+**🟡 Medium · 4 marks · T6: Precise minimal fixes**
 
 A team's CI pipeline: on every push, it runs the unit tests and deploys to production if they pass. Last month, production broke twice — once from a config change no test covered, once from a dependency update that changed behaviour.
 
-What's missing from this pipeline, and what would you add? Order your additions by what you'd do first.
+What's missing, and what would you add? Order your additions by what you'd do first — and justify why the *minimal* fix beats a grand redesign.
 
 </div>
 
@@ -592,11 +596,11 @@ What's missing from this pipeline, and what would you add? Order your additions 
 
 <div class="tx-question" markdown>
 
-**🔴 Hard · 5 marks · Judgment: Debugging**
+**🔴 Hard · 4 marks · T6: Judgment under uncertainty**
 
 At 2pm, your API's error rate jumps from 0.1% to 8%, almost all HTTP 500. Three things happened around the same time: a deployment went out at 1:45pm, a marketing email went out at 1:50pm (traffic is up ~40%), and a downstream payment provider had a "degraded performance" incident starting ~1:55pm.
 
-How do you debug this — in what order do you investigate, what would each hypothesis predict, and what's the safe immediate action while you investigate?
+In what order do you investigate, what would each hypothesis predict, and what's the safe immediate action while you investigate?
 
 </div>
 
@@ -607,8 +611,8 @@ How do you debug this — in what order do you investigate, what would each hypo
 | Score | Interpretation |
 |---|---|
 | **64+ / 80** | Exam-ready |
-| **48–63 / 80** | Close — review the buckets you missed, retake [Mock-2](mock-2.md) |
-| **< 48 / 80** | Start from the [exam pattern page](../exam/exam-pattern.md), then the [week notes](../learn/index.md) |
+| **48–63 / 80** | Close — review your weakest topic in the [week notes](../learn/index.md), retake [Mock-2](mock-2.md) |
+| **< 48 / 80** | Start from the [exam pattern page](../exam/exam-pattern.md), then the [topic map](../learn/index.md#the-six-official-exam-topics-where-each-lives) |
 
 ---
 
@@ -616,38 +620,38 @@ How do you debug this — in what order do you investigate, what would each hypo
 
 !!! warning "Don't peek until you've answered everything"
 
-| Q | Answer | Bucket | Where to review |
+| Q | Answer | Topic | Where to review |
 |---|---|---|---|
-| M1 | **A** — backend adds the CORS header | Systems | [CORS](../topics/web-apis.md#cors-same-origin-policy) |
-| M2 | **B** — 500 = server-side | Systems | [Status codes](../topics/web-apis.md#http-status-codes-the-family) |
-| M3 | **C** — string vs parsed JSON | Systems | [HTTP clients](../topics/web-apis.md) |
-| M4 | **A** — EXPOSE is documentation | Systems | [EXPOSE vs -p](../topics/docker-deployment.md#docker-expose-vs--p) |
-| M5 | **A, C, D** — coercion yes, guarantee no | Systems | [Pydantic](../pyqs/t1-2026-fn.md) |
-| M6 | **D** — pinned requirements | Systems | [Docker & deployment](../topics/docker-deployment.md) |
-| M7 | **A** — the max, not the sum | Systems | [asyncio](../topics/rag-agents.md#asynciogather-the-timing-arithmetic) |
-| M8 | **C** — body, limits, logs, auth | Systems | [GET vs POST](../sessions/et-03.md) |
-| M9 | **B** — waiting on stdin | Observability | [grep -r](../sessions/et-03.md) |
-| M10 | **C** — columnar reads | Observability | [Parquet](../topics/data-ml.md#parquet-vs-text-formats) |
-| M11 | **D** — locate the failure layer | Observability | [Week 6](../weeks/week-6.md) |
-| M12 | **A, B, D** — timezone, freshness, dupes | Observability | [ETL pattern](../topics/data-ml.md#etl-the-lookback--dedup-pattern) |
-| M13 | **C** — the 5.5-hour offset | Observability | [Timezone joins](../practice/short-answers.md) |
-| M14 | **D** — the measurement changed | Observability | [Week 6](../weeks/week-6.md) |
-| M15 | **D** — late data, once each | Observability | [ETL pattern](../topics/data-ml.md#etl-the-lookback--dedup-pattern) |
-| M16 | **B** — before the first commit | CI/CD | [Secrets](../topics/git-security.md#secrets-the-env-workflow) |
-| M17 | **D** — rotate first | CI/CD | [Secrets](../topics/git-security.md#secrets-the-env-workflow) |
-| M18 | **A** — source it | CI/CD | [Shell config](../sessions/et-03.md) |
-| M19 | **A, C, D** — filters alone aren't enough | CI/CD | [Prompt injection](../topics/git-security.md) |
-| M20 | **C** — automated checks | CI/CD | [Week 7](../weeks/week-7.md) |
-| M21 | **B** — untested failure modes | CI/CD | [Week 7](../weeks/week-7.md) |
-| M22 | **D** — .get() returns None | CI/CD | [os module](../sessions/et-03.md) |
-| M23 | **A** — not a hard boundary | AI/LLM | [Prompts](../topics/llm-prompting.md) |
-| M24 | **C** — valid by construction | AI/LLM | [Structured outputs](../topics/llm-prompting.md#structured-outputs) |
-| M25 | **B** — chunk → embed → store → retrieve → generate | AI/LLM | [RAG pipeline](../topics/rag-agents.md#the-rag-pipeline) |
-| M26 | **A** — most similar embeddings | AI/LLM | [RAG](../topics/rag-agents.md) |
-| M27 | **B, C, D** — not the weights | AI/LLM | [Model cards](../topics/data-ml.md) |
-| M28 | **C** — prompting first | AI/LLM | [Fine-tuning vs prompting](../topics/data-ml.md) |
-| M29 | **D** — re-ingest + expire old | AI/LLM | [RAG staleness](../topics/rag-agents.md) |
-| M30 | **B** — grounding | AI/LLM | [RAG](../topics/rag-agents.md) |
+| M1 | **B** — p95/p99, the tail the mean hides | T1 | [Reading metrics](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont) |
+| M2 | **B** — rate unchanged, count misleads | T1 | [Reading metrics](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont) |
+| M3 | **A** — liveness tested, readiness needed | T1 | [Reading metrics](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont) |
+| M4 | **A, B, C** — not parameter count | T1 | [Reading metrics](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont) |
+| M5 | **A** — not idempotent | T2 | [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) |
+| M6 | **C** — hash differs for same identity | T2 | [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) |
+| M7 | **A, C, D** — blind retry is the trap | T2 | [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) |
+| M8 | **D** — correction log at correction time | T2 | [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) |
+| M9 | **B** — trust of trigger gates secrets | T3 | [Release security](../topics/git-security.md#release-security-what-cicd-must-get-right) |
+| M10 | **D** — rotate first | T3 | [Secrets](../topics/git-security.md#secrets-the-env-workflow) |
+| M11 | **A, B, D** — fewer deps, not more | T3 | [Release security](../topics/git-security.md#release-security-what-cicd-must-get-right) |
+| M12 | **C** — bounded blast radius | T3 | [Release security](../topics/git-security.md#release-security-what-cicd-must-get-right) |
+| M13 | **C** — valid by construction | T4 | [Structured outputs](../topics/llm-prompting.md#structured-outputs) |
+| M14 | **D** — not in the corpus at all | T4 | [Reliability discipline](../topics/llm-prompting.md#reliability-discipline-for-llm-systems) |
+| M15 | **A, C, D** — never "trust the model" | T4 | [Reliability discipline](../topics/llm-prompting.md#reliability-discipline-for-llm-systems) |
+| M16 | **A** — expire old chunks | T4 | [RAG staleness](../topics/rag-agents.md) |
+| M17 | **B** — 403, not 401 | T5 | [API error design](../topics/web-apis.md#api-error-design-failing-usefully) |
+| M18 | **C** — state must be durable + shared | T5 | [Statelessness](../topics/web-apis.md#statelessness-durable-storage-why-servers-are-allowed-to-die) |
+| M19 | **D** — scoped, revocable token | T5 | [Delegated access](../topics/web-apis.md#identity-vs-delegated-access-whos-asking-on-whose-behalf) |
+| M20 | **A, B, D** — never stack traces | T5 | [API error design](../topics/web-apis.md#api-error-design-failing-usefully) |
+| M21 | **B** — old commits still hold it | T5 | [Git history](../topics/git-security.md#safe-git-history-changes-rewriting-is-surgery) |
+| M22 | **A** — EXPOSE is documentation | T5 | [EXPOSE vs -p](../topics/docker-deployment.md) |
+| M23 | **C** — 500 = server-side | T5 | [Status codes](../topics/web-apis.md#http-status-codes-the-family) |
+| M24 | **A** — the max, not the sum | T5 | [asyncio](../topics/rag-agents.md#asynciogather-the-timing-arithmetic) |
+| M25 | **A** — seeds + pins | T2 | [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties) |
+| M26 | **B** — whole-system blast radius | T3 | [Release security](../topics/git-security.md#release-security-what-cicd-must-get-right) |
+| M27 | **A, C, D** — memory is not durable | T1+T5 | [Statelessness](../topics/web-apis.md#statelessness-durable-storage-why-servers-are-allowed-to-die) |
+| M28 | **D** — not a hard boundary | T4 | [Prompts](../topics/llm-prompting.md) |
+| M29 | **D** — correlated signals, request ID | T1 | [Week 6](../weeks/week-6.md) |
+| M30 | **C** — the 5.5-hour offset | T2+T5 | [ETL pattern](../topics/data-ml.md) |
 
 ---
 
@@ -693,7 +697,7 @@ How do you debug this — in what order do you investigate, what would each hypo
 
     - **Evidence that confirms:** the cron schedule file shows a job at 23:59; the release log shows the pattern started with a specific release; the "spike" rows are heterogeneous (many users, one record each) rather than attack-shaped
     - **Evidence that kills it:** the spike rows show failed logins, impossible geographies, or the pattern predates every release — then the attack hypothesis strengthens
-    - **Safe next action:** *don't lock accounts yet* — pull a sample of the flagged records, check their success flags and event details, and notify security with the finding. Locking is disruptive and irreversible-in-trust; investigation is cheap and reversible.
+    - **Safe next action:** *don't lock accounts yet* — pull a sample of the flagged records, check their success flags and event details, and notify security with the finding. Locking 200 accounts is disruptive and slow to undo; investigation is cheap and reversible. **Probability × impact:** a benign-cause mistake costs an apology; a real attack caught 2 hours later costs little more. Act on evidence, not alarm.
 
 ??? note "Self-check"
 
@@ -701,42 +705,21 @@ How do you debug this — in what order do you investigate, what would each hypo
 
 ### S3 · model answer
 
-??? success "Model answer — the stale pricing bot"
+??? success "Model answer — the 96% accuracy claim"
 
-    **The gap:** the RAG pipeline ingests documents once and never expires them. Retrieval serves whatever chunks rank highest — including outdated ones — and the model has no way to know a chunk is stale. Freshness was never part of the design.
+    **Problem 1 — data leakage from shuffling:** with multiple transactions per customer, random shuffling puts the same customer's transactions in both train and test. The model memorizes customers, not fraud patterns. The 96% is recall of memorized data — meaningless on new customers.
 
-    **The fix — make staleness impossible, not unlikely:**
+    **Problem 2 — target leakage from post-decision features:** `chargeback_filed` is only known *after* the fraud decision. A model using it at "prediction time" is reading the answer. Any accuracy built on it is fictitious.
 
-    - Version the corpus: on each price change, re-ingest and *delete/expire* old price chunks (by version or effective-date metadata), so retrieval physically cannot serve them
-    - Attach effective dates to chunks and filter retrieval by `effective_date <= today < expiry`
-    - Optionally: refuse pricing questions whose retrieved evidence is older than the last finance update — no document, no answer
+    **Problem 3 — class imbalance honesty:** if fraud is ~4% of data, "96% accurate" is the accuracy of predicting *nothing is fraud*. Precision/recall on the fraud class is the number that matters.
 
-    *Note:* prompt-level "be careful with dates" is a mitigation, not a fix — the structural answer is what earns the marks.
+    **Trustworthy evaluation:** split by customer (all of one customer's transactions on one side); drop or time-gate post-decision features; report precision/recall on the fraud class; test on a time period after training data ends.
 
 ??? note "Self-check"
 
-    Named the gap (no expiry/versioning) ✓ · structural fix ✓ · said why prompting alone fails ✓
+    Both leakages named with mechanism ✓ · imbalance point ✓ · correct evaluation design ✓
 
 ### S4 · model answer
-
-??? success "Model answer — the agent with too much power"
-
-    **Guardrail layers (any four):**
-
-    1. **Tool allow-list, deny by default** — the agent can only `search_web` and `read_file`; no email, no delete, no shell
-    2. **Human approval for the dangerous tool** — `send_email` drafts, a human clicks send
-    3. **Sandboxing** — container execution, contained blast radius
-    4. **Budget limits** — max steps, max cost, max runtime; looping agents halt
-    5. **Output validation** — schema-checked responses before they reach users
-    6. **Scope file reads** — read-only access to specific folders, not the whole drive
-
-    **The one to keep: the tool allow-list.** Capability restriction is the reliable layer — an agent without a tool cannot be *made* to misuse it, no matter how good the injection is. Instruction-level defenses (fencing, system prompts) are probabilistic; architecture is deterministic.
-
-??? note "Self-check"
-
-    ≥4 layers ✓ · each with mechanism ✓ · one layer chosen with reasoning ✓
-
-### S5 · model answer
 
 ??? success "Model answer — the Codex prompt"
 
@@ -754,52 +737,74 @@ How do you debug this — in what order do you investigate, what would each hypo
 
     Role ✓ · context with the three defects ✓ · task ✓ · ≥5 specific constraints incl. failure behaviour ✓ · exactly-once/log thinking ✓
 
-### S6 · model answer
+### S5 · model answer
 
-??? success "Model answer — three questions for the client"
+??? success "Model answer — three questions for the hiring client"
 
-    1. **What does "support" mean here — which queries, volumes, and channels?** (Defines scope: an FAQ bot for 200 tickets/month is a different build from full ticket triage.)
-    2. **What's the acceptable failure mode — wrong answer to a customer, or no answer?** (AI systems fail; which failure is tolerable determines the design and the human-in-the-loop requirement.)
-    3. **What data exists and can we use it — transcripts, knowledge base, privacy constraints?** (Grounding data availability and legality decides what's buildable at all.)
+    1. **What decision exactly will the AI's output feed — auto-reject, ranking, or assistive summary?** (The stakes and required accuracy differ by orders of magnitude; auto-reject needs the strongest fairness guarantees.)
+    2. **What data exists on past hiring decisions, and does it encode historical biases?** (A model trained on biased decisions reproduces them — and hiring is a legally sensitive domain.)
+    3. **How will you measure fairness and effectiveness before and after deployment — and who audits it?** (Without defined metrics, neither compliance nor improvement is verifiable.)
 
-    *Alternates that earn credit:* how will you measure success · what happens to the human agents · what's the escalation path when the AI is unsure.
+    *Also strong:* human-in-the-loop requirement · legal/regulatory constraints · volume of applicants.
 
 ??? note "Self-check"
 
-    Three numbered questions ✓ · each with why ✓ · scope/failure/data themes ✓
+    Three numbered questions ✓ · why for each ✓ · at least one touches bias/fairness ✓
+
+### S6 · model answer
+
+??? success "Model answer — design the rubric"
+
+    **Dimensions to check (any five):**
+
+    1. **Evidence traceability** — every material claim cites a source at the right granularity; flawed = vague citations ("studies show") or numbers with no origin
+    2. **Mechanism** — the analysis explains *how* the observed pattern could arise, not just that it exists; flawed = correlation stated as cause
+    3. **Alternatives considered** — rival explanations tested and rejected on evidence; flawed = one story, no competitors
+    4. **Calibration** — confidence matches evidence; flawed = "will," "proves," "certainly" on thin support
+    5. **Decision safety** — the recommended action is reversible and proportionate; flawed = irreversible action on an uncertain analysis
+    6. **Numbers verified** — arithmetic and units check out; flawed = the LLM's confident wrong math
+
+    **What the rubric must never reward:** fluency and confidence — the very things AI drafts are *best* at. A confident, well-written, unevidenced analysis should score zero, not near-full. Rubrics grade the substance, never the polish.
+
+??? note "Self-check"
+
+    ≥5 dimensions ✓ · flawed-example for each ✓ · "never reward fluency/confidence" ✓
 
 ### S7 · model answer
 
-??? success "Model answer — the 96% accuracy claim"
+??? success "Model answer — the agent with too much power"
 
-    **Problem 1 — data leakage from shuffling:** with multiple transactions per customer, random shuffling puts the same customer's transactions in both train and test. The model memorizes customers, not fraud patterns. The 96% is recall of memorized data — meaningless on new customers.
+    **Guardrail layers (any four):**
 
-    **Problem 2 — target leakage from post-decision features:** `chargeback_filed` is only known *after* the fraud decision. A model using it at "prediction time" is reading the answer. Any accuracy built on it is fictitious.
+    1. **Tool allow-list, deny by default** — only `search_web` and `read_file`; no email, no delete, no shell
+    2. **Human approval for the dangerous tool** — `send_email` drafts, a human clicks send
+    3. **Sandboxing** — container execution, contained blast radius
+    4. **Budget limits** — max steps, cost, runtime; looping agents halt
+    5. **Output validation** — schema-checked responses before they reach users
 
-    **Problem 3 — class imbalance honesty:** if fraud is ~4% of data, "96% accurate" is the accuracy of predicting *nothing is fraud*. Precision/recall on the fraud class is the number that matters.
+    **Ranking by failure coverage (probability × impact):** prompt injection is *likely* (any public content can carry it); silent over-spend is *possible*; destructive tool use is *rare but catastrophic*. The allow-list covers the catastrophic class by removing the capability; human approval covers the likely-but-reversible class.
 
-    **Trustworthy evaluation:** split by customer (all of one customer's transactions in one side); drop or time-gate post-decision features; report precision/recall on the fraud class; test on a time period after training data ends.
+    **The one to keep: the tool allow-list.** Capability restriction is deterministic — an agent without a tool cannot be made to misuse it. Instruction-level defenses are probabilistic; architecture is not.
 
 ??? note "Self-check"
 
-    Both leakages named with mechanism ✓ · imbalance point ✓ · correct evaluation design ✓
+    ≥4 layers ✓ · probability×impact ranking ✓ · one layer chosen with reasoning ✓
 
 ### S8 · model answer
 
 ??? success "Model answer — the pipeline that lies"
 
-    **What's missing (ordered):**
+    **What's missing (ordered, minimal first):**
 
-    1. **A staging environment + manual or canary deploy** — tests passing ≠ production-safe; config and dependencies behave differently in prod
-    2. **Integration/behavioural tests** — unit tests missed the config change because nothing tested config; the dependency update changed behaviour nothing asserted
-    3. **Pinned dependencies + a lockfile** — prevents silent behaviour changes from `pip install` resolving newer versions
-    4. **Post-deploy monitoring with rollback** — the pipeline ends at deploy; it should end at "verified healthy in prod, else rollback"
+    1. **Staging + rollback** — tests passing ≠ production-safe; config and dependencies behave differently in prod. Contains the blast radius of every other gap while they're fixed
+    2. **Behavioural tests for config and dependency surfaces** — the two failures were exactly the untested surfaces
+    3. **Pinned dependencies + lockfile** — the silent behaviour-change failure mode
 
-    **First addition:** staging + rollback — it contains the blast radius of every other gap while the tests catch up.
+    **Why minimal beats grand:** each addition directly addresses an observed failure, is small enough to review, and can ship this week. A redesign (Kubernetes! multi-environment!) would touch everything, introduce new risk, and delay the fixes the incident report already justifies. *Minimal, targeted, ordered by risk.*
 
 ??? note "Self-check"
 
-    ≥3 additions ✓ · ordered with reasoning ✓ · staging/rollback prioritized ✓
+    ≥3 additions ordered ✓ · tied to the two observed failures ✓ · minimal-vs-grand justification ✓
 
 ### S9 · model answer
 
@@ -807,16 +812,16 @@ How do you debug this — in what order do you investigate, what would each hypo
 
     **Order of investigation:**
 
-    1. **The deployment (1:45pm)** — highest prior: new code is the classic cause of a sudden 500 jump. Prediction: errors trace to code paths touched by the deploy; error messages reference new code. First check: error logs/stack traces, and whether rolling back stops it.
-    2. **The payment provider (1:55pm)** — 500s are *our* server failing, but if our code mishandles their degraded responses (e.g., unhandled timeouts bubbling as 500), this explains it. Prediction: errors cluster in payment-dependent endpoints.
-    3. **The traffic surge (1:50pm)** — load alone usually causes 429s/timeouts, not 500s — unless it exposes a latent bug (race, resource exhaustion). Prediction: errors correlate with request rate.
+    1. **The deployment (1:45pm)** — highest prior: new code is the classic cause of a sudden 500 jump. Prediction: errors trace to code paths touched by the deploy. First check: error logs/stack traces, and whether rolling back stops it.
+    2. **The payment provider (1:55pm)** — 500s are *our* server failing, but if our code mishandles their degraded responses (unhandled timeouts bubbling as 500), this explains it. Prediction: errors cluster in payment-dependent endpoints.
+    3. **The traffic surge (1:50pm)** — load alone usually causes 429s/timeouts, not 500s — unless it exposes a latent bug. Prediction: errors correlate with request rate.
 
-    **Safe immediate action:** roll back the deployment — reversible in minutes, addresses the highest-probability cause, and doesn't block the other investigations. Meanwhile page/check the provider status and watch whether errors concentrate in payment flows.
+    **Safe immediate action:** roll back the deployment — reversible in minutes, addresses the highest-probability cause, and doesn't block the other investigations. Meanwhile check the provider status page and watch whether errors concentrate in payment flows.
 
 ??? note "Self-check"
 
-    Deployment first with reasoning ✓ · each hypothesis's prediction ✓ · rollback as the reversible action ✓ · distinguishes 500 vs load errors ✓
+    Deployment first with reasoning ✓ · each hypothesis's prediction ✓ · rollback as the reversible action ✓ · 500-vs-load distinction ✓
 
 ---
 
-**Next:** review your weakest bucket in the [week notes](../learn/index.md), then take [Mock-2](mock-2.md) — a fresh paper in the same structure.
+**Next:** review your weakest topic in the [week notes](../learn/index.md), then take [Mock-2](mock-2.md) — a fresh paper in the same structure.

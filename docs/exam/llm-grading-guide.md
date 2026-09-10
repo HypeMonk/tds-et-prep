@@ -231,6 +231,43 @@ Constraints:
 - 🔴 **"Write this in Python" prompts.** For agent-prompt questions, the
   vagueness is the failure. Constraints, constraints, constraints.
 
+## Designing rubrics to catch flawed AI analysis — the meta-skill
+
+The official topic list names it directly: *"designing rubrics to catch flawed AI
+analysis."* Translation: **you may be asked to write the checklist a reviewer
+should use on someone else's (or an AI's) analysis** — the same skill this page
+teaches you to satisfy, inverted.
+
+The dimensions of a good review rubric (and what flawed analysis looks like on each):
+
+| Dimension | The flawed version |
+|---|---|
+| **Evidence traceability** | "studies show", numbers with no source, citations that don't support the claim |
+| **Mechanism** | correlation stated as cause; the *how* is missing |
+| **Alternatives** | one confident story, rivals never tested |
+| **Calibration** | "will", "proves", "certainly" on thin support |
+| **Decision safety** | irreversible action recommended on an uncertain analysis |
+| **Arithmetic** | the LLM's confident wrong math, unchecked |
+
+**The one rule that makes a rubric work:** it must never reward **fluency,
+confidence, or polish** — precisely what AI drafts are best at. A beautiful,
+unevidenced analysis scores zero. Practice this shape: [SA-25](../practice/short-answers.md)
+and [SA-28](../practice/short-answers.md).
+
+## Weighing probability and impact — the ranking habit
+
+Every "what should we fix first" question is a probability × impact calculation,
+whether the paper says so or not:
+
+- **High probability + high impact** → fix first, with a deterministic control (code, architecture)
+- **Low probability + catastrophic impact** → remove architecturally (the failure can't happen if the capability doesn't exist)
+- **High probability + low impact** → monitor, improve incrementally — don't over-engineer
+
+And the cousin habit: **precise minimal fixes.** When asked to fix a system,
+the strongest answers change the least: solve the observed failure exactly where
+it bites, and justify why the grand redesign is *worse* (new risk, new failure
+modes, delayed benefit). See [SA-27](../practice/short-answers.md).
+
 ## Practice this, don't just read it
 
 Reading the method is not owning it. Write answers under a timer:

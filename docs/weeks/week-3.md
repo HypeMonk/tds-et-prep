@@ -165,6 +165,39 @@ The LLM judges each item; **your code does the math.** Asking the LLM to count o
 
 ---
 
+## Reliability discipline for LLM systems
+
+*On the official topic list: Reliable AI/LLM Systems.*
+
+The official topic names four disciplines. The first two have their full treatment here; the last two link out.
+
+**1. Verifying AI-generated output before trusting it.** LLM output is *evidence*, not truth — it needs the same skepticism as a stranger's claim. The verification ladder, cheapest first:
+
+- **Schema validation** — the output parses and has the required fields (structured outputs guarantee this by construction)
+- **Constraint checks in code** — values in range, dates in order, IDs that exist in your data. *Your code checks; the LLM never self-certifies*
+- **Grounding check** — every factual claim traceable to a retrieved source (the [RAG discipline](../topics/rag-agents.md))
+- **Second-pass review** — a separate model call (or a human) checks the output against the task before it acts or ships
+
+**The design principle:** verification runs *before the output is used*, not after problems appear. An LLM that drafts an email → schema check → policy check → human approve → send. Skip a gate and the failure surfaces on the customer.
+
+**2. Authorization in code, not in prompts.** "Never reveal internal documents" written in a system prompt is a *request*; enforced document permissions in your retrieval code is a *control*. The distinction:
+
+| Defense | What it is | Can it fail? |
+|---|---|---|
+| Prompt instruction ("don't show salary bands") | asking the model nicely | yes — paraphrased injection slips past |
+| **Retrieval scoping (docs not in the corpus)** | the model *cannot* access them | no — nothing to leak |
+| **Permission checks in code** | user → allowed documents, enforced before generation | no — code is deterministic |
+
+**The rule the exam tests: sensitive-data boundaries live in architecture (what can be retrieved, what the code checks), never in the prompt (what the model is asked not to do).** A prompt is not a security boundary — it's the same reasoning as [prompt injection](../weeks/week-7.md) turned inside out.
+
+**3. Enforcing structured output** — full treatment: [Structured Outputs](#structured-outputs-guaranteed-json-from-an-llm) above. The exam phrase to remember: *valid by construction, not by asking.*
+
+**4. Grounding answers in current sources** — full treatment: [RAG staleness and versioning](../weeks/week-4.md) (expire old chunks; effective-date filtering; no document, no answer).
+
+→ Short-note version: [LLMs & prompting — reliability discipline](../topics/llm-prompting.md)
+
+---
+
 ## Vector embeddings — the foundation for RAG
 
 **What an embedding is:** a fixed-length list of numbers (a vector) that represents the *meaning* of a text. Texts with similar meanings have vectors that are close together in high-dimensional space.

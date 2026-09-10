@@ -548,3 +548,282 @@ Your ETL script writes directly to `output.csv`. A crash mid-write leaves a corr
     crash scenario made explicit.
 
     → [W6 — ETL patterns](../topics/data-ml.md#etl-the-lookback--dedup-pattern)
+
+
+---
+
+## Official-topic drill — T1/T2/T5
+
+*New questions targeting the official study-guide sub-topics that had no coverage before.*
+
+### P37 · The percentile report
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T1: Metrics**
+
+A dashboard reports "average latency 150ms" and "p99 latency 4 seconds" for the same service. The correct interpretation:
+
+- **A.** The dashboard has a bug — the numbers are inconsistent
+- **B.** Typical requests are fast, but 1 in 100 is catastrophic — the mean averages away a severe tail. Investigate the slow tail
+- **C.** Average is the better number; ignore p99
+- **D.** p99 means 99% of requests take 4 seconds
+
+</div>
+
+??? success "Answer"
+    **B** — A low mean with a high p99 is the signature of a tail problem: most
+    users are fine, the unluckiest 1% suffer. The mean can't see it; percentiles can.
+
+??? note "Why"
+    The mean is dominated by the *bulk* of requests; p99 is defined by the *worst*.
+    Both numbers are true simultaneously — that's exactly why percentiles exist.
+
+    → [Reading metrics](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont)
+
+---
+
+### P38 · The half-loaded table
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T2: Partial runs**
+
+An ETL job crashed midway through loading a table, and a BI tool queried the table during the crash. The design that prevents anyone from ever reading a half-loaded table:
+
+- **A.** Load faster so crashes are less likely
+- **B.** Load into a staging table and swap atomically when complete — readers see all-or-nothing
+- **C.** Tell the BI team to refresh later
+- **D.** Retry the job; duplicates are better than missing rows
+
+</div>
+
+??? success "Answer"
+    **B** — Atomic swap (or run-boundary marking) means a partial load is never
+    visible. Speed, hopes, and duplicates don't fix visibility.
+
+??? note "Why"
+    The pattern: **staging + atomic swap**. Readers either see the previous complete
+    load or the new complete load — never the middle.
+
+    → [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties)
+
+---
+
+### P39 · The retry that doubled
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T2: Idempotency**
+
+A webhook handler processes payment notifications. The payment provider retries failed deliveries — automatically, up to 5 times. The handler must be:
+
+- **A.** Fast, so retries never happen
+- **B.** Idempotent — a duplicate notification for the same payment must be a no-op (unique payment ID check before processing)
+- **C.** Asynchronous, so order doesn't matter
+- **D.** Encrypted, so retries are safe
+
+</div>
+
+??? success "Answer"
+    **B** — If the provider retries (and it will), the same notification arrives
+    twice. Without a check-then-process on the payment ID, you double-record.
+
+??? note "Why"
+    **Retries are certain, not possible** — any system that receives deliveries
+    (webhooks, queue messages, imports) must treat duplicates as normal input.
+
+    → [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties)
+
+---
+
+### P40 · What the error rate said
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T1: Rates vs counts**
+
+Monday: 500 errors from 50,000 requests. Tuesday: 600 errors from 90,000 requests. The correct comparison:
+
+- **A.** Tuesday is worse — 100 more errors
+- **B.** Monday is worse — 1.0% error rate vs Tuesday's 0.67%; counts without denominators mislead
+- **C.** They're equal — close enough
+- **D.** Tuesday's traffic is the problem
+
+</div>
+
+??? success "Answer"
+    **B** — 500/50,000 = 1.0%; 600/90,000 = 0.67%. Reliability *improved* on
+    Tuesday despite more errors — the rate is the comparable number.
+
+??? note "Why"
+    Always: **count of what, over what denominator, in what window.** Raw counts
+    track traffic; rates track health.
+
+    → [Reading metrics](../topics/data-ml.md#reading-metrics-averages-lie-percentiles-dont)
+
+---
+
+### P41 · The audit question
+
+<div class="tx-question" markdown>
+
+**🔴 Hard · 1 mark · T2: Provenance**
+
+An auditor asks your data team to prove that a corrected revenue figure is trustworthy. The strongest evidence:
+
+- **A.** The team lead's assurance that the correction was right
+- **B.** A correction log showing: the original wrong value, the corrected value, the reason, who approved, and when — with the raw data still recoverable
+- **C.** The corrected dashboard itself
+- **D.** An email thread agreeing the number looked wrong
+
+</div>
+
+??? success "Answer"
+    **B** — Provenance is the *record*: original → correction → reason → authority
+    → timestamp. Assurance and dashboards are claims; the log is evidence.
+
+??? note "Why"
+    **Corrections never destroy the record of what was corrected.** Append-only
+    versions or a correction log — that's what makes corrections auditable.
+
+    → [Pipeline integrity](../topics/data-ml.md#data-pipeline-integrity-the-five-properties)
+
+---
+
+### P42 · The fork PR
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T3: Secret isolation**
+
+Your CI workflow runs on `pull_request` (including forks) and its steps reference `$DEPLOY_KEY`. A first-time contributor's PR includes `run: echo $DEPLOY_KEY`. What should happen — and why it's a design failure if it works:
+
+- **A.** The echo prints the key into the public build log — untrusted triggers must never see secrets; scope secrets to trusted events only
+- **B.** Nothing — contributors are trustworthy
+- **C.** The echo fails silently
+- **D.** GitHub blocks PRs with echo commands
+
+</div>
+
+??? success "Answer"
+    **A** — Fork PR code is untrusted code. If untrusted triggers can reference
+    secrets, a one-line "test" exfiltrates them. Secret visibility must be gated
+    by trigger trust.
+
+??? note "Why"
+    Same principle as prompt injection: **untrusted input must never reach
+    privileged capabilities.**
+
+    → [Release security](../topics/git-security.md#release-security-what-cicd-must-get-right)
+
+---
+
+### P43 · Two dashboards, one truth
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T5: Statelessness**
+
+Two identical API instances behind a load balancer. A user logs in on instance A; their next request hits instance B and appears logged out. The diagnosis:
+
+- **A.** The load balancer is misrouting
+- **B.** Session state lives in instance A's memory — in-memory state is invisible to other instances. Sessions belong in shared durable storage
+- **C.** Instance B is a different app version
+- **D.** The user's cookies are disabled
+
+</div>
+
+??? success "Answer"
+    **B** — The classic statelessness failure. Any instance must be able to serve
+    any request — which requires state (sessions, carts, uploads) to live
+    outside the instances.
+
+??? note "Why"
+    In-memory state works until the second instance or the first restart — then
+    it's a mystery bug. Redis/DB for sessions; treat memory as disposable cache.
+
+    → [Statelessness](../topics/web-apis.md#statelessness-durable-storage-why-servers-are-allowed-to-die)
+
+---
+
+### P44 · The calendar app's access
+
+<div class="tx-question" markdown>
+
+**🟡 Medium · 1 mark · T5: Delegated access**
+
+A scheduling app asks for "read your calendar" via Google OAuth. A user later finds the app's practices suspicious and wants it gone. The correct remedy and why it works:
+
+- **A.** Change the Google password — tokens expire instantly then
+- **B.** Revoke the app's grant in Google settings — the scoped token dies without touching the password, because the app never had it
+- **C.** Delete the app's account on its own site — that always kills Google access
+- **D.** Revoke and change the password — both are required
+
+</div>
+
+??? success "Answer"
+    **B** — Delegated access means the app holds a scoped, revocable token, not
+    your credentials. Revocation ends it; the password was never exposed.
+
+??? note "Why"
+    This is the entire point of OAuth delegation: **least privilege, revocable
+    by the user, credentials never shared.**
+
+    → [Identity vs delegated access](../topics/web-apis.md#identity-vs-delegated-access-whos-asking-on-whose-behalf)
+
+---
+
+### P45 · The rewritten history
+
+<div class="tx-question" markdown>
+
+**🔴 Hard · 1 mark · T5: Git history**
+
+After `git filter-repo` removes a leaked key from history and the team force-pushes, a teammate's local repo still shows the old commits and their pushes are rejected. Why — and the fix:
+
+- **A.** Their clone is haunted; re-install git
+- **B.** The rewrite changed every commit hash from the rewrite point back — their local history now diverges. They must re-clone (or hard-reset to the new remote). This is why rewrites are announced
+- **C.** They need to push harder
+- **D.** filter-repo undid itself
+
+</div>
+
+??? success "Answer"
+    **B** — Rewriting history invalidates every hash from the rewrite point back.
+    Old clones reference dead IDs. Announce, coordinate, re-clone.
+
+??? note "Why"
+    Hashes are content addresses — change the content (drop a commit), change the
+    address. **`--force-with-lease`** protects the push; coordination protects
+    the team.
+
+    → [Git history](../topics/git-security.md#safe-git-history-changes-rewriting-is-surgery)
+
+---
+
+### P46 · The strongest boundary
+
+<div class="tx-question" markdown>
+
+**🔴 Hard · 1 mark · T4: Authorization**
+
+"Only the sales team may see the client list" — for an LLM assistant with RAG over company documents. Rank from strongest to weakest:
+
+- **A.** System prompt instruction > post-hoc output filter > retrieval scoping
+- **B.** Retrieval scoping (client list not in the sales team's corpus) > permission checks in code > system prompt instruction
+- **C.** All three are equivalent — defense in depth means any one suffices
+- **D.** Fine-tuning > everything
+
+</div>
+
+??? success "Answer"
+    **B** — Architectural controls (what *can* be retrieved, what code enforces)
+    are deterministic; prompt instructions are requests the model can be talked
+    out of.
+
+??? note "Why"
+    **A prompt is not a security boundary.** What the system cannot access, it
+    cannot leak — no matter how clever the injection.
+
+    → [Reliability discipline](../topics/llm-prompting.md#reliability-discipline-for-llm-systems)

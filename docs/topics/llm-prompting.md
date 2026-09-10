@@ -95,3 +95,40 @@ This powers semantic search, RAG, and recommendation systems — the query is em
 ??? question "Practice: What is an embedding?"
     A vector of numbers that encodes a text's meaning — the foundation of semantic
     search and RAG.
+
+
+---
+
+## Reliability discipline for LLM systems
+
+*Official topic 4: Reliable AI/LLM Systems.*
+
+**1 · Verify AI output before trusting it.** LLM output is *evidence*, not truth. The ladder, cheapest first:
+
+1. **Schema validation** — parses, has required fields (structured outputs give this by construction)
+2. **Constraint checks in code** — values in range, dates ordered, IDs exist. *Your code checks; the LLM never self-certifies*
+3. **Grounding check** — every factual claim traceable to a retrieved source
+4. **Second-pass review** — a separate model call or a human, before output acts or ships
+
+!!! success "Must remember — verification runs before the output is used"
+    Not after problems appear: LLM drafts email → schema check → policy check →
+    human approve → send. Skip a gate and the failure surfaces on the customer.
+
+**2 · Authorization in code, not prompts.** "Never reveal internal documents" in a system prompt is a *request*; document permissions enforced in retrieval code is a *control*:
+
+| Defense | Can it fail? |
+|---|---|
+| Prompt instruction ("don't show X") | yes — paraphrased injection slips past |
+| **Retrieval scoping (X not in the corpus)** | no — nothing to leak |
+| **Permission checks in code** | no — deterministic |
+
+!!! danger "Wrong belief — a system prompt is a security boundary"
+    Sensitive-data boundaries live in *architecture* — what can be retrieved,
+    what the code checks — never in what the model is *asked* not to do. A
+    prompt is a request; code is a control.
+
+**3 · Structured output** — see [Structured Outputs](#structured-outputs). The phrase to remember: *valid by construction, not by asking.*
+
+**4 · Grounding in current sources** — see the [RAG staleness rules](rag-agents.md): expire old chunks, filter by effective date, no document → no answer.
+
+→ Full treatment: [Week 3 — reliability discipline](../weeks/week-3.md#reliability-discipline-for-llm-systems)
